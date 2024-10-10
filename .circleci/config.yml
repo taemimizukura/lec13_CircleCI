@@ -15,19 +15,34 @@ jobs:
           aws_secret_access_key: AWS_SECRET_ACCESS_KEY
           region: AWS_DEFAULT_REGION
       - run:
-          name: Deploy to AWS from template #既存のVPC上にEC2やRDSなどを構築
+          name: Deploy to AWS from template #既存のVPC上にEC2やRDSなどを構築、EIPは既存のものを使用
           command: |
             set -x
             aws cloudformation deploy \
               --template-file cloudformation/1_EC2_ALB.yml \
               --stack-name Lec13-EC2 \
               --capabilities CAPABILITY_NAMED_IAM \
-              --parameter-overrides MyKeyPair=${MY_KEY_PAIR} MyIP=${MY_IP}
+              --parameter-overrides MyKeyPair=${MY_KEY_PAIR} MyIP=${MY_IP} ExistingElasticIP=${EIP_ADDRESS}
             aws cloudformation deploy \
               --template-file cloudformation/2_RDS_S3.yml \
               --stack-name Lec13-RDS
-              
+  execute-ansible:
+    executor: ansible-playbook/default
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:39irZtiEGfD2EIvfGaLbkot5SYIsLxOso0Uv6v9BiIY"
+      - ansible-playbook/install:
+          version: 2.10.7
+      - ansible-playbook/playbook:
+          playbook: ansible/playbook.yml
+          playbook-options: -u ec2-user -i ansible/inventory --private-key ~/.ssh/id_rsa
+          
 workflows:
   workflow:
     jobs:
       - execute-cloudformation
+      - execute-ansible:
+          requires:
+            - execute-cloudformation
