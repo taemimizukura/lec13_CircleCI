@@ -1,0 +1,11 @@
+---
+
+- name: Install bundler_extra_packages
+  openbsd_pkg:
+    name: "{{ bundler_extra_packages }}"
+    state: present
+
+- name: Install bundler_package
+  openbsd_pkg:
+    name: "{{ bundler_package }}"
+    state: present

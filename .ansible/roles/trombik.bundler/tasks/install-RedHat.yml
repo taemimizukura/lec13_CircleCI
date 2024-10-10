@@ -1,0 +1,11 @@
+---
+
+- name: Install bundler_extra_packages
+  yum:
+    name: "{{ bundler_extra_packages }}"
+    state: present
+
+- name: Install bundler_package
+  yum:
+    name: "{{ bundler_package }}"
+    state: present

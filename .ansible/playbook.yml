@@ -9,3 +9,4 @@
         dest: '/home/ec2-user/raisetech-live8-sample-app/'
   roles:
     - { role: geerlingguy.ruby }
+    - { role: trombik.bundler }

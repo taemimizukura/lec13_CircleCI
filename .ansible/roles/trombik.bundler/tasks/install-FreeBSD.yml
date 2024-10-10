@@ -1,0 +1,11 @@
+---
+
+- name: Install bundler_extra_packages
+  pkgng:
+    name: "{{ bundler_extra_packages }}"
+    state: present
+
+- name: Install bundler_package
+  pkgng:
+    name: "{{ bundler_package }}"
+    state: present
