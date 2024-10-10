@@ -32,12 +32,12 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:39irZtiEGfD2EIvfGaLbkot5SYIsLxOso0Uv6v9BiIY"
+            - "SHA256:BcWtX33JCoPI8rYiQ9jBVwcqkhPIYeYSC9Dl3CwEJfI"
       - ansible-playbook/install:
           version: 2.10.7
       - ansible-playbook/playbook:
-          playbook: /home/ec2-user/lec13_CircleCI/.ansible/playbook.yml
-          playbook-options: -u ec2-user -i /home/ec2-user/lec13_CircleCI/.ansible/inventory.ini --private-key ~/.ssh/id_rsa
+          playbook: .ansible/playbook.yml
+          playbook-options: -u ec2-user -i .ansible/inventory.ini --private-key /home/ec2-user/.ssh/id_rsa
           
 workflows:
   workflow:
