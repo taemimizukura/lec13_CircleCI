@@ -1,4 +1,0 @@
----
-
-bundler_package: "{{ __bundler_package }}"
-bundler_extra_packages: []

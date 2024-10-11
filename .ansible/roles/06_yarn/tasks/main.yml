@@ -1,0 +1,24 @@
+---
+- name: Clone Yarn repository
+  git:
+    repo: https://github.com/yarnpkg/yarn.git
+    dest: "{{ ansible_env.HOME }}/yarn"
+    version: "v1.22.19" 
+
+- name: Install Yarn
+  shell: |
+    cd {{ ansible_env.HOME }}/yarn
+    npm install --no-audit --no-fund --prefer-offline
+  args:
+    executable: /bin/bash
+
+- name: Add Yarn to PATH in .bash_profile
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bash_profile"
+    line: 'export PATH="{{ ansible_env.HOME }}/yarn/bin:$PATH"'
+    state: present
+
+- name: Reload .bash_profile
+  shell: source {{ ansible_env.HOME }}/.bash_profile
+  args:
+    executable: /bin/bash

@@ -1,0 +1,22 @@
+---
+- name: Run bin/setup in raisetech-live8-sample-app directory
+  ansible.builtin.command:
+    cmd: bin/setup
+  args:
+    chdir: /home/ec2-user/raisetech-live8-sample-app
+  register: setup_result
+
+- name: Debug output of bin/setup
+  debug:
+    var: setup_result
+
+- name: Run bin/dev in raisetech-live8-sample-app directory
+  ansible.builtin.command:
+    cmd: bin/dev
+  args:
+    chdir: /home/ec2-user/raisetech-live8-sample-app
+  register: dev_result
+
+- name: Debug output of bin/dev
+  debug:
+    var: dev_result

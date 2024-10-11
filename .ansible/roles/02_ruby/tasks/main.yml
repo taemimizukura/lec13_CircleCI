@@ -1,0 +1,84 @@
+---
+  - name: 'yum update'
+    yum:
+      name: '*'
+      state: latest
+
+  - name: 'Install packages'
+    yum:
+      name: 
+      - gcc
+      - gcc-c++
+      - make
+      - openssl-devel
+      - libyaml-devel
+      - readline-devel
+      - zlib-devel
+      - libxml2-devel
+      - libxslt-devel
+      - sqlite-devel
+      - libffi-devel
+      state: present
+
+  # rbenvのインストール
+  - name: clone rbenv
+    git:
+      repo: https://github.com/rbenv/rbenv.git
+      dest: "{{ ansible_env.HOME }}/.rbenv"
+    become: yes
+    when: not ansible_env.HOME is defined and ansible_env.HOME == '/home/ec2-user'    #既に存在する場合はスキップ
+
+  - name: Add rbenv to PATH in .bash_profile
+    lineinfile:
+      path: "{{ ansible_env.HOME }}/.bash_profile"
+      line: 'export PATH="{{ ansible_env.HOME }}/.rbenv/bin:$PATH"'
+      state: present
+
+  - name: Add rbenv init to .bash_profile
+    lineinfile:
+      path: "{{ ansible_env.HOME }}/.bash_profile"
+      line: 'eval "$(rbenv init -)"'
+      state: present
+
+  - name: Check if rbenv directory exists
+    stat:
+      path: /home/ec2-user/.rbenv
+    register: rbenv_dir
+
+  - debug:
+      var: rbenv_version
+
+  # ruby-buildのインストール
+  - name: clone ruby-build
+    git:
+      repo: https://github.com/rbenv/ruby-build.git
+      dest: "{{ ansible_env.HOME }}/.rbenv/plugins/ruby-build"
+      update: yes  # すでに存在する場合は更新する
+    become: yes
+      
+  - name: Add ruby-build to PATH in .bash_profile
+    lineinfile:
+      path: "{{ ansible_env.HOME }}/.bash_profile"
+      line: 'export PATH="{{ ansible_env.HOME }}/.rbenv/plugins/ruby-build/bin:$PATH"' 
+      state: present
+
+  - name: Reload .bash_profile
+    shell: source {{ ansible_env.HOME }}/.bash_profile
+    args:
+      executable: /bin/bash
+
+  # Ruby 3.2.3のインストール
+  - name: Check if Ruby 3.2.3 is already installed
+    command: "{{ ansible_env.HOME }}/.rbenv/bin/rbenv versions --skip-aliases"
+    register: ruby_versions
+  
+  - name: Install Ruby 3.2.3 using rbenv
+    command: rbenv install 3.2.3
+    args:
+      chdir: "{{ app_directory }}"
+    when: "'3.2.3' not in ruby_versions.stdout"
+
+  - name: Set Ruby version to 3.2.3 globally using rbenv
+    command: rbenv global 3.2.3
+    args:
+      chdir: "{{ app_directory }}"

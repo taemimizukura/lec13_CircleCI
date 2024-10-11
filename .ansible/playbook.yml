@@ -1,12 +1,13 @@
 ---
 - hosts: target_ec2
-  gather_facts: true
-  become: true
-  tasks:
-    - name: Clone the repository
-      git:
-        repo: 'https://github.com/yuta-ushijima/raisetech-live8-sample-app.git'
-        dest: '/home/ec2-user/raisetech-live8-sample-app/'
+  user: ec2-user 
+
   roles:
-    - { role: geerlingguy.ruby }
-    - { role: trombik.bundler }
+    - { role: 01_clone }
+    - { role: 02_ruby }
+    - { role: 03_bundler }
+    - { role: 04_rails }
+    - { role: 05_nodejs }
+    - { role: 06_yarn }
+    - { role: 07_mysql }
+    - { role: 08_app_dev }
