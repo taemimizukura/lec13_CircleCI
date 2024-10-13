@@ -1,0 +1,25 @@
+---
+- name: Install Python 2 and required packages
+  yum:
+    name:
+      - python2
+      - python2-pip
+    state: present
+  become: yes
+  
+  # キャッシュをクリアしてディスクスペースを解放
+- name: Clean yum cache to free up space
+  command: yum clean all
+  become: true
+
+  # 不要なログファイルを削除してスペースを確保
+- name: Remove unnecessary log files
+  command: rm -rf /var/log/*
+  become: true
+  ignore_errors: yes
+
+- name: Clone the repository
+  git:
+    repo: 'https://github.com/yuta-ushijima/raisetech-live8-sample-app.git'
+    dest: '/home/ec2-user/raisetech-live8-sample-app/'
+  become: yes 

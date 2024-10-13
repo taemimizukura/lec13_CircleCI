@@ -26,18 +26,23 @@ jobs:
             aws cloudformation deploy \
               --template-file cloudformation/2_RDS_S3.yml \
               --stack-name Lec13-RDS
+
   execute-ansible:
     executor: ansible-playbook/default
     steps:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:BcWtX33JCoPI8rYiQ9jBVwcqkhPIYeYSC9Dl3CwEJfI"
+            - "SHA256:exOfnHhRlyytGt7eBe2Wti3fhc7yBmfHuQt9NWJQGYk"
+      - run:
+          name: Ensure known_hosts file exists
+          command: |
+            touch ~/.ssh/known_hosts
       - ansible-playbook/install:
           version: 2.10.7
       - ansible-playbook/playbook:
           playbook: .ansible/playbook.yml
-          playbook-options: -u ec2-user -i .ansible/inventory.ini --private-key /home/ec2-user/.ssh/id_rsa
+          playbook-options: -u ec2-user -i .ansible/inventory.ini --private-key /home/ec2-user/.ssh/id_rsa -e "ansible_ssh_extra_args='-o StrictHostKeyChecking=no'"
           
 workflows:
   workflow:

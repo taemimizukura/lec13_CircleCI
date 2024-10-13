@@ -1,12 +1,13 @@
 ---
-  - name: 'yum update'
-    yum:
-      name: '*'
-      state: latest
+- name: 'yum update'
+  yum:
+    name: '*'
+    state: latest
+  become: yes
 
-  - name: 'Install packages'
-    yum:
-      name: 
+- name: 'Install required packages'
+  yum:
+    name: 
       - gcc
       - gcc-c++
       - make
@@ -18,67 +19,57 @@
       - libxslt-devel
       - sqlite-devel
       - libffi-devel
-      state: present
+      - ImageMagick
+      - ImageMagick-devel
+    state: present
+  become: true 
 
-  # rbenvのインストール
-  - name: clone rbenv
-    git:
-      repo: https://github.com/rbenv/rbenv.git
-      dest: "{{ ansible_env.HOME }}/.rbenv"
-    become: yes
-    when: not ansible_env.HOME is defined and ansible_env.HOME == '/home/ec2-user'    #既に存在する場合はスキップ
+# rbenvのインストール  
+- name: Clone rbenv repository
+  git:
+    repo: https://github.com/rbenv/rbenv.git
+    dest: /home/ec2-user/rbenv
 
-  - name: Add rbenv to PATH in .bash_profile
-    lineinfile:
-      path: "{{ ansible_env.HOME }}/.bash_profile"
-      line: 'export PATH="{{ ansible_env.HOME }}/.rbenv/bin:$PATH"'
-      state: present
+- name: 'rbenvのshファイルを配置'
+  template:
+    src: rbenv_system.sh.j2
+    dest: /etc/profile.d/rbenv.sh
+    owner: root
+    group: root
+    mode: 0755
 
-  - name: Add rbenv init to .bash_profile
-    lineinfile:
-      path: "{{ ansible_env.HOME }}/.bash_profile"
-      line: 'eval "$(rbenv init -)"'
-      state: present
+# ruby-buildのインストール
+- name: Clone ruby-build repository
+  git:
+    repo: https://github.com/rbenv/ruby-build.git
+    dest: /home/ec2-user/rbenv/plugins/ruby-build
 
-  - name: Check if rbenv directory exists
-    stat:
-      path: /home/ec2-user/.rbenv
-    register: rbenv_dir
 
-  - debug:
-      var: rbenv_version
+# Rubyのインストール
+- name: Check installed ruby versions exits
+  ansible.builtin.shell:
+    cmd: bash -lc "rbenv versions --bare"
+  changed_when: false
+  register: installed_ruby_versions_check
 
-  # ruby-buildのインストール
-  - name: clone ruby-build
-    git:
-      repo: https://github.com/rbenv/ruby-build.git
-      dest: "{{ ansible_env.HOME }}/.rbenv/plugins/ruby-build"
-      update: yes  # すでに存在する場合は更新する
-    become: yes
-      
-  - name: Add ruby-build to PATH in .bash_profile
-    lineinfile:
-      path: "{{ ansible_env.HOME }}/.bash_profile"
-      line: 'export PATH="{{ ansible_env.HOME }}/.rbenv/plugins/ruby-build/bin:$PATH"' 
-      state: present
+- name: Install Specific ruby version
+  shell: bash -lc "rbenv install {{ version }}"
+  when: "'3.2.3' not in installed_ruby_versions_check.stdout_lines"
 
-  - name: Reload .bash_profile
-    shell: source {{ ansible_env.HOME }}/.bash_profile
-    args:
-      executable: /bin/bash
+- name: Check global ruby version
+  ansible.builtin.shell:
+    cmd: bash -lc "rbenv global"
+  changed_when: false
+  register: global_ruby_version_check
 
-  # Ruby 3.2.3のインストール
-  - name: Check if Ruby 3.2.3 is already installed
-    command: "{{ ansible_env.HOME }}/.rbenv/bin/rbenv versions --skip-aliases"
-    register: ruby_versions
-  
-  - name: Install Ruby 3.2.3 using rbenv
-    command: rbenv install 3.2.3
-    args:
-      chdir: "{{ app_directory }}"
-    when: "'3.2.3' not in ruby_versions.stdout"
+- name: Set global ruby version
+  shell: bash -lc "rbenv global {{ version }}"
+  when: "'3.2.3' not in global_ruby_version_check.stdout_lines"
 
-  - name: Set Ruby version to 3.2.3 globally using rbenv
-    command: rbenv global 3.2.3
-    args:
-      chdir: "{{ app_directory }}"
+- name: Check installed Bundler versions
+  shell: bash -lc "gem list bundler"
+  register: installed_bundler_versions_check
+
+- name: Install Bundler 2.3.14
+  shell: bash -lc "gem install bundler -v 2.3.14"
+  when: "'bundler (2.3.14)' not in installed_bundler_versions_check.stdout_lines"
