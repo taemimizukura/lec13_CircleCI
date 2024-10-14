@@ -33,7 +33,12 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:exOfnHhRlyytGt7eBe2Wti3fhc7yBmfHuQt9NWJQGYk"
+            - "SHA256:QX4v5d9se4rjHsQdGBJjYGdFDVKDACcThQSM2bkvVb8"
+      - run:
+        name: Start SSH Agent and Add Key
+        command: |
+          eval $(ssh-agent -s)
+          ssh-add /home/ec2-user/.ssh/id_rsa
       - run:
           name: Ensure known_hosts file exists
           command: |
@@ -43,6 +48,9 @@ jobs:
       - ansible-playbook/playbook:
           playbook: .ansible/playbook.yml
           playbook-options: -u ec2-user -i .ansible/inventory.ini --private-key /home/ec2-user/.ssh/id_rsa -e "ansible_ssh_extra_args='-o StrictHostKeyChecking=no'"
+          
+          playbook: .ansible/playbook.yml
+          playbook-options: -u ec2-user -i .ansible/inventory.ini --private-key /home/ec2-user/.ssh/id_rsa -e "ansible_ssh_extra_args='-o StrictHostKeyChecking=no' -e 'RDS_PASSWORD=${RDS_PASSWORD}'"
           
 workflows:
   workflow:

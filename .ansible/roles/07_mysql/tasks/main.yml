@@ -1,0 +1,45 @@
+---
+- name: Remove MariaDB packages
+  yum:
+    name: mariadb-*
+    state: absent
+
+- name: Check if MySQL is installed
+  command: rpm -qa | grep mysql
+  register: mysql_installed
+  ignore_errors: true
+
+- name: Import MySQL GPG key
+  rpm_key:
+    state: present
+    key: https://repo.mysql.com/RPM-GPG-KEY-mysql
+
+
+- name: Add MySQL repository
+  yum:
+    name: https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
+    state: present
+
+
+- name: Install yum-utils, MySQL-python, mysql-community-server,mysql-devel
+  yum:
+    name:
+      - yum-utils
+      - MySQL-python
+      - mysql-community-server
+      - mysql-devel
+    state: present
+
+- name: Create database.yml from template
+  become: yes
+  template:
+    src: database.yml.j2
+    dest: "{{ app_dir }}/config/database.yml"
+
+- name: Set RDS_PASSWORD environment variable
+  ansible.builtin.set_fact:
+    rds_password: "{{ lookup('env', 'RDS_PASSWORD') }}"
+
+- name: Show RDS_PASSWORD
+  debug:
+    msg: "RDS_PASSWORD is {{ rds_password }}"

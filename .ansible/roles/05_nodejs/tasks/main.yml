@@ -1,0 +1,54 @@
+---
+- name: Ensure known_hosts file contains GitHub
+  ansible.builtin.known_hosts:
+    name: github.com
+    key: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
+    
+- name: Clone nvm repository
+  git:
+    repo: https://github.com/nvm-sh/nvm.git
+    dest: /home/ec2-user/nvm
+    version: master
+    update: no
+    recursive: yes
+    force: yes 
+
+- name: Add nvm to .bash_profile if not already present
+  lineinfile:
+    path: /home/ec2-user/.bash_profile
+    line: |
+      export NVM_DIR="$HOME/nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    state: present
+    insertafter: EOF
+    regexp: 'export NVM_DIR="\$HOME/nvm"'  # 既に同じ行がある場合は追記しない
+  become: yes
+  become_user: ec2-user
+
+- name: Reload .bash_profile
+  shell: |
+    source /home/ec2-user/.bash_profile
+    env
+  args:
+    executable: /bin/bash
+  become: yes
+  become_user: ec2-user
+  register: bash_profile_reload
+  ignore_errors: yes
+
+- name: Install Node.js 17.9.1 using nvm
+  shell: bash -lc "nvm install {{ __version }}"
+  args:
+    executable: /bin/bash
+  become: yes
+  become_user: ec2-user
+
+- name: Set Node.js 17.9.1 as default
+  shell: bash -lc "nvm alias default {{ __version }}"
+  args:
+    executable: /bin/bash
+  become: yes
+  become_user: ec2-user
+
+
+

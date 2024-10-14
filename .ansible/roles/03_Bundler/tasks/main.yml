@@ -1,0 +1,8 @@
+---
+- name: Check installed Bundler versions
+  shell: bash -lc "gem list bundler"
+  register: installed_bundler_versions_check
+
+- name: Install Bundler
+  shell: bash -lc "gem install bundler -v {{__version}}"
+  when: "'bundler __version' not in installed_bundler_versions_check.stdout_lines"

@@ -6,8 +6,9 @@
   roles:
     - { role: 01_setup }
     - { role: 02_ruby }
-    - { role: 03_rails }
-    - { role: 04_nodejs }
-    - { role: 05_yarn }
-    - { role: 06_mysql }
-    - { role: 07_app_dev }
+    - { role: 03_Bundler }
+    - { role: 04_rails }
+    - { role: 05_nodejs }
+    - { role: 06_yarn }
+    - { role: 07_mysql }
+    - { role: 08_app_dev }

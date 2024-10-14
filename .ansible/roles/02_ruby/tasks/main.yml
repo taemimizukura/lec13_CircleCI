@@ -1,34 +1,10 @@
 ---
-- name: 'yum update'
-  yum:
-    name: '*'
-    state: latest
-  become: yes
-
-- name: 'Install required packages'
-  yum:
-    name: 
-      - gcc
-      - gcc-c++
-      - make
-      - openssl-devel
-      - libyaml-devel
-      - readline-devel
-      - zlib-devel
-      - libxml2-devel
-      - libxslt-devel
-      - sqlite-devel
-      - libffi-devel
-      - ImageMagick
-      - ImageMagick-devel
-    state: present
-  become: true 
-
 # rbenvのインストール  
 - name: Clone rbenv repository
   git:
     repo: https://github.com/rbenv/rbenv.git
     dest: /home/ec2-user/rbenv
+    force: yes 
 
 - name: 'rbenvのshファイルを配置'
   template:
@@ -43,7 +19,7 @@
   git:
     repo: https://github.com/rbenv/ruby-build.git
     dest: /home/ec2-user/rbenv/plugins/ruby-build
-
+    force: yes 
 
 # Rubyのインストール
 - name: Check installed ruby versions exits
@@ -53,8 +29,8 @@
   register: installed_ruby_versions_check
 
 - name: Install Specific ruby version
-  shell: bash -lc "rbenv install {{ version }}"
-  when: "'3.2.3' not in installed_ruby_versions_check.stdout_lines"
+  shell: bash -lc "rbenv install {{ __version }}"
+  when: __version not in installed_ruby_versions_check.stdout_lines
 
 - name: Check global ruby version
   ansible.builtin.shell:
@@ -63,13 +39,7 @@
   register: global_ruby_version_check
 
 - name: Set global ruby version
-  shell: bash -lc "rbenv global {{ version }}"
-  when: "'3.2.3' not in global_ruby_version_check.stdout_lines"
+  shell: bash -lc "rbenv global {{ __version }}"
+  when: __version not in global_ruby_version_check.stdout_lines
 
-- name: Check installed Bundler versions
-  shell: bash -lc "gem list bundler"
-  register: installed_bundler_versions_check
 
-- name: Install Bundler 2.3.14
-  shell: bash -lc "gem install bundler -v 2.3.14"
-  when: "'bundler (2.3.14)' not in installed_bundler_versions_check.stdout_lines"
