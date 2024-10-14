@@ -47,11 +47,8 @@ jobs:
           version: 2.10.7
       - ansible-playbook/playbook:
           playbook: .ansible/playbook.yml
-          playbook-options: -u ec2-user -i .ansible/inventory.ini --private-key /home/ec2-user/.ssh/id_rsa -e "ansible_ssh_extra_args='-o StrictHostKeyChecking=no'"
-          
-          playbook: .ansible/playbook.yml
           playbook-options: -u ec2-user -i .ansible/inventory.ini --private-key /home/ec2-user/.ssh/id_rsa -e "ansible_ssh_extra_args='-o StrictHostKeyChecking=no' -e 'RDS_PASSWORD=${RDS_PASSWORD}'"
-          
+
 workflows:
   workflow:
     jobs:
