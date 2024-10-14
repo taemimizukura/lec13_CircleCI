@@ -5,7 +5,6 @@
   register: installed_bundler_versions_check
   ignore_errors: true
 
-
 - name: Install Bundler
   command: gem install bundler -v {{ version }}
   when: installed_bundler_versions_check.stdout is not defined or 

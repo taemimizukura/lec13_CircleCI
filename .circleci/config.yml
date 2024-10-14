@@ -34,11 +34,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "SHA256:Mx8Ov4NlYOkXc3aWZLI93f+HAs/SEStLbsoTKMusswc"
-      - run:
-          name: Start SSH Agent and Add Key
-          command: |
-            eval $(ssh-agent -s)
-            ssh-add /home/ec2-user/.ssh/id_rsa
+
       - run:
           name: Ensure known_hosts file exists
           command: |
