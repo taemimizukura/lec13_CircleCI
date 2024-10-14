@@ -4,29 +4,38 @@
     name: mariadb-*
     state: absent
 
-- name: Check if MySQL is installed
-  command: rpm -qa | grep mysql
-  register: mysql_installed
-  ignore_errors: true
+- name: install mysql repository
+  become: yes
+  yum:
+    name: 'https://repo.mysql.com//mysql80-community-release-el7-11.noarch.rpm'
+    state: present
 
-- name: Import MySQL GPG key
+- name: Import gpg-key
+  become: yes
   rpm_key:
     state: present
-    key: https://repo.mysql.com/RPM-GPG-KEY-mysql
+    key: https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 
+- name: Disable MySQL 8.0 Community repository
+  command: yum-config-manager --disable mysql80-community
+  ignore_errors: yes 
 
-- name: Add MySQL repository
+- name: Enable MySQL 5.7 Community repository
+  command: yum-config-manager --enable mysql57-community
+  ignore_errors: yes  
+
+- name: Install yum-utils
   yum:
-    name: https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
+    name: yum-utils
     state: present
 
+- name: Update yum cache
+  command: yum makecache
 
-- name: Install yum-utils, MySQL-python, mysql-community-server,mysql-devel
+- name: Install MySQL and dependencies
   yum:
     name:
-      - yum-utils
       - MySQL-python
-      - mysql-community-server
       - mysql-devel
     state: present
 
@@ -36,10 +45,5 @@
     src: database.yml.j2
     dest: "{{ app_dir }}/config/database.yml"
 
-- name: Set RDS_PASSWORD environment variable
-  ansible.builtin.set_fact:
-    rds_password: "{{ lookup('env', 'RDS_PASSWORD') }}"
 
-- name: Show RDS_PASSWORD
-  debug:
-    msg: "RDS_PASSWORD is {{ rds_password }}"
+

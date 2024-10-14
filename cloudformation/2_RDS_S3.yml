@@ -3,7 +3,7 @@ Parameters:
   NameBase:
     Description: This is the base name.
     Type: String
-    Default: raisetechlec10
+    Default: lec13-target
 
   RDSUsername:
     Type: String

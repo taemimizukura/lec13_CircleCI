@@ -37,14 +37,14 @@
   ignore_errors: yes
 
 - name: Install Node.js 17.9.1 using nvm
-  shell: bash -lc "nvm install {{ __version }}"
+  shell: bash -lc "nvm install {{ version }}"
   args:
     executable: /bin/bash
   become: yes
   become_user: ec2-user
 
 - name: Set Node.js 17.9.1 as default
-  shell: bash -lc "nvm alias default {{ __version }}"
+  shell: bash -lc "nvm alias default {{ version }}"
   args:
     executable: /bin/bash
   become: yes

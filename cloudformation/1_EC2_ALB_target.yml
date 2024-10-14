@@ -3,7 +3,7 @@ Parameters:
   NameBase:
     Description: This is the base name.
     Type: String
-    Default: raisetechlec10
+    Default: lec13-target
   
   MyKeyPair:
     Description: The EC2 Key Pair to allow SSH access to the instance

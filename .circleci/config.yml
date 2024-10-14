@@ -15,14 +15,14 @@ jobs:
           aws_secret_access_key: AWS_SECRET_ACCESS_KEY
           region: AWS_DEFAULT_REGION
       - run:
-          name: Deploy to AWS from template #既存のVPC上にEC2やRDSなどを構築、EIPは既存のものを使用
+          name: Deploy to AWS from template
           command: |
-            set -x
-            aws cloudformation deploy \
-              --template-file cloudformation/1_EC2_ALB.yml \
-              --stack-name Lec13-EC2 \
-              --capabilities CAPABILITY_NAMED_IAM \
-              --parameter-overrides MyKeyPair=${MY_KEY_PAIR} MyIP=${MY_IP} ExistingElasticIP=${EIP_ADDRESS}
+           # set -x
+           # aws cloudformation deploy \
+            #  --template-file cloudformation/1_EC2_ALB.yml \
+            #  --stack-name Lec13-EC2 \
+            #  --capabilities CAPABILITY_NAMED_IAM \
+            #  --parameter-overrides MyKeyPair=${MY_KEY_PAIR} MyIP=${MY_IP} ExistingElasticIP=${EIP_ADDRESS}
             aws cloudformation deploy \
               --template-file cloudformation/2_RDS_S3.yml \
               --stack-name Lec13-RDS
@@ -33,7 +33,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:QX4v5d9se4rjHsQdGBJjYGdFDVKDACcThQSM2bkvVb8"
+            - "SHA256:Mx8Ov4NlYOkXc3aWZLI93f+HAs/SEStLbsoTKMusswc"
       - run:
           name: Start SSH Agent and Add Key
           command: |

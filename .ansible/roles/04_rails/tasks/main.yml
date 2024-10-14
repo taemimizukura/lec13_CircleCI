@@ -1,5 +1,5 @@
 ---
 - name: Install Rails 7.1.3.2
-  shell: bash -lc "gem install rails -v {{ __version }} --no-document"
+  shell: bash -lc "gem install rails -v {{ version }} --no-document"
   register: rails_install
   changed_when: "'Successfully installed' in rails_install.stdout"
