@@ -29,8 +29,9 @@ jobs:
           fingerprints:
             - "SHA256:RAPTEJreaHTgO3h0I390R2bRQ+c/felwiLwwMUB5n9I"
       - run:
-          name: Install Ansible
-          command: sudo yum install -y ansible
+          name: Install Ansible via pip
+          command: |
+            sudo pip install ansible==2.9.23
 
       - run:
           name: Check Ansible version
