@@ -1,58 +1,45 @@
----
-- name: Ensure .rbenv directory exists
-  file:
-    path: /home/ec2-user/.rbenv
-    state: directory
-    owner: ec2-user
-    group: ec2-user
-    mode: '0755'
-
-- name: Install rbenv
+- name: git clone rbenv
   git:
     repo: https://github.com/rbenv/rbenv.git
     dest: /home/ec2-user/.rbenv
   become: yes
   become_user: ec2-user
 
-- name: Ensure ruby-build directory exists
-  file:
-    path: /home/ec2-user/.rbenv/plugins/ruby-build
-    state: directory
-    owner: ec2-user
-    group: ec2-user
-    mode: '0755'
-
-- name: Download ruby-build repository
-  git: 
+- name: git clone ruby-build
+  git:
     repo: https://github.com/rbenv/ruby-build.git
-    dest: /home/ec2-user/.rbenv/plugins/ruby-build 
+    dest: /home/ec2-user/.rbenv/plugins/ruby-build
   become: yes
   become_user: ec2-user
 
-- name: Add rbenv path to .bashrc
-  lineinfile:
-    path: /home/ec2-user/.bashrc
-    line: 'export PATH="$HOME/.rbenv/bin:$PATH"'
-    create: yes
+- name: insert/update /etc/profile env
+  blockinfile:
+    path: /etc/profile
+    block: |
+      export RBENV_ROOT="/home/ec2-user/.rbenv"
+      export PATH="${RBENV_ROOT}/bin:${PATH}"
+      eval "$(rbenv init --no-rehash -)"
 
-- name: Set rbenv initialization in .bashrc
-  lineinfile:
-    path: /home/ec2-user/.bashrc
-    line: 'eval "$(rbenv init -)"'
-    create: yes
+- name: source /etc/profile to apply changes
+  shell: bash -lc "source /etc/profile"
+
+- name: Check if Ruby 3.2.3 is already installed
+  command: /home/ec2-user/.rbenv/shims/ruby -v
+  register: ruby_version
+  ignore_errors: yes
+
+- name: rbenv install -v 3.2.3
+  shell: bash -lc "/home/ec2-user/.rbenv/bin/rbenv install 3.2.3"
+  when: ruby_version.stdout is not defined or ruby_version.stdout is not search('3.2.3')
+
+- name: rbenv exec gem install bundler
+  shell: bash -lc "/home/ec2-user/.rbenv/bin/rbenv exec gem install bundler"
+  when: ruby_version.stdout is defined and ruby_version.stdout is search('3.2.3')
+  ignore_errors: yes
 
 
+- name: gem update --system
+  shell: bash -lc "gem update --system"
+  ignore_errors: yes
 
-- name: Install Ruby via rbenv
-  command: rbenv install {{ ruby_version }}
-  args:
-    chdir: "{{ app_dir }}"
-  become: yes
-  become_user: ec2-user
 
-- name: Set global rbenv version
-  command: rbenv global {{ ruby_version }}
-  args:
-    chdir: "{{ app_dir }}"
-  become: yes
-  become_user: ec2-user

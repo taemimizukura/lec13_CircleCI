@@ -33,7 +33,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:3bsXB+q7SxIl6VrpvKS4ObIB/KkrDo3oGKaTtT1T+5Y"
+            - "SHA256:RAPTEJreaHTgO3h0I390R2bRQ+c/felwiLwwMUB5n9I"
 
       - run:
           name: Ensure known_hosts file exists
