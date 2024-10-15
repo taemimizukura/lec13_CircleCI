@@ -1,45 +1,58 @@
 ---
-# rbenvのインストール  
-- name: Clone rbenv repository
+- name: Ensure .rbenv directory exists
+  file:
+    path: /home/ec2-user/.rbenv
+    state: directory
+    owner: ec2-user
+    group: ec2-user
+    mode: '0755'
+
+- name: Install rbenv
   git:
     repo: https://github.com/rbenv/rbenv.git
-    dest: /home/ec2-user/rbenv
-    force: yes 
+    dest: /home/ec2-user/.rbenv
+  become: yes
+  become_user: ec2-user
 
-- name: 'rbenvのshファイルを配置'
-  template:
-    src: rbenv_system.sh.j2
-    dest: /etc/profile.d/rbenv.sh
-    owner: root
-    group: root
-    mode: 0755
+- name: Ensure ruby-build directory exists
+  file:
+    path: /home/ec2-user/.rbenv/plugins/ruby-build
+    state: directory
+    owner: ec2-user
+    group: ec2-user
+    mode: '0755'
 
-# ruby-buildのインストール
-- name: Clone ruby-build repository
-  git:
+- name: Download ruby-build repository
+  git: 
     repo: https://github.com/rbenv/ruby-build.git
-    dest: /home/ec2-user/rbenv/plugins/ruby-build
-    force: yes 
+    dest: /home/ec2-user/.rbenv/plugins/ruby-build 
+  become: yes
+  become_user: ec2-user
 
-# Rubyのインストール
-- name: Check installed Ruby versions
-  command: ruby -v
-  register: installed_ruby_versions_check
-  ignore_errors: true  
+- name: Add rbenv path to .bashrc
+  lineinfile:
+    path: /home/ec2-user/.bashrc
+    line: 'export PATH="$HOME/.rbenv/bin:$PATH"'
+    create: yes
+
+- name: Set rbenv initialization in .bashrc
+  lineinfile:
+    path: /home/ec2-user/.bashrc
+    line: 'eval "$(rbenv init -)"'
+    create: yes
 
 
-- name: Install Specific ruby version
-  shell: bash -lc "rbenv install {{ version }}"
-  when: installed_ruby_versions_check.stdout is not defined or 
-        version not in installed_ruby_versions_check.stdout
 
-- name: Check global ruby version
-  ansible.builtin.shell:
-    cmd: bash -lc "rbenv global"
-  changed_when: false
-  register: global_ruby_version_check
+- name: Install Ruby via rbenv
+  command: rbenv install {{ ruby_version }}
+  args:
+    chdir: "{{ app_dir }}"
+  become: yes
+  become_user: ec2-user
 
-- name: Set global ruby version
-  shell: bash -lc "rbenv global {{ version }}"
-  when: global_ruby_version_check.stdout is not defined or 
-        version not in global_ruby_version_check.stdout
+- name: Set global rbenv version
+  command: rbenv global {{ ruby_version }}
+  args:
+    chdir: "{{ app_dir }}"
+  become: yes
+  become_user: ec2-user

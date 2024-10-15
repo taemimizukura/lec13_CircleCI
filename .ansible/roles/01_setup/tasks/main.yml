@@ -6,14 +6,6 @@
     dest: '/home/ec2-user/raisetech-live8-sample-app/'
     force: yes
     
-- name: Ensure rbenv directory has correct permissions
-  file:
-    path: /home/ec2-user/rbenv
-    owner: ec2-user
-    group: ec2-user
-    mode: '0755'
-    recurse: yes
-
 - name: Set ownership of the application directory
   file:
     path: /home/ec2-user/raisetech-live8-sample-app
@@ -42,4 +34,7 @@
       - libffi-devel
       - ImageMagick
       - ImageMagick-devel
+      - curl
+      - bzip2
+      - bzip2-devel
     state: present

@@ -18,9 +18,5 @@
   args:
     chdir: /home/ec2-user/raisetech-live8-sample-app
 
-- name: Run bin/dev
-  command: bin/dev
-  args:
-    chdir: /home/ec2-user/raisetech-live8-sample-app
 
 
