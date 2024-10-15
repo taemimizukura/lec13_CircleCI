@@ -1,4 +1,3 @@
----
 - name: Download NVM install script
   shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
   args:
@@ -6,17 +5,22 @@
   environment:
     HOME: "{{ ansible_env.HOME }}"
 
-- name: Load NVM
-  shell: |
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  args:
-    executable: /bin/bash
-
-- name: Install Node.js 17.9.1 using NVM
+- name: Load NVM and Install Node.js 17.9.1
   shell: |
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
     nvm install 17.9.1
   args:
     executable: /bin/bash
+
+- name: Check Node.js version
+  shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    node -v
+  register: node_version
+  args:
+    executable: /bin/bash
+
+- debug:
+    var: node_version.stdout

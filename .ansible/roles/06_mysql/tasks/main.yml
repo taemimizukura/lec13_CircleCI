@@ -1,49 +1,60 @@
 ---
 - name: Remove MariaDB packages
-  yum:
-    name: mariadb-*
-    state: absent
+  shell: |
+    yum remove -y mariadb-*
 
-- name: install mysql repository
+- name: Install MySQL repository
   become: yes
   yum:
     name: 'https://repo.mysql.com//mysql80-community-release-el7-11.noarch.rpm'
     state: present
 
-- name: Import gpg-key
+- name: Import GPG key
+  shell: |
+    rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
   become: yes
-  rpm_key:
-    state: present
-    key: https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 
 - name: Disable MySQL 8.0 Community repository
-  command: yum-config-manager --disable mysql80-community
+  shell: |
+    yum-config-manager --disable mysql80-community || true
   ignore_errors: yes 
 
 - name: Enable MySQL 5.7 Community repository
-  command: yum-config-manager --enable mysql57-community
+  shell: |
+    yum-config-manager --enable mysql57-community || true
   ignore_errors: yes  
 
 - name: Install yum-utils
-  yum:
-    name: yum-utils
-    state: present
+  shell: |
+    yum install -y yum-utils
 
 - name: Update yum cache
-  command: yum makecache
+  shell: |
+    yum makecache
 
 - name: Install MySQL and dependencies
-  yum:
-    name:
-      - MySQL-python
-      - mysql-devel
-    state: present
+  shell: |
+    yum install -y MySQL-python mysql-devel
+
+- name: Install MySQL Server
+  shell: bash -lc "yum install -y mysql-community-server"
+  become: yes
+
+- name: Ensure MySQL is started
+  shell: bash -lc "systemctl start mysqld"
+  become: yes
+
+- name: Enable MySQL service to start on boot
+  shell: bash -lc "systemctl enable mysqld"
+  become: yes
+
+- name: Check MySQL service status
+  shell: bash -lc "systemctl status mysqld"
+  register: mysql_status
+  ignore_errors: yes
 
 - name: Create database.yml from template
   become: yes
   template:
     src: database.yml.j2
     dest: "{{ app_dir }}/config/database.yml"
-
-
-

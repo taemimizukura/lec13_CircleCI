@@ -29,14 +29,17 @@
   ignore_errors: yes
 
 - name: rbenv install -v 3.2.3
-  shell: bash -lc "/home/ec2-user/.rbenv/bin/rbenv install 3.2.3"
+  shell: bash -lc "rbenv install {{ ruby_version }}"
   when: ruby_version.stdout is not defined or ruby_version.stdout is not search('3.2.3')
 
 - name: rbenv exec gem install bundler
-  shell: bash -lc "/home/ec2-user/.rbenv/bin/rbenv exec gem install bundler"
+  shell: bash -lc "gem install bundler"
   when: ruby_version.stdout is defined and ruby_version.stdout is search('3.2.3')
   ignore_errors: yes
 
+- name: rbenv global 3.2.3
+  shell: bash -lc "rbenv global {{ ruby_version }}"
+  when: ruby_version.stdout is not defined or ruby_version.stdout is not search('3.2.3')
 
 - name: gem update --system
   shell: bash -lc "gem update --system"

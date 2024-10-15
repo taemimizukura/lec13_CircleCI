@@ -1,22 +1,15 @@
 ---
-
 - name: Ensure MySQL is started
-  ansible.builtin.systemd:
-    name: mysqld
-    state: started
-
-- name: Run bundle install
-  command: /home/ec2-user/rbenv/shims/bundle install
-  args:
-    chdir: /home/ec2-user/raisetech-live8-sample-app
+  shell: bash -lc "systemctl start mysqld"
 
 - name: Initialize rbenv
-  command: bash -lc "rbenv init -"
+  shell: |
+    bash -lc "rbenv init -"
+- name: Run bundle install
+  shell: bash -lc "cd /home/ec2-user/raisetech-live8-sample-app && /home/ec2-user/.rbenv/shims/bundle install"
+
+- name: Initialize rbenv
+  shell: bash -lc "rbenv init -"
 
 - name: Run bin/setup
-  command: bash -lc "bin/setup"
-  args:
-    chdir: /home/ec2-user/raisetech-live8-sample-app
-
-
-
+  shell: bash -lc "cd /home/ec2-user/raisetech-live8-sample-app && bin/setup"
