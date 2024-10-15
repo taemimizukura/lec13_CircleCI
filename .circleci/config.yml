@@ -17,12 +17,6 @@ jobs:
       - run:
           name: Deploy to AWS from template
           command: |
-           # set -x
-           # aws cloudformation deploy \
-            #  --template-file cloudformation/1_EC2_ALB.yml \
-            #  --stack-name Lec13-EC2 \
-            #  --capabilities CAPABILITY_NAMED_IAM \
-            #  --parameter-overrides MyKeyPair=${MY_KEY_PAIR} MyIP=${MY_IP} ExistingElasticIP=${EIP_ADDRESS}
             aws cloudformation deploy \
               --template-file cloudformation/2_RDS_S3.yml \
               --stack-name Lec13-RDS
@@ -34,18 +28,14 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "SHA256:RAPTEJreaHTgO3h0I390R2bRQ+c/felwiLwwMUB5n9I"
-
-
       - run:
-          name: Ensure known_hosts file exists
-          command: |
-            touch ~/.ssh/known_hosts
+          name: Install Ansible
+          command: sudo yum install -y ansible
+
       - run:
           name: Check Ansible version
           command: ansible --version
           
-      - ansible-playbook/install:
-          version: 2.9.23
       - ansible-playbook/playbook:
           playbook: .ansible/playbook.yml
           playbook-options: -i .ansible/inventory.ini
