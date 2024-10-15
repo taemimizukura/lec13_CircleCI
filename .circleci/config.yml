@@ -35,15 +35,20 @@ jobs:
           fingerprints:
             - "SHA256:RAPTEJreaHTgO3h0I390R2bRQ+c/felwiLwwMUB5n9I"
 
+
       - run:
           name: Ensure known_hosts file exists
           command: |
             touch ~/.ssh/known_hosts
+      - run:
+          name: Check Ansible version
+          command: ansible --version
+          
       - ansible-playbook/install:
           version: 2.9.23
       - ansible-playbook/playbook:
           playbook: .ansible/playbook.yml
-          playbook-options: -u ec2-user -i .ansible/inventory.ini --private-key /home/ec2-user/.ssh/id_rsa --extra-vars "ansible_ssh_extra_args='-o StrictHostKeyChecking=no' RDS_PASSWORD=${RDS_PASSWORD}"
+          playbook-options: -i .ansible/inventory.ini
 
 workflows:
   workflow:
