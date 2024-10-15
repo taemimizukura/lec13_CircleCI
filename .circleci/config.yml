@@ -1,54 +1,23 @@
-version: 2.1
-
-orbs:
-  aws-cli: circleci/aws-cli@4.2.3
-  ansible-playbook: orbss/ansible-playbook@0.0.5
-  ruby: circleci/ruby@2.1.4
-
 jobs:
   execute-cloudformation:
-    executor: aws-cli/default
+    machine: true  
     steps:
       - checkout
-      - aws-cli/setup:
-          aws_access_key_id: AWS_ACCESS_KEY_ID
-          aws_secret_access_key: AWS_SECRET_ACCESS_KEY
-          region: AWS_DEFAULT_REGION
       - run:
           name: Deploy to AWS from template
           command: |
-           # set -x
-           # aws cloudformation deploy \
-            #  --template-file cloudformation/1_EC2_ALB.yml \
-            #  --stack-name Lec13-EC2 \
-            #  --capabilities CAPABILITY_NAMED_IAM \
-            #  --parameter-overrides MyKeyPair=${MY_KEY_PAIR} MyIP=${MY_IP} ExistingElasticIP=${EIP_ADDRESS}
             aws cloudformation deploy \
               --template-file cloudformation/2_RDS_S3.yml \
               --stack-name Lec13-RDS
 
   execute-ansible:
-    executor: ansible-playbook/default
+    machine: true
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "SHA256:RAPTEJreaHTgO3h0I390R2bRQ+c/felwiLwwMUB5n9I"
-
       - run:
-          name: Ensure known_hosts file exists
+          name: Install Ansible
           command: |
-            touch ~/.ssh/known_hosts
-      - ansible-playbook/install:
-          version: 2.9.23
-      - ansible-playbook/playbook:
-          playbook: /home/ec2-user/lec13_CircleCI/.ansible/playbook.yml
-          playbook-options: -u ec2-user -i .ansible/inventory.ini --private-key /home/ec2-user/.ssh/id_rsa --extra-vars "ansible_ssh_extra_args='-o StrictHostKeyChecking=no' RDS_PASSWORD=${RDS_PASSWORD}"
-
-workflows:
-  workflow:
-    jobs:
-      - execute-cloudformation
-      - execute-ansible:
-          requires:
-            - execute-cloudformation
+            sudo yum install -y ansible
+      - run:
+          name: Run Ansible Playbook
+          command: ansible-playbook .ansible/playbook.yml -u ec2-user -i .ansible/inventory.ini --private-key /home/ec2-user/.ssh/id_rsa --extra-vars "ansible_ssh_extra_args='-o StrictHostKeyChecking=no' RDS_PASSWORD=${RDS_PASSWORD}"
