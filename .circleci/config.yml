@@ -28,18 +28,11 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "SHA256:RAPTEJreaHTgO3h0I390R2bRQ+c/felwiLwwMUB5n9I"
-      - run:
-          name: Install Ansible via pip
-          command: |
-            sudo pip install ansible==2.9.23
-
-      - run:
-          name: Check Ansible version
-          command: ansible --version
-          
+      - ansible-playbook/install:
+          version: 2.9.27
       - ansible-playbook/playbook:
-          playbook: .ansible/playbook.yml
-          playbook-options: -i .ansible/inventory.ini
+          playbook: ansible/playbook.yml
+          playbook-options: 'ansible/inventory.ini'
 
 workflows:
   workflow:
