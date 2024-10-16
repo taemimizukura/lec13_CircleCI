@@ -13,6 +13,7 @@
     secret_access_key: "{{ lookup('env','AWS_SECRET_ACCESS_KEY') }}"
     region: "{{ lookup('env','AWS_DEFAULT_REGION') }}"
     S3_bucket: "{{ lookup('env','S3_BUCKET') }}"
+    ssh_private_key_path: "{{ lookup('env','SSH_PRIVATE_KEY' ) }}"
   
   roles:
     - { role: 01_setup }

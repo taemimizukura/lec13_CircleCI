@@ -3,30 +3,25 @@
 - name: Check if NVM is installed
   command: command -v nvm
   register: nvm_installed
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: Download NVM install script
-  shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-  args:
-    executable: /bin/bash
-  environment:
-    HOME: /home/ec2-user
-  when: nvm_installed.rc != 0  # NVMがインストールされていない場合のみ実行
+  get_url:
+    url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh
+    dest: /tmp/install_nvm.sh
+  when: nvm_installed is failed  # nvmがインストールされていない場合
 
-- name: Check if Node.js 17.9.1 is installed
-  shell: |
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-    nvm list 17.9.1
+- name: Run NVM install script
+  command: bash /tmp/install_nvm.sh
+  when: nvm_installed is failed 
+
+- name: Check if Node.js is installed
+  command: node -v
   register: node_installed
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: Install Node.js 17.9.1 if not installed
-  shell: |
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-    nvm install 17.9.1
-  when: node_installed.stdout is not search("v17.9.1")
-  args:
-    executable: /bin/bash
+  command: nvm install 17.9.1
+  when: node_installed is failed or (node_installed.stdout is not search("v17.9.1") if node_installed.stdout is defined else true)
+
 

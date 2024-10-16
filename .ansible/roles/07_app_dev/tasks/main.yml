@@ -1,12 +1,12 @@
 ---
 #lec13_CircleCI/.ansible/roles/07_app_dev/tasks/main.yml
 
-
 - name: Run bundle install
   shell: |
     bash -lc "bundle install"
   args: 
     chdir: "{{ app_dir }}"
+  ignore_errors: yes
 
 #設定ファイルの変更 S3へ
 - name: Generate development.rb from template
@@ -25,6 +25,7 @@
     bash -lc "bin/setup"
   args: 
     chdir: "{{ app_dir }}"
+  ignore_errors: yes
 
 - name: Check if assets are precompiled
   command: test -d "{{ app_dir }}/public/assets" 
@@ -36,18 +37,11 @@
     bash -lc "rails assets:precompile"
   args: 
     chdir: "{{ app_dir }}"
-
-- name: Check if database migration is needed
-  command: bash -lc "rails db:version"
-  args:
-    chdir: "{{ app_dir }}"
-  register: migration_check
   ignore_errors: yes
 
 - name: Run database migration
-  shell: |
-    bash -lc "rails db:migrate"
-  args: 
+  command: bundle exec rake db:migrate
+  args:
     chdir: "{{ app_dir }}"
-  when: migration_check.rc != 0
+
 

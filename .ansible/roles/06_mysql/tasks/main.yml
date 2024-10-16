@@ -1,31 +1,29 @@
 ---
 #lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml
 - name: Check if MariaDB is installed
-  command: rpm -q mariadb
+  command: mysql --version
   register: mariadb_installed
-  ignore_errors: yes
+  ignore_errors: true
 
 - name: Remove MariaDB packages
-  shell: |
-    yum remove -y mariadb-*
-  when: mariadb_installed.rc == 0
-
-
-- name: Check if GPG key is imported
-  command: rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
-  register: gpg_key_imported
-  ignore_errors: yes
+  yum:
+    name: mariadb-server
+    state: absent
+  when: mariadb_installed is defined and mariadb_installed.rc is defined and mariadb_installed.rc == 0
 
 - name: Import GPG key if not imported
   shell: |
     rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
   become_user: root
-  when: gpg_key_imported.rc != 0
-
 
 - name: Enable MySQL 5.7 Community repository
   shell: |
     yum-config-manager --enable mysql57-community || true
+    
+- name: Check if MySQL is installed
+  command: mysql --version
+  register: mysql_installed
+  ignore_errors: true
 
 - name: Install yum-utils
   shell: |

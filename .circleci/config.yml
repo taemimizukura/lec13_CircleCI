@@ -41,12 +41,29 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:RAPTEJreaHTgO3h0I390R2bRQ+c/felwiLwwMUB5n9I"
+            - "SHA256:YWc9ZVl+xn5VYm+uCYia3YU+fZ0QIenaA4LcnI6ZK6E"
       - ansible-playbook/install:
           version: 2.9.27
       - ansible-playbook/playbook:
           playbook: ansible/playbook.yml
           playbook-options: ansible/inventory
+
+  test-serverspec:
+    docker:
+      - image: ruby:3.2
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            gem install rspec
+            gem install serverspec
+
+      - run:
+          name: Run Serverspec tests
+          command: |
+            cd serverspec/spec/target-node
+            rspec lec13_spec.rb
 
 workflows:
   workflow:
@@ -58,3 +75,6 @@ workflows:
       - execute-ansible:
           requires:
             - execute-cloudformation
+      - test-serverspec:
+          requires:
+            - execute-ansible

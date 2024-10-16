@@ -1,10 +1,31 @@
 ---
 #lec13_CircleCI/.ansible/roles/05_yarn/tasks/main.yml
-- name: Download and install Yarn 1.22.19
-  get_url:
-    url: https://github.com/yarnpkg/yarn/releases/download/v1.22.19/yarn-1.22.19.js
-    dest: /usr/local/bin/yarn
-    mode: '0755'
+- name: Ensure npm is installed
+  command: npm -v
+  register: npm_installed
+  ignore_errors: true
+
+- name: Install npm if not installed
+  command: curl -L https://www.npmjs.com/install.sh | sh
+  when: npm_installed is failed
+  become: yes
+
+- name: Install Yarn using npm
+  command: npm install --prefix /usr/local yarn
+  become: yes
+
+
+- name: Add Yarn to PATH
+  lineinfile:
+    path: ~/.bashrc
+    line: 'export PATH="$PATH:/usr/local/bin/yarn"'
+    state: present
+
+- name: Ensure .bashrc is sourced
+  command: source ~/.bashrc
+
+
+
 
 
 

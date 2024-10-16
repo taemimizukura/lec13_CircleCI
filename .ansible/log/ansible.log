@@ -1,0 +1,1201 @@
+2024-10-16 08:42:43,659 p=16615 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 08:42:43,670 p=16615 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 08:42:44,889 p=16615 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:42:44,896 p=16615 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 08:42:45,179 p=16615 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:42:45,188 p=16615 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 08:42:45,937 p=16615 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:42:45,943 p=16615 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 08:42:47,432 p=16615 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:42:47,439 p=16615 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 08:42:51,407 p=16615 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:42:51,414 p=16615 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 08:42:52,050 p=16615 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:42:52,057 p=16615 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 08:42:52,707 p=16615 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:42:52,713 p=16615 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 08:42:53,040 p=16615 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:42:53,048 p=16615 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 08:42:53,386 p=16615 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:42:53,395 p=16615 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 08:42:53,615 p=16615 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:42:53,621 p=16615 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 08:42:53,835 p=16615 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:42:53,841 p=16615 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 08:42:54,051 p=16615 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:42:54,058 p=16615 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 08:42:54,269 p=16615 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:42:54,275 p=16615 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 08:42:54,492 p=16615 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:42:54,498 p=16615 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 08:42:54,711 p=16615 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:42:54,718 p=16615 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 08:42:54,748 p=16615 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'nvm_installed.rc != 0' failed. The error was: error while evaluating conditional (nvm_installed.rc != 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/04_nodejs/tasks/main.yml': line 8, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Download NVM install script\n  ^ here\n"}
+2024-10-16 08:42:54,749 p=16615 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 08:42:54,749 p=16615 u=ec2-user n=ansible | 18.180.2.113               : ok=8    changed=5    unreachable=0    failed=1    skipped=7    rescued=0    ignored=0   
+2024-10-16 08:45:19,712 p=16840 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 08:45:19,723 p=16840 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 08:45:20,950 p=16840 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:45:20,958 p=16840 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 08:45:21,254 p=16840 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:45:21,261 p=16840 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 08:45:22,044 p=16840 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:45:22,052 p=16840 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 08:45:23,537 p=16840 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:45:23,545 p=16840 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 08:45:27,517 p=16840 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:45:27,525 p=16840 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 08:45:28,195 p=16840 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:45:28,202 p=16840 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 08:45:28,867 p=16840 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:45:28,874 p=16840 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 08:45:29,192 p=16840 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:45:29,200 p=16840 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 08:45:29,516 p=16840 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:45:29,522 p=16840 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 08:45:29,739 p=16840 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:45:29,745 p=16840 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 08:45:29,961 p=16840 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:45:29,968 p=16840 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 08:45:30,182 p=16840 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:45:30,188 p=16840 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 08:45:30,402 p=16840 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:45:30,408 p=16840 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 08:45:30,623 p=16840 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:45:30,631 p=16840 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 08:45:30,850 p=16840 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:45:30,857 p=16840 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 08:45:30,886 p=16840 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:45:30,892 p=16840 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *****************************************************************************************
+2024-10-16 08:45:30,921 p=16840 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:45:30,928 p=16840 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js 17.9.1 is installed] ***************************************************************************
+2024-10-16 08:45:31,146 p=16840 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:45:31,152 p=16840 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ************************************************************************
+2024-10-16 08:45:31,182 p=16840 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'node_installed.stdout is not search(\"v17.9.1\")' failed. The error was: error while evaluating conditional (node_installed.stdout is not search(\"v17.9.1\")): 'dict object' has no attribute 'stdout'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/04_nodejs/tasks/main.yml': line 26, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Install Node.js 17.9.1 if not installed\n  ^ here\n"}
+2024-10-16 08:45:31,183 p=16840 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 08:45:31,184 p=16840 u=ec2-user n=ansible | 18.180.2.113               : ok=8    changed=5    unreachable=0    failed=1    skipped=10   rescued=0    ignored=0   
+2024-10-16 08:46:28,168 p=17078 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 08:46:28,179 p=17078 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 08:46:29,252 p=17078 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:46:29,258 p=17078 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 08:46:29,555 p=17078 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:46:29,561 p=17078 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 08:46:30,319 p=17078 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:46:30,326 p=17078 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 08:46:31,747 p=17078 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:46:31,755 p=17078 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 08:46:35,636 p=17078 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:46:35,643 p=17078 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 08:46:36,360 p=17078 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:46:36,367 p=17078 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 08:46:37,087 p=17078 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:46:37,094 p=17078 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 08:46:37,409 p=17078 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:46:37,416 p=17078 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 08:46:37,732 p=17078 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:46:37,739 p=17078 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 08:46:37,954 p=17078 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:46:37,961 p=17078 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 08:46:38,173 p=17078 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:46:38,179 p=17078 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 08:46:38,391 p=17078 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:46:38,398 p=17078 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 08:46:38,615 p=17078 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:46:38,621 p=17078 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 08:46:38,835 p=17078 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:46:38,843 p=17078 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 08:46:39,066 p=17078 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:46:39,073 p=17078 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 08:46:39,102 p=17078 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:46:39,108 p=17078 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *****************************************************************************************
+2024-10-16 08:46:39,136 p=17078 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:46:39,142 p=17078 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **********************************************************************************
+2024-10-16 08:46:39,354 p=17078 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:46:39,362 p=17078 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ************************************************************************
+2024-10-16 08:46:39,393 p=17078 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'node_installed is failed or node_installed.stdout is not search(\"v17.9.1\")' failed. The error was: error while evaluating conditional (node_installed is failed or node_installed.stdout is not search(\"v17.9.1\")): 'dict object' has no attribute 'stdout'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/04_nodejs/tasks/main.yml': line 23, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Install Node.js 17.9.1 if not installed\n  ^ here\n"}
+2024-10-16 08:46:39,394 p=17078 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 08:46:39,394 p=17078 u=ec2-user n=ansible | 18.180.2.113               : ok=8    changed=5    unreachable=0    failed=1    skipped=10   rescued=0    ignored=0   
+2024-10-16 08:48:05,679 p=17311 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 08:48:05,690 p=17311 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 08:48:06,769 p=17311 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:48:06,774 p=17311 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 08:48:07,080 p=17311 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:48:07,087 p=17311 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 08:48:07,867 p=17311 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:48:07,875 p=17311 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 08:48:09,299 p=17311 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:48:09,307 p=17311 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 08:48:13,289 p=17311 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:48:13,297 p=17311 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 08:48:13,948 p=17311 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:48:13,957 p=17311 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 08:48:14,647 p=17311 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:48:14,655 p=17311 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 08:48:14,980 p=17311 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:48:14,988 p=17311 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 08:48:15,311 p=17311 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:48:15,320 p=17311 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 08:48:15,538 p=17311 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:48:15,545 p=17311 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 08:48:15,763 p=17311 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:48:15,770 p=17311 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 08:48:15,989 p=17311 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:48:15,996 p=17311 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 08:48:16,218 p=17311 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:48:16,225 p=17311 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 08:48:16,440 p=17311 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:48:16,447 p=17311 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 08:48:16,665 p=17311 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:48:16,671 p=17311 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 08:48:16,700 p=17311 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:48:16,707 p=17311 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *****************************************************************************************
+2024-10-16 08:48:16,736 p=17311 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:48:16,743 p=17311 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **********************************************************************************
+2024-10-16 08:48:16,960 p=17311 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:48:16,967 p=17311 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ************************************************************************
+2024-10-16 08:48:17,186 p=17311 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:48:17,193 p=17311 u=ec2-user n=ansible | TASK [05_yarn : Download and install Yarn 1.22.19] ********************************************************************************
+2024-10-16 08:48:18,085 p=17311 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "checksum_dest": null, "checksum_src": "52a1a3fe92cc6cbbccc849da802c95bbad45347d", "dest": "/usr/local/bin/yarn", "elapsed": 0, "msg": "Destination /usr/local/bin is not writable", "src": "/home/ec2-user/.ansible/tmp/ansible-tmp-1729068497.24-17532-8999242705099/tmps7Q9RE", "url": "https://github.com/yarnpkg/yarn/releases/download/v1.22.19/yarn-1.22.19.js"}
+2024-10-16 08:48:18,088 p=17311 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 08:48:18,088 p=17311 u=ec2-user n=ansible | 18.180.2.113               : ok=8    changed=5    unreachable=0    failed=1    skipped=11   rescued=0    ignored=0   
+2024-10-16 08:54:54,497 p=17586 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 08:54:54,508 p=17586 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 08:54:55,741 p=17586 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:54:55,749 p=17586 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 08:54:56,033 p=17586 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:54:56,040 p=17586 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 08:54:56,765 p=17586 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:54:56,772 p=17586 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 08:54:58,206 p=17586 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:54:58,214 p=17586 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 08:55:02,124 p=17586 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:55:02,132 p=17586 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 08:55:02,790 p=17586 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:55:02,797 p=17586 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 08:55:03,516 p=17586 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:55:03,524 p=17586 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 08:55:03,839 p=17586 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:55:03,848 p=17586 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 08:55:04,163 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:04,170 p=17586 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 08:55:04,381 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:04,387 p=17586 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 08:55:04,602 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:04,609 p=17586 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 08:55:04,818 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:04,826 p=17586 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 08:55:05,039 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:05,046 p=17586 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 08:55:05,260 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:05,266 p=17586 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 08:55:05,482 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:05,489 p=17586 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 08:55:05,519 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:05,525 p=17586 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *****************************************************************************************
+2024-10-16 08:55:05,554 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:05,560 p=17586 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **********************************************************************************
+2024-10-16 08:55:05,772 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:05,779 p=17586 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ************************************************************************
+2024-10-16 08:55:05,993 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:05,999 p=17586 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] ******************************************************************************************
+2024-10-16 08:55:06,212 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:06,219 p=17586 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *************************************************************************************
+2024-10-16 08:55:06,249 p=17586 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:55:06,255 p=17586 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] *******************************************************************************************
+2024-10-16 08:55:06,585 p=17586 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "path must be specified when not using global"}
+2024-10-16 08:55:06,587 p=17586 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 08:55:06,587 p=17586 u=ec2-user n=ansible | 18.180.2.113               : ok=8    changed=5    unreachable=0    failed=1    skipped=13   rescued=0    ignored=0   
+2024-10-16 08:58:15,517 p=17849 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 08:58:15,529 p=17849 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 08:58:16,749 p=17849 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:58:16,757 p=17849 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 08:58:17,051 p=17849 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:58:17,057 p=17849 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 08:58:17,788 p=17849 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:58:17,795 p=17849 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 08:58:19,234 p=17849 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:58:19,242 p=17849 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 08:58:23,123 p=17849 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:58:23,130 p=17849 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 08:58:23,969 p=17849 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:58:23,975 p=17849 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 08:58:24,666 p=17849 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:58:24,673 p=17849 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 08:58:24,999 p=17849 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:58:25,008 p=17849 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 08:58:25,321 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:25,329 p=17849 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 08:58:25,551 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:25,556 p=17849 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 08:58:25,771 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:25,778 p=17849 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 08:58:25,993 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:25,999 p=17849 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 08:58:26,214 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:26,220 p=17849 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 08:58:26,435 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:26,441 p=17849 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 08:58:26,656 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:26,663 p=17849 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 08:58:26,693 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:26,699 p=17849 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *****************************************************************************************
+2024-10-16 08:58:26,727 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:26,734 p=17849 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **********************************************************************************
+2024-10-16 08:58:26,947 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:26,953 p=17849 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ************************************************************************
+2024-10-16 08:58:27,165 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:27,171 p=17849 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] ******************************************************************************************
+2024-10-16 08:58:27,385 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:27,391 p=17849 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *************************************************************************************
+2024-10-16 08:58:27,420 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:27,426 p=17849 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] *******************************************************************************************
+2024-10-16 08:58:27,645 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:27,652 p=17849 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *************************************************************************************************
+2024-10-16 08:58:27,974 p=17849 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:58:27,981 p=17849 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ****************************************************************************************
+2024-10-16 08:58:28,193 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:28,199 p=17849 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***********************************************************************************
+2024-10-16 08:58:28,416 p=17849 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:58:28,424 p=17849 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *****************************************************************************************
+2024-10-16 08:58:28,453 p=17849 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'mariadb_installed.rc == 0' failed. The error was: error while evaluating conditional (mariadb_installed.rc == 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml': line 8, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Remove MariaDB packages\n  ^ here\n"}
+2024-10-16 08:58:28,455 p=17849 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 08:58:28,455 p=17849 u=ec2-user n=ansible | 18.180.2.113               : ok=9    changed=6    unreachable=0    failed=1    skipped=16   rescued=0    ignored=0   
+2024-10-16 08:59:28,969 p=18146 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 08:59:28,981 p=18146 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 08:59:30,049 p=18146 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:59:30,055 p=18146 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 08:59:30,354 p=18146 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:59:30,362 p=18146 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 08:59:31,105 p=18146 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:59:31,111 p=18146 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 08:59:32,532 p=18146 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 08:59:32,539 p=18146 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 08:59:36,428 p=18146 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:59:36,435 p=18146 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 08:59:37,103 p=18146 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:59:37,109 p=18146 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 08:59:37,799 p=18146 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:59:37,807 p=18146 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 08:59:38,123 p=18146 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:59:38,130 p=18146 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 08:59:38,445 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:38,453 p=18146 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 08:59:38,668 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:38,674 p=18146 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 08:59:38,891 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:38,897 p=18146 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 08:59:39,109 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:39,116 p=18146 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 08:59:39,331 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:39,338 p=18146 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 08:59:39,561 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:39,568 p=18146 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 08:59:39,781 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:39,789 p=18146 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 08:59:39,817 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:39,824 p=18146 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *****************************************************************************************
+2024-10-16 08:59:39,852 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:39,858 p=18146 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **********************************************************************************
+2024-10-16 08:59:40,066 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:40,073 p=18146 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ************************************************************************
+2024-10-16 08:59:40,288 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:40,294 p=18146 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] ******************************************************************************************
+2024-10-16 08:59:40,507 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:40,515 p=18146 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *************************************************************************************
+2024-10-16 08:59:40,544 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:40,550 p=18146 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] *******************************************************************************************
+2024-10-16 08:59:40,776 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:40,783 p=18146 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *************************************************************************************************
+2024-10-16 08:59:41,105 p=18146 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 08:59:41,112 p=18146 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ****************************************************************************************
+2024-10-16 08:59:41,332 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:41,338 p=18146 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***********************************************************************************
+2024-10-16 08:59:41,549 p=18146 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 08:59:41,555 p=18146 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *****************************************************************************************
+2024-10-16 08:59:41,587 p=18146 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'mariadb_installed is defined and mariadb_installed.rc == 0' failed. The error was: error while evaluating conditional (mariadb_installed is defined and mariadb_installed.rc == 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml': line 8, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Remove MariaDB packages\n  ^ here\n"}
+2024-10-16 08:59:41,589 p=18146 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 08:59:41,589 p=18146 u=ec2-user n=ansible | 18.180.2.113               : ok=9    changed=6    unreachable=0    failed=1    skipped=16   rescued=0    ignored=0   
+2024-10-16 09:00:55,985 p=18442 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 09:00:55,996 p=18442 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 09:00:57,071 p=18442 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:00:57,077 p=18442 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 09:00:57,365 p=18442 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:00:57,372 p=18442 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 09:00:58,128 p=18442 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:00:58,135 p=18442 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 09:00:59,608 p=18442 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:00:59,614 p=18442 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 09:01:03,681 p=18442 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:01:03,688 p=18442 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 09:01:04,421 p=18442 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:01:04,428 p=18442 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 09:01:05,088 p=18442 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:01:05,095 p=18442 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 09:01:05,414 p=18442 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:01:05,423 p=18442 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 09:01:05,738 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:05,746 p=18442 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 09:01:05,964 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:05,970 p=18442 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 09:01:06,192 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:06,198 p=18442 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 09:01:06,411 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:06,418 p=18442 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 09:01:06,635 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:06,641 p=18442 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 09:01:06,855 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:06,862 p=18442 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 09:01:07,074 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:07,082 p=18442 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 09:01:07,110 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:07,118 p=18442 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *****************************************************************************************
+2024-10-16 09:01:07,146 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:07,152 p=18442 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **********************************************************************************
+2024-10-16 09:01:07,367 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:07,374 p=18442 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ************************************************************************
+2024-10-16 09:01:07,601 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:07,607 p=18442 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] ******************************************************************************************
+2024-10-16 09:01:07,824 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:07,832 p=18442 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *************************************************************************************
+2024-10-16 09:01:07,861 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:07,868 p=18442 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] *******************************************************************************************
+2024-10-16 09:01:08,090 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:08,096 p=18442 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *************************************************************************************************
+2024-10-16 09:01:08,423 p=18442 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:01:08,432 p=18442 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ****************************************************************************************
+2024-10-16 09:01:08,648 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:08,654 p=18442 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***********************************************************************************
+2024-10-16 09:01:08,871 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:08,878 p=18442 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *****************************************************************************************
+2024-10-16 09:01:08,911 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:08,918 p=18442 u=ec2-user n=ansible | TASK [06_mysql : Check if GPG key is imported] ************************************************************************************
+2024-10-16 09:01:09,129 p=18442 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:01:09,136 p=18442 u=ec2-user n=ansible | TASK [06_mysql : Import GPG key if not imported] **********************************************************************************
+2024-10-16 09:01:09,166 p=18442 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'gpg_key_imported.rc != 0' failed. The error was: error while evaluating conditional (gpg_key_imported.rc != 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml': line 19, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Import GPG key if not imported\n  ^ here\n"}
+2024-10-16 09:01:09,169 p=18442 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 09:01:09,169 p=18442 u=ec2-user n=ansible | 18.180.2.113               : ok=9    changed=6    unreachable=0    failed=1    skipped=18   rescued=0    ignored=0   
+2024-10-16 09:02:17,293 p=18761 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 09:02:17,304 p=18761 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 09:02:18,382 p=18761 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:02:18,388 p=18761 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 09:02:18,681 p=18761 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:02:18,689 p=18761 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 09:02:19,447 p=18761 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:02:19,454 p=18761 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 09:02:20,886 p=18761 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:02:20,893 p=18761 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 09:02:24,923 p=18761 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:02:24,930 p=18761 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 09:02:25,622 p=18761 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:02:25,630 p=18761 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 09:02:26,305 p=18761 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:02:26,312 p=18761 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 09:02:26,629 p=18761 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:02:26,638 p=18761 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 09:02:26,962 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:26,971 p=18761 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 09:02:27,188 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:27,194 p=18761 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 09:02:27,413 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:27,420 p=18761 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 09:02:27,636 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:27,643 p=18761 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 09:02:27,867 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:27,874 p=18761 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 09:02:28,093 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:28,100 p=18761 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 09:02:28,315 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:28,322 p=18761 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 09:02:28,352 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:28,358 p=18761 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *****************************************************************************************
+2024-10-16 09:02:28,387 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:28,394 p=18761 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **********************************************************************************
+2024-10-16 09:02:28,611 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:28,617 p=18761 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ************************************************************************
+2024-10-16 09:02:28,834 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:28,841 p=18761 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] ******************************************************************************************
+2024-10-16 09:02:29,059 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:29,067 p=18761 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *************************************************************************************
+2024-10-16 09:02:29,097 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:29,103 p=18761 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] *******************************************************************************************
+2024-10-16 09:02:29,325 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:29,331 p=18761 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *************************************************************************************************
+2024-10-16 09:02:29,650 p=18761 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:02:29,658 p=18761 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ****************************************************************************************
+2024-10-16 09:02:29,869 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:29,875 p=18761 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***********************************************************************************
+2024-10-16 09:02:30,088 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:30,095 p=18761 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *****************************************************************************************
+2024-10-16 09:02:30,124 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:30,131 p=18761 u=ec2-user n=ansible | TASK [06_mysql : Check if GPG key is imported] ************************************************************************************
+2024-10-16 09:02:30,339 p=18761 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:02:30,346 p=18761 u=ec2-user n=ansible | TASK [06_mysql : Import GPG key if not imported] **********************************************************************************
+2024-10-16 09:02:30,375 p=18761 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'gpg_key_imported is not defined or gpg_key_imported.rc != 0' failed. The error was: error while evaluating conditional (gpg_key_imported is not defined or gpg_key_imported.rc != 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml': line 19, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Import GPG key if not imported\n  ^ here\n"}
+2024-10-16 09:02:30,376 p=18761 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 09:02:30,377 p=18761 u=ec2-user n=ansible | 18.180.2.113               : ok=9    changed=6    unreachable=0    failed=1    skipped=18   rescued=0    ignored=0   
+2024-10-16 09:03:48,720 p=19114 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 09:03:48,732 p=19114 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 09:03:49,816 p=19114 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:03:49,822 p=19114 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 09:03:50,111 p=19114 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:03:50,119 p=19114 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 09:03:50,904 p=19114 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:03:50,911 p=19114 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 09:03:52,338 p=19114 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:03:52,346 p=19114 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 09:03:56,283 p=19114 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:03:56,291 p=19114 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 09:03:56,936 p=19114 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:03:56,943 p=19114 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 09:03:57,643 p=19114 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:03:57,650 p=19114 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 09:03:57,966 p=19114 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:03:57,974 p=19114 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 09:03:58,289 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:03:58,296 p=19114 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 09:03:58,511 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:03:58,518 p=19114 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 09:03:58,731 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:03:58,737 p=19114 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 09:03:58,954 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:03:58,962 p=19114 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 09:03:59,178 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:03:59,184 p=19114 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 09:03:59,397 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:03:59,404 p=19114 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 09:03:59,614 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:03:59,620 p=19114 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 09:03:59,649 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:03:59,655 p=19114 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *****************************************************************************************
+2024-10-16 09:03:59,683 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:03:59,690 p=19114 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **********************************************************************************
+2024-10-16 09:03:59,903 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:03:59,909 p=19114 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ************************************************************************
+2024-10-16 09:04:00,134 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:00,141 p=19114 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] ******************************************************************************************
+2024-10-16 09:04:00,361 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:00,368 p=19114 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *************************************************************************************
+2024-10-16 09:04:00,397 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:00,404 p=19114 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] *******************************************************************************************
+2024-10-16 09:04:00,629 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:00,635 p=19114 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *************************************************************************************************
+2024-10-16 09:04:00,959 p=19114 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:04:00,967 p=19114 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ****************************************************************************************
+2024-10-16 09:04:01,182 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:01,188 p=19114 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***********************************************************************************
+2024-10-16 09:04:01,409 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:01,417 p=19114 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *****************************************************************************************
+2024-10-16 09:04:01,446 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:01,452 p=19114 u=ec2-user n=ansible | TASK [06_mysql : Check if GPG key is imported] ************************************************************************************
+2024-10-16 09:04:01,672 p=19114 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:01,679 p=19114 u=ec2-user n=ansible | TASK [06_mysql : Import GPG key if not imported] **********************************************************************************
+2024-10-16 09:04:01,710 p=19114 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'gpg_key_imported is not defined or gpg_key_imported.rc != 0' failed. The error was: error while evaluating conditional (gpg_key_imported is not defined or gpg_key_imported.rc != 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml': line 19, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Import GPG key if not imported\n  ^ here\n"}
+2024-10-16 09:04:01,712 p=19114 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 09:04:01,713 p=19114 u=ec2-user n=ansible | 18.180.2.113               : ok=9    changed=6    unreachable=0    failed=1    skipped=18   rescued=0    ignored=0   
+2024-10-16 09:04:46,601 p=19419 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 09:04:46,613 p=19419 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 09:04:47,680 p=19419 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:04:47,686 p=19419 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 09:04:47,992 p=19419 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:04:48,000 p=19419 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 09:04:48,786 p=19419 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:04:48,793 p=19419 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 09:04:50,230 p=19419 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:04:50,238 p=19419 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 09:04:54,136 p=19419 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:04:54,144 p=19419 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 09:04:54,822 p=19419 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:04:54,830 p=19419 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 09:04:55,524 p=19419 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:04:55,531 p=19419 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 09:04:55,864 p=19419 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:04:55,871 p=19419 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 09:04:56,193 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:56,201 p=19419 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 09:04:56,419 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:56,427 p=19419 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 09:04:56,647 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:56,653 p=19419 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 09:04:56,868 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:56,874 p=19419 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 09:04:57,094 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:57,100 p=19419 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 09:04:57,314 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:57,321 p=19419 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 09:04:57,530 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:57,536 p=19419 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 09:04:57,565 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:57,571 p=19419 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *****************************************************************************************
+2024-10-16 09:04:57,599 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:57,606 p=19419 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **********************************************************************************
+2024-10-16 09:04:57,822 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:57,828 p=19419 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ************************************************************************
+2024-10-16 09:04:58,045 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:58,051 p=19419 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] ******************************************************************************************
+2024-10-16 09:04:58,265 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:58,271 p=19419 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *************************************************************************************
+2024-10-16 09:04:58,300 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:58,307 p=19419 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] *******************************************************************************************
+2024-10-16 09:04:58,529 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:58,536 p=19419 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *************************************************************************************************
+2024-10-16 09:04:58,860 p=19419 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:04:58,867 p=19419 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ****************************************************************************************
+2024-10-16 09:04:59,081 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:59,087 p=19419 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***********************************************************************************
+2024-10-16 09:04:59,296 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:59,302 p=19419 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *****************************************************************************************
+2024-10-16 09:04:59,333 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:59,339 p=19419 u=ec2-user n=ansible | TASK [06_mysql : Check if GPG key is imported] ************************************************************************************
+2024-10-16 09:04:59,551 p=19419 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:04:59,558 p=19419 u=ec2-user n=ansible | TASK [06_mysql : Import GPG key if not imported] **********************************************************************************
+2024-10-16 09:04:59,587 p=19419 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'gpg_key_imported is not defined or gpg_key_imported.stdout == \"\"' failed. The error was: error while evaluating conditional (gpg_key_imported is not defined or gpg_key_imported.stdout == \"\"): 'dict object' has no attribute 'stdout'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml': line 19, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Import GPG key if not imported\n  ^ here\n"}
+2024-10-16 09:04:59,589 p=19419 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 09:04:59,589 p=19419 u=ec2-user n=ansible | 18.180.2.113               : ok=9    changed=6    unreachable=0    failed=1    skipped=18   rescued=0    ignored=0   
+2024-10-16 09:06:02,823 p=19718 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 09:06:02,835 p=19718 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 09:06:03,913 p=19718 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:06:03,918 p=19718 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 09:06:04,217 p=19718 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:06:04,225 p=19718 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 09:06:05,003 p=19718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:06:05,010 p=19718 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 09:06:06,513 p=19718 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:06:06,520 p=19718 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 09:06:10,448 p=19718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:06:10,455 p=19718 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 09:06:11,118 p=19718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:06:11,124 p=19718 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 09:06:11,803 p=19718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:06:11,809 p=19718 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 09:06:12,130 p=19718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:06:12,138 p=19718 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 09:06:12,467 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:12,476 p=19718 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 09:06:12,696 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:12,703 p=19718 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 09:06:12,921 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:12,927 p=19718 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 09:06:13,146 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:13,153 p=19718 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 09:06:13,382 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:13,389 p=19718 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 09:06:13,602 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:13,610 p=19718 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 09:06:13,827 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:13,834 p=19718 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 09:06:13,864 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:13,871 p=19718 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *****************************************************************************************
+2024-10-16 09:06:13,900 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:13,906 p=19718 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **********************************************************************************
+2024-10-16 09:06:14,125 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:14,132 p=19718 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ************************************************************************
+2024-10-16 09:06:14,350 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:14,356 p=19718 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] ******************************************************************************************
+2024-10-16 09:06:14,572 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:14,579 p=19718 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *************************************************************************************
+2024-10-16 09:06:14,608 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:14,615 p=19718 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] *******************************************************************************************
+2024-10-16 09:06:14,839 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:14,845 p=19718 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *************************************************************************************************
+2024-10-16 09:06:15,169 p=19718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:06:15,176 p=19718 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ****************************************************************************************
+2024-10-16 09:06:15,387 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:15,393 p=19718 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***********************************************************************************
+2024-10-16 09:06:15,611 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:15,617 p=19718 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *****************************************************************************************
+2024-10-16 09:06:15,645 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:15,652 p=19718 u=ec2-user n=ansible | TASK [06_mysql : Check if GPG key is imported] ************************************************************************************
+2024-10-16 09:06:15,866 p=19718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:15,872 p=19718 u=ec2-user n=ansible | TASK [06_mysql : Import GPG key if not imported] **********************************************************************************
+2024-10-16 09:06:15,902 p=19718 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'gpg_key_imported is not defined or gpg_key_imported.stdout == \"\"' failed. The error was: error while evaluating conditional (gpg_key_imported is not defined or gpg_key_imported.stdout == \"\"): 'dict object' has no attribute 'stdout'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml': line 19, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Import GPG key if not imported\n  ^ here\n"}
+2024-10-16 09:06:15,904 p=19718 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 09:06:15,904 p=19718 u=ec2-user n=ansible | 18.180.2.113               : ok=9    changed=6    unreachable=0    failed=1    skipped=18   rescued=0    ignored=0   
+2024-10-16 09:06:41,577 p=20017 u=ec2-user n=ansible | PLAY [all] ************************************************************************************************************************
+2024-10-16 09:06:41,588 p=20017 u=ec2-user n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-10-16 09:06:42,665 p=20017 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:06:42,671 p=20017 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***********************************************************************
+2024-10-16 09:06:42,959 p=20017 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:06:42,965 p=20017 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ********************************************************************************************
+2024-10-16 09:06:43,753 p=20017 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:06:43,760 p=20017 u=ec2-user n=ansible | TASK [01_setup : yum update] ******************************************************************************************************
+2024-10-16 09:06:45,194 p=20017 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:06:45,201 p=20017 u=ec2-user n=ansible | TASK [01_setup : Install required packages] ***************************************************************************************
+2024-10-16 09:06:49,161 p=20017 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:06:49,168 p=20017 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] **************************************************************************************************
+2024-10-16 09:06:49,858 p=20017 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:06:49,866 p=20017 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *********************************************************************************************
+2024-10-16 09:06:50,525 p=20017 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:06:50,532 p=20017 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***********************************************************************************
+2024-10-16 09:06:50,843 p=20017 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:06:50,851 p=20017 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *************************************************************************
+2024-10-16 09:06:51,192 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:51,200 p=20017 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] *******************************************************************************************
+2024-10-16 09:06:51,424 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:51,430 p=20017 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *********************************************************************************
+2024-10-16 09:06:51,648 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:51,655 p=20017 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ************************************************************************************
+2024-10-16 09:06:51,868 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:51,875 p=20017 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *********************************************************************************
+2024-10-16 09:06:52,095 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:52,101 p=20017 u=ec2-user n=ansible | TASK [03_rails : Install Rails] ***************************************************************************************************
+2024-10-16 09:06:52,313 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:52,320 p=20017 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] **************************************************************************************
+2024-10-16 09:06:52,534 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:52,541 p=20017 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ************************************************************************************
+2024-10-16 09:06:52,570 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:52,577 p=20017 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *****************************************************************************************
+2024-10-16 09:06:52,608 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:52,614 p=20017 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **********************************************************************************
+2024-10-16 09:06:52,830 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:52,836 p=20017 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ************************************************************************
+2024-10-16 09:06:53,052 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:53,059 p=20017 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] ******************************************************************************************
+2024-10-16 09:06:53,272 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:53,279 p=20017 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *************************************************************************************
+2024-10-16 09:06:53,310 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:53,317 p=20017 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] *******************************************************************************************
+2024-10-16 09:06:53,537 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:53,543 p=20017 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *************************************************************************************************
+2024-10-16 09:06:53,860 p=20017 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:06:53,870 p=20017 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ****************************************************************************************
+2024-10-16 09:06:54,081 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:54,088 p=20017 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***********************************************************************************
+2024-10-16 09:06:54,302 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:54,309 p=20017 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *****************************************************************************************
+2024-10-16 09:06:54,339 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:54,346 p=20017 u=ec2-user n=ansible | TASK [06_mysql : Import GPG key if not imported] **********************************************************************************
+2024-10-16 09:06:54,558 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:54,564 p=20017 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL 5.7 Community repository] ***************************************************************************
+2024-10-16 09:06:54,777 p=20017 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:06:54,783 p=20017 u=ec2-user n=ansible | TASK [06_mysql : Install yum-utils] ***********************************************************************************************
+2024-10-16 09:06:54,814 p=20017 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'mysql_installed.changed' failed. The error was: error while evaluating conditional (mysql_installed.changed): 'mysql_installed' is undefined\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml': line 23, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Install yum-utils\n  ^ here\n"}
+2024-10-16 09:06:54,816 p=20017 u=ec2-user n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-10-16 09:06:54,816 p=20017 u=ec2-user n=ansible | 18.180.2.113               : ok=9    changed=6    unreachable=0    failed=1    skipped=19   rescued=0    ignored=0   
+2024-10-16 09:08:28,126 p=20354 u=ec2-user n=ansible | PLAY [all] ****************************************************************************************************************************************************************************************************************************
+2024-10-16 09:08:28,137 p=20354 u=ec2-user n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************************************
+2024-10-16 09:08:29,244 p=20354 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:08:29,250 p=20354 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***************************************************************************************************************************************************************************
+2024-10-16 09:08:29,582 p=20354 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:08:29,589 p=20354 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ************************************************************************************************************************************************************************************************
+2024-10-16 09:08:30,414 p=20354 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:08:30,422 p=20354 u=ec2-user n=ansible | TASK [01_setup : yum update] **********************************************************************************************************************************************************************************************************
+2024-10-16 09:08:32,174 p=20354 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:08:32,182 p=20354 u=ec2-user n=ansible | TASK [01_setup : Install required packages] *******************************************************************************************************************************************************************************************
+2024-10-16 09:08:37,266 p=20354 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:08:37,274 p=20354 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] ******************************************************************************************************************************************************************************************************
+2024-10-16 09:08:37,999 p=20354 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:08:38,005 p=20354 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *************************************************************************************************************************************************************************************************
+2024-10-16 09:08:38,744 p=20354 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:08:38,751 p=20354 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***************************************************************************************************************************************************************************************
+2024-10-16 09:08:39,096 p=20354 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:08:39,104 p=20354 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *****************************************************************************************************************************************************************************
+2024-10-16 09:08:39,443 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:39,450 p=20354 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] ***********************************************************************************************************************************************************************************************
+2024-10-16 09:08:39,700 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:39,707 p=20354 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *************************************************************************************************************************************************************************************
+2024-10-16 09:08:39,948 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:39,954 p=20354 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ****************************************************************************************************************************************************************************************
+2024-10-16 09:08:40,192 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:40,199 p=20354 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *************************************************************************************************************************************************************************************
+2024-10-16 09:08:40,412 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:40,419 p=20354 u=ec2-user n=ansible | TASK [03_rails : Install Rails] *******************************************************************************************************************************************************************************************************
+2024-10-16 09:08:40,652 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:40,658 p=20354 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] ******************************************************************************************************************************************************************************************
+2024-10-16 09:08:40,901 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:40,908 p=20354 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ****************************************************************************************************************************************************************************************
+2024-10-16 09:08:40,936 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:40,943 p=20354 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *********************************************************************************************************************************************************************************************
+2024-10-16 09:08:40,971 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:40,978 p=20354 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **************************************************************************************************************************************************************************************
+2024-10-16 09:08:41,207 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:41,213 p=20354 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ****************************************************************************************************************************************************************************
+2024-10-16 09:08:41,460 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:41,467 p=20354 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] **********************************************************************************************************************************************************************************************
+2024-10-16 09:08:41,712 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:41,718 p=20354 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *****************************************************************************************************************************************************************************************
+2024-10-16 09:08:41,749 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:41,755 p=20354 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] ***********************************************************************************************************************************************************************************************
+2024-10-16 09:08:41,998 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:42,004 p=20354 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *****************************************************************************************************************************************************************************************************
+2024-10-16 09:08:42,348 p=20354 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:08:42,356 p=20354 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ********************************************************************************************************************************************************************************************
+2024-10-16 09:08:42,565 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:42,571 p=20354 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***************************************************************************************************************************************************************************************
+2024-10-16 09:08:42,785 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:42,792 p=20354 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *********************************************************************************************************************************************************************************************
+2024-10-16 09:08:42,823 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:42,830 p=20354 u=ec2-user n=ansible | TASK [06_mysql : Import GPG key if not imported] **************************************************************************************************************************************************************************************
+2024-10-16 09:08:43,041 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:43,047 p=20354 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL 5.7 Community repository] *******************************************************************************************************************************************************************************
+2024-10-16 09:08:43,258 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:43,264 p=20354 u=ec2-user n=ansible | TASK [06_mysql : Check if MySQL is installed] *****************************************************************************************************************************************************************************************
+2024-10-16 09:08:43,480 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:43,487 p=20354 u=ec2-user n=ansible | TASK [06_mysql : Install yum-utils] ***************************************************************************************************************************************************************************************************
+2024-10-16 09:08:43,517 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:43,522 p=20354 u=ec2-user n=ansible | TASK [06_mysql : Update yum cache] ****************************************************************************************************************************************************************************************************
+2024-10-16 09:08:43,552 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:43,558 p=20354 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL and dependencies] **************************************************************************************************************************************************************************************
+2024-10-16 09:08:43,586 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:43,593 p=20354 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL Server] ************************************************************************************************************************************************************************************************
+2024-10-16 09:08:43,621 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:43,627 p=20354 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL service to start on boot] *******************************************************************************************************************************************************************************
+2024-10-16 09:08:43,656 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:43,662 p=20354 u=ec2-user n=ansible | TASK [06_mysql : Create database.yml from template] ***********************************************************************************************************************************************************************************
+2024-10-16 09:08:43,692 p=20354 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:08:43,699 p=20354 u=ec2-user n=ansible | TASK [07_app_dev : Run bundle install] ************************************************************************************************************************************************************************************************
+2024-10-16 09:08:43,917 p=20354 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 09:08:43,918 p=20354 u=ec2-user n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************************************
+2024-10-16 09:08:43,918 p=20354 u=ec2-user n=ansible | 18.180.2.113               : ok=9    changed=6    unreachable=0    failed=1    skipped=26   rescued=0    ignored=0   
+2024-10-16 09:12:11,110 p=20718 u=ec2-user n=ansible | PLAY [all] ****************************************************************************************************************************************************************************************************************************
+2024-10-16 09:12:11,121 p=20718 u=ec2-user n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************************************
+2024-10-16 09:12:12,441 p=20718 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:12:12,449 p=20718 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***************************************************************************************************************************************************************************
+2024-10-16 09:12:12,763 p=20718 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:12:12,770 p=20718 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ************************************************************************************************************************************************************************************************
+2024-10-16 09:12:13,562 p=20718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:12:13,571 p=20718 u=ec2-user n=ansible | TASK [01_setup : yum update] **********************************************************************************************************************************************************************************************************
+2024-10-16 09:12:15,378 p=20718 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 09:12:15,386 p=20718 u=ec2-user n=ansible | TASK [01_setup : Install required packages] *******************************************************************************************************************************************************************************************
+2024-10-16 09:12:20,468 p=20718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:12:20,475 p=20718 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] ******************************************************************************************************************************************************************************************************
+2024-10-16 09:12:21,199 p=20718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:12:21,206 p=20718 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *************************************************************************************************************************************************************************************************
+2024-10-16 09:12:21,906 p=20718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:12:21,912 p=20718 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***************************************************************************************************************************************************************************************
+2024-10-16 09:12:22,260 p=20718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:12:22,268 p=20718 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *****************************************************************************************************************************************************************************
+2024-10-16 09:12:22,613 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:22,620 p=20718 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] ***********************************************************************************************************************************************************************************************
+2024-10-16 09:12:22,836 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:22,843 p=20718 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *************************************************************************************************************************************************************************************
+2024-10-16 09:12:23,060 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:23,068 p=20718 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ****************************************************************************************************************************************************************************************
+2024-10-16 09:12:23,282 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:23,288 p=20718 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *************************************************************************************************************************************************************************************
+2024-10-16 09:12:23,509 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:23,516 p=20718 u=ec2-user n=ansible | TASK [03_rails : Install Rails] *******************************************************************************************************************************************************************************************************
+2024-10-16 09:12:23,731 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:23,737 p=20718 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] ******************************************************************************************************************************************************************************************
+2024-10-16 09:12:23,952 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:23,959 p=20718 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ****************************************************************************************************************************************************************************************
+2024-10-16 09:12:23,987 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:23,994 p=20718 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *********************************************************************************************************************************************************************************************
+2024-10-16 09:12:24,022 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:24,029 p=20718 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **************************************************************************************************************************************************************************************
+2024-10-16 09:12:24,243 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:24,249 p=20718 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ****************************************************************************************************************************************************************************
+2024-10-16 09:12:24,467 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:24,473 p=20718 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] **********************************************************************************************************************************************************************************************
+2024-10-16 09:12:24,691 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:24,698 p=20718 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *****************************************************************************************************************************************************************************************
+2024-10-16 09:12:24,726 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:24,734 p=20718 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] ***********************************************************************************************************************************************************************************************
+2024-10-16 09:12:24,960 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:24,966 p=20718 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *****************************************************************************************************************************************************************************************************
+2024-10-16 09:12:25,290 p=20718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:12:25,298 p=20718 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ********************************************************************************************************************************************************************************************
+2024-10-16 09:12:25,515 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:25,521 p=20718 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***************************************************************************************************************************************************************************************
+2024-10-16 09:12:25,741 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:25,748 p=20718 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *********************************************************************************************************************************************************************************************
+2024-10-16 09:12:25,777 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:25,786 p=20718 u=ec2-user n=ansible | TASK [06_mysql : Import GPG key if not imported] **************************************************************************************************************************************************************************************
+2024-10-16 09:12:25,999 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:26,006 p=20718 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL 5.7 Community repository] *******************************************************************************************************************************************************************************
+2024-10-16 09:12:26,225 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:26,232 p=20718 u=ec2-user n=ansible | TASK [06_mysql : Check if MySQL is installed] *****************************************************************************************************************************************************************************************
+2024-10-16 09:12:26,452 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:26,458 p=20718 u=ec2-user n=ansible | TASK [06_mysql : Install yum-utils] ***************************************************************************************************************************************************************************************************
+2024-10-16 09:12:26,499 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:26,507 p=20718 u=ec2-user n=ansible | TASK [06_mysql : Update yum cache] ****************************************************************************************************************************************************************************************************
+2024-10-16 09:12:26,536 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:26,542 p=20718 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL and dependencies] **************************************************************************************************************************************************************************************
+2024-10-16 09:12:26,570 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:26,576 p=20718 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL Server] ************************************************************************************************************************************************************************************************
+2024-10-16 09:12:26,604 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:26,610 p=20718 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL service to start on boot] *******************************************************************************************************************************************************************************
+2024-10-16 09:12:26,638 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:26,645 p=20718 u=ec2-user n=ansible | TASK [06_mysql : Create database.yml from template] ***********************************************************************************************************************************************************************************
+2024-10-16 09:12:26,674 p=20718 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 09:12:26,680 p=20718 u=ec2-user n=ansible | TASK [07_app_dev : Run bundle install] ************************************************************************************************************************************************************************************************
+2024-10-16 09:12:26,895 p=20718 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 09:12:26,896 p=20718 u=ec2-user n=ansible | ...ignoring
+2024-10-16 09:12:26,903 p=20718 u=ec2-user n=ansible | TASK [07_app_dev : Generate development.rb from template] *****************************************************************************************************************************************************************************
+2024-10-16 09:12:27,127 p=20718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:12:27,134 p=20718 u=ec2-user n=ansible | TASK [07_app_dev : Configure S3 settings in storage.yml] ******************************************************************************************************************************************************************************
+2024-10-16 09:12:27,357 p=20718 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 09:12:27,364 p=20718 u=ec2-user n=ansible | TASK [07_app_dev : bin/setup] *********************************************************************************************************************************************************************************************************
+2024-10-16 09:12:27,582 p=20718 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 09:12:27,584 p=20718 u=ec2-user n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************************************
+2024-10-16 09:12:27,584 p=20718 u=ec2-user n=ansible | 18.180.2.113               : ok=12   changed=8    unreachable=0    failed=1    skipped=26   rescued=0    ignored=1   
+2024-10-16 11:39:19,892 p=21557 u=ec2-user n=ansible | PLAY [all] ****************************************************************************************************************************************************************************************************************************
+2024-10-16 11:39:19,903 p=21557 u=ec2-user n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************************************
+2024-10-16 11:39:21,291 p=21557 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 11:39:21,300 p=21557 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***************************************************************************************************************************************************************************
+2024-10-16 11:39:21,633 p=21557 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 11:39:21,641 p=21557 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ************************************************************************************************************************************************************************************************
+2024-10-16 11:39:22,412 p=21557 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:39:22,419 p=21557 u=ec2-user n=ansible | TASK [01_setup : yum update] **********************************************************************************************************************************************************************************************************
+2024-10-16 11:39:24,235 p=21557 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 11:39:24,242 p=21557 u=ec2-user n=ansible | TASK [01_setup : Install required packages] *******************************************************************************************************************************************************************************************
+2024-10-16 11:39:29,287 p=21557 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:39:29,295 p=21557 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] ******************************************************************************************************************************************************************************************************
+2024-10-16 11:39:29,988 p=21557 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:39:29,995 p=21557 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *************************************************************************************************************************************************************************************************
+2024-10-16 11:39:30,673 p=21557 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:39:30,680 p=21557 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***************************************************************************************************************************************************************************************
+2024-10-16 11:39:31,011 p=21557 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:39:31,019 p=21557 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *****************************************************************************************************************************************************************************
+2024-10-16 11:39:31,339 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:31,346 p=21557 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] ***********************************************************************************************************************************************************************************************
+2024-10-16 11:39:31,569 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:31,575 p=21557 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *************************************************************************************************************************************************************************************
+2024-10-16 11:39:31,807 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:31,814 p=21557 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ****************************************************************************************************************************************************************************************
+2024-10-16 11:39:32,031 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:32,037 p=21557 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *************************************************************************************************************************************************************************************
+2024-10-16 11:39:32,254 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:32,259 p=21557 u=ec2-user n=ansible | TASK [03_rails : Install Rails] *******************************************************************************************************************************************************************************************************
+2024-10-16 11:39:32,475 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:32,483 p=21557 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] ******************************************************************************************************************************************************************************************
+2024-10-16 11:39:32,699 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:32,706 p=21557 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ****************************************************************************************************************************************************************************************
+2024-10-16 11:39:32,735 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:32,742 p=21557 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *********************************************************************************************************************************************************************************************
+2024-10-16 11:39:32,770 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:32,776 p=21557 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **************************************************************************************************************************************************************************************
+2024-10-16 11:39:33,002 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:33,009 p=21557 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ****************************************************************************************************************************************************************************
+2024-10-16 11:39:33,228 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:33,234 p=21557 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] **********************************************************************************************************************************************************************************************
+2024-10-16 11:39:33,453 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:33,460 p=21557 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *****************************************************************************************************************************************************************************************
+2024-10-16 11:39:33,489 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:33,496 p=21557 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] ***********************************************************************************************************************************************************************************************
+2024-10-16 11:39:33,725 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:33,732 p=21557 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *****************************************************************************************************************************************************************************************************
+2024-10-16 11:39:34,064 p=21557 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:39:34,072 p=21557 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ********************************************************************************************************************************************************************************************
+2024-10-16 11:39:34,286 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:34,292 p=21557 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***************************************************************************************************************************************************************************************
+2024-10-16 11:39:34,507 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:34,515 p=21557 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *********************************************************************************************************************************************************************************************
+2024-10-16 11:39:34,545 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:34,552 p=21557 u=ec2-user n=ansible | TASK [06_mysql : Import GPG key if not imported] **************************************************************************************************************************************************************************************
+2024-10-16 11:39:34,768 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:34,774 p=21557 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL 5.7 Community repository] *******************************************************************************************************************************************************************************
+2024-10-16 11:39:34,994 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:35,002 p=21557 u=ec2-user n=ansible | TASK [06_mysql : Check if MySQL is installed] *****************************************************************************************************************************************************************************************
+2024-10-16 11:39:35,219 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:35,226 p=21557 u=ec2-user n=ansible | TASK [06_mysql : Install yum-utils] ***************************************************************************************************************************************************************************************************
+2024-10-16 11:39:35,255 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:35,262 p=21557 u=ec2-user n=ansible | TASK [06_mysql : Update yum cache] ****************************************************************************************************************************************************************************************************
+2024-10-16 11:39:35,290 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:35,296 p=21557 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL and dependencies] **************************************************************************************************************************************************************************************
+2024-10-16 11:39:35,324 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:35,331 p=21557 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL Server] ************************************************************************************************************************************************************************************************
+2024-10-16 11:39:35,359 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:35,365 p=21557 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL service to start on boot] *******************************************************************************************************************************************************************************
+2024-10-16 11:39:35,393 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:35,400 p=21557 u=ec2-user n=ansible | TASK [06_mysql : Create database.yml from template] ***********************************************************************************************************************************************************************************
+2024-10-16 11:39:35,429 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:35,435 p=21557 u=ec2-user n=ansible | TASK [07_app_dev : Run bundle install] ************************************************************************************************************************************************************************************************
+2024-10-16 11:39:35,662 p=21557 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:39:35,662 p=21557 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:39:35,668 p=21557 u=ec2-user n=ansible | TASK [07_app_dev : Generate development.rb from template] *****************************************************************************************************************************************************************************
+2024-10-16 11:39:35,894 p=21557 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:39:35,901 p=21557 u=ec2-user n=ansible | TASK [07_app_dev : Configure S3 settings in storage.yml] ******************************************************************************************************************************************************************************
+2024-10-16 11:39:36,130 p=21557 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:39:36,137 p=21557 u=ec2-user n=ansible | TASK [07_app_dev : bin/setup] *********************************************************************************************************************************************************************************************************
+2024-10-16 11:39:36,353 p=21557 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:39:36,353 p=21557 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:39:36,361 p=21557 u=ec2-user n=ansible | TASK [07_app_dev : Check if assets are precompiled] ***********************************************************************************************************************************************************************************
+2024-10-16 11:39:36,585 p=21557 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:39:36,593 p=21557 u=ec2-user n=ansible | TASK [07_app_dev : asset precompile] **************************************************************************************************************************************************************************************************
+2024-10-16 11:39:36,814 p=21557 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:39:36,814 p=21557 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:39:36,821 p=21557 u=ec2-user n=ansible | TASK [07_app_dev : Check if database migration is needed] *****************************************************************************************************************************************************************************
+2024-10-16 11:39:37,054 p=21557 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:39:37,054 p=21557 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:39:37,061 p=21557 u=ec2-user n=ansible | TASK [07_app_dev : Run database migration] ********************************************************************************************************************************************************************************************
+2024-10-16 11:39:37,092 p=21557 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'migration_check.rc != 0' failed. The error was: error while evaluating conditional (migration_check.rc != 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/07_app_dev/tasks/main.yml': line 49, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Run database migration\n  ^ here\n"}
+2024-10-16 11:39:37,092 p=21557 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:39:37,095 p=21557 u=ec2-user n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************************************
+2024-10-16 11:39:37,095 p=21557 u=ec2-user n=ansible | 18.180.2.113               : ok=16   changed=8    unreachable=0    failed=0    skipped=27   rescued=0    ignored=5   
+2024-10-16 11:41:23,583 p=22035 u=ec2-user n=ansible | PLAY [all] ****************************************************************************************************************************************************************************************************************************
+2024-10-16 11:41:23,595 p=22035 u=ec2-user n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************************************
+2024-10-16 11:41:24,680 p=22035 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 11:41:24,686 p=22035 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***************************************************************************************************************************************************************************
+2024-10-16 11:41:24,989 p=22035 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 11:41:24,997 p=22035 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ************************************************************************************************************************************************************************************************
+2024-10-16 11:41:25,772 p=22035 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:41:25,779 p=22035 u=ec2-user n=ansible | TASK [01_setup : yum update] **********************************************************************************************************************************************************************************************************
+2024-10-16 11:41:27,217 p=22035 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 11:41:27,224 p=22035 u=ec2-user n=ansible | TASK [01_setup : Install required packages] *******************************************************************************************************************************************************************************************
+2024-10-16 11:41:31,614 p=22035 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:41:31,621 p=22035 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] ******************************************************************************************************************************************************************************************************
+2024-10-16 11:41:32,311 p=22035 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:41:32,318 p=22035 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *************************************************************************************************************************************************************************************************
+2024-10-16 11:41:33,039 p=22035 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:41:33,046 p=22035 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***************************************************************************************************************************************************************************************
+2024-10-16 11:41:33,374 p=22035 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:41:33,383 p=22035 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *****************************************************************************************************************************************************************************
+2024-10-16 11:41:33,711 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:33,718 p=22035 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] ***********************************************************************************************************************************************************************************************
+2024-10-16 11:41:33,955 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:33,961 p=22035 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *************************************************************************************************************************************************************************************
+2024-10-16 11:41:34,177 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:34,183 p=22035 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ****************************************************************************************************************************************************************************************
+2024-10-16 11:41:34,399 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:34,406 p=22035 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *************************************************************************************************************************************************************************************
+2024-10-16 11:41:34,629 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:34,635 p=22035 u=ec2-user n=ansible | TASK [03_rails : Install Rails] *******************************************************************************************************************************************************************************************************
+2024-10-16 11:41:34,856 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:34,862 p=22035 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] ******************************************************************************************************************************************************************************************
+2024-10-16 11:41:35,082 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:35,088 p=22035 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ****************************************************************************************************************************************************************************************
+2024-10-16 11:41:35,116 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:35,122 p=22035 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *********************************************************************************************************************************************************************************************
+2024-10-16 11:41:35,151 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:35,156 p=22035 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **************************************************************************************************************************************************************************************
+2024-10-16 11:41:35,376 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:35,383 p=22035 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ****************************************************************************************************************************************************************************
+2024-10-16 11:41:35,605 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:35,611 p=22035 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] **********************************************************************************************************************************************************************************************
+2024-10-16 11:41:35,829 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:35,836 p=22035 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *****************************************************************************************************************************************************************************************
+2024-10-16 11:41:35,868 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:35,874 p=22035 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] ***********************************************************************************************************************************************************************************************
+2024-10-16 11:41:36,099 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:36,107 p=22035 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *****************************************************************************************************************************************************************************************************
+2024-10-16 11:41:36,430 p=22035 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:41:36,438 p=22035 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ********************************************************************************************************************************************************************************************
+2024-10-16 11:41:36,654 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:36,661 p=22035 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***************************************************************************************************************************************************************************************
+2024-10-16 11:41:36,880 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:36,887 p=22035 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *********************************************************************************************************************************************************************************************
+2024-10-16 11:41:36,917 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:36,924 p=22035 u=ec2-user n=ansible | TASK [06_mysql : Import GPG key if not imported] **************************************************************************************************************************************************************************************
+2024-10-16 11:41:37,139 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:37,146 p=22035 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL 5.7 Community repository] *******************************************************************************************************************************************************************************
+2024-10-16 11:41:37,365 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:37,371 p=22035 u=ec2-user n=ansible | TASK [06_mysql : Check if MySQL is installed] *****************************************************************************************************************************************************************************************
+2024-10-16 11:41:37,588 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:37,594 p=22035 u=ec2-user n=ansible | TASK [06_mysql : Install yum-utils] ***************************************************************************************************************************************************************************************************
+2024-10-16 11:41:37,623 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:37,629 p=22035 u=ec2-user n=ansible | TASK [06_mysql : Update yum cache] ****************************************************************************************************************************************************************************************************
+2024-10-16 11:41:37,658 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:37,664 p=22035 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL and dependencies] **************************************************************************************************************************************************************************************
+2024-10-16 11:41:37,693 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:37,699 p=22035 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL Server] ************************************************************************************************************************************************************************************************
+2024-10-16 11:41:37,729 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:37,735 p=22035 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL service to start on boot] *******************************************************************************************************************************************************************************
+2024-10-16 11:41:37,764 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:37,772 p=22035 u=ec2-user n=ansible | TASK [06_mysql : Create database.yml from template] ***********************************************************************************************************************************************************************************
+2024-10-16 11:41:37,800 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:37,806 p=22035 u=ec2-user n=ansible | TASK [07_app_dev : Run bundle install] ************************************************************************************************************************************************************************************************
+2024-10-16 11:41:38,021 p=22035 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:41:38,021 p=22035 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:41:38,029 p=22035 u=ec2-user n=ansible | TASK [07_app_dev : Generate development.rb from template] *****************************************************************************************************************************************************************************
+2024-10-16 11:41:38,257 p=22035 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:41:38,264 p=22035 u=ec2-user n=ansible | TASK [07_app_dev : Configure S3 settings in storage.yml] ******************************************************************************************************************************************************************************
+2024-10-16 11:41:38,496 p=22035 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:41:38,505 p=22035 u=ec2-user n=ansible | TASK [07_app_dev : bin/setup] *********************************************************************************************************************************************************************************************************
+2024-10-16 11:41:38,721 p=22035 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:41:38,722 p=22035 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:41:38,728 p=22035 u=ec2-user n=ansible | TASK [07_app_dev : Check if assets are precompiled] ***********************************************************************************************************************************************************************************
+2024-10-16 11:41:38,961 p=22035 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:41:38,968 p=22035 u=ec2-user n=ansible | TASK [07_app_dev : asset precompile] **************************************************************************************************************************************************************************************************
+2024-10-16 11:41:39,187 p=22035 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:41:39,188 p=22035 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:41:39,194 p=22035 u=ec2-user n=ansible | TASK [07_app_dev : Check if database migration is needed] *****************************************************************************************************************************************************************************
+2024-10-16 11:41:39,412 p=22035 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:41:39,413 p=22035 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:41:39,420 p=22035 u=ec2-user n=ansible | TASK [07_app_dev : Run database migration] ********************************************************************************************************************************************************************************************
+2024-10-16 11:41:39,449 p=22035 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'migration_check.rc != 0' failed. The error was: error while evaluating conditional (migration_check.rc != 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/07_app_dev/tasks/main.yml': line 49, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Run database migration\n  ^ here\n"}
+2024-10-16 11:41:39,449 p=22035 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:41:39,452 p=22035 u=ec2-user n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************************************
+2024-10-16 11:41:39,452 p=22035 u=ec2-user n=ansible | 18.180.2.113               : ok=16   changed=8    unreachable=0    failed=0    skipped=27   rescued=0    ignored=5   
+2024-10-16 11:42:51,518 p=22440 u=ec2-user n=ansible | PLAY [all] ****************************************************************************************************************************************************************************************************************************
+2024-10-16 11:42:51,529 p=22440 u=ec2-user n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************************************
+2024-10-16 11:42:52,602 p=22440 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 11:42:52,607 p=22440 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***************************************************************************************************************************************************************************
+2024-10-16 11:42:52,906 p=22440 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 11:42:52,913 p=22440 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ************************************************************************************************************************************************************************************************
+2024-10-16 11:42:53,722 p=22440 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:42:53,729 p=22440 u=ec2-user n=ansible | TASK [01_setup : yum update] **********************************************************************************************************************************************************************************************************
+2024-10-16 11:42:55,163 p=22440 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 11:42:55,170 p=22440 u=ec2-user n=ansible | TASK [01_setup : Install required packages] *******************************************************************************************************************************************************************************************
+2024-10-16 11:42:59,830 p=22440 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:42:59,838 p=22440 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] ******************************************************************************************************************************************************************************************************
+2024-10-16 11:43:00,525 p=22440 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:43:00,531 p=22440 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *************************************************************************************************************************************************************************************************
+2024-10-16 11:43:01,209 p=22440 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:43:01,215 p=22440 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***************************************************************************************************************************************************************************************
+2024-10-16 11:43:01,566 p=22440 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:43:01,574 p=22440 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *****************************************************************************************************************************************************************************
+2024-10-16 11:43:01,909 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:01,916 p=22440 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] ***********************************************************************************************************************************************************************************************
+2024-10-16 11:43:02,147 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:02,154 p=22440 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *************************************************************************************************************************************************************************************
+2024-10-16 11:43:02,381 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:02,388 p=22440 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ****************************************************************************************************************************************************************************************
+2024-10-16 11:43:02,608 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:02,615 p=22440 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *************************************************************************************************************************************************************************************
+2024-10-16 11:43:02,840 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:02,847 p=22440 u=ec2-user n=ansible | TASK [03_rails : Install Rails] *******************************************************************************************************************************************************************************************************
+2024-10-16 11:43:03,072 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:03,079 p=22440 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] ******************************************************************************************************************************************************************************************
+2024-10-16 11:43:03,296 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:03,303 p=22440 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ****************************************************************************************************************************************************************************************
+2024-10-16 11:43:03,332 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:03,338 p=22440 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *********************************************************************************************************************************************************************************************
+2024-10-16 11:43:03,367 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:03,373 p=22440 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **************************************************************************************************************************************************************************************
+2024-10-16 11:43:03,592 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:03,599 p=22440 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ****************************************************************************************************************************************************************************
+2024-10-16 11:43:03,820 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:03,827 p=22440 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] **********************************************************************************************************************************************************************************************
+2024-10-16 11:43:04,048 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:04,055 p=22440 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *****************************************************************************************************************************************************************************************
+2024-10-16 11:43:04,083 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:04,090 p=22440 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] ***********************************************************************************************************************************************************************************************
+2024-10-16 11:43:04,321 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:04,327 p=22440 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *****************************************************************************************************************************************************************************************************
+2024-10-16 11:43:04,652 p=22440 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:43:04,661 p=22440 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ********************************************************************************************************************************************************************************************
+2024-10-16 11:43:04,880 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:04,887 p=22440 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***************************************************************************************************************************************************************************************
+2024-10-16 11:43:05,105 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:05,111 p=22440 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *********************************************************************************************************************************************************************************************
+2024-10-16 11:43:05,141 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:05,148 p=22440 u=ec2-user n=ansible | TASK [06_mysql : Import GPG key if not imported] **************************************************************************************************************************************************************************************
+2024-10-16 11:43:05,363 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:05,370 p=22440 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL 5.7 Community repository] *******************************************************************************************************************************************************************************
+2024-10-16 11:43:05,592 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:05,598 p=22440 u=ec2-user n=ansible | TASK [06_mysql : Check if MySQL is installed] *****************************************************************************************************************************************************************************************
+2024-10-16 11:43:05,814 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:05,821 p=22440 u=ec2-user n=ansible | TASK [06_mysql : Install yum-utils] ***************************************************************************************************************************************************************************************************
+2024-10-16 11:43:05,848 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:05,855 p=22440 u=ec2-user n=ansible | TASK [06_mysql : Update yum cache] ****************************************************************************************************************************************************************************************************
+2024-10-16 11:43:05,884 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:05,890 p=22440 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL and dependencies] **************************************************************************************************************************************************************************************
+2024-10-16 11:43:05,918 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:05,924 p=22440 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL Server] ************************************************************************************************************************************************************************************************
+2024-10-16 11:43:05,951 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:05,958 p=22440 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL service to start on boot] *******************************************************************************************************************************************************************************
+2024-10-16 11:43:05,986 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:05,993 p=22440 u=ec2-user n=ansible | TASK [06_mysql : Create database.yml from template] ***********************************************************************************************************************************************************************************
+2024-10-16 11:43:06,021 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:06,028 p=22440 u=ec2-user n=ansible | TASK [07_app_dev : Run bundle install] ************************************************************************************************************************************************************************************************
+2024-10-16 11:43:06,244 p=22440 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:43:06,244 p=22440 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:43:06,251 p=22440 u=ec2-user n=ansible | TASK [07_app_dev : Generate development.rb from template] *****************************************************************************************************************************************************************************
+2024-10-16 11:43:06,474 p=22440 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:43:06,480 p=22440 u=ec2-user n=ansible | TASK [07_app_dev : Configure S3 settings in storage.yml] ******************************************************************************************************************************************************************************
+2024-10-16 11:43:06,706 p=22440 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:43:06,712 p=22440 u=ec2-user n=ansible | TASK [07_app_dev : bin/setup] *********************************************************************************************************************************************************************************************************
+2024-10-16 11:43:06,931 p=22440 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:43:06,932 p=22440 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:43:06,938 p=22440 u=ec2-user n=ansible | TASK [07_app_dev : Check if assets are precompiled] ***********************************************************************************************************************************************************************************
+2024-10-16 11:43:07,159 p=22440 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:07,166 p=22440 u=ec2-user n=ansible | TASK [07_app_dev : asset precompile] **************************************************************************************************************************************************************************************************
+2024-10-16 11:43:07,381 p=22440 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:43:07,381 p=22440 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:43:07,388 p=22440 u=ec2-user n=ansible | TASK [07_app_dev : Check if database migration is needed] *****************************************************************************************************************************************************************************
+2024-10-16 11:43:07,608 p=22440 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:43:07,609 p=22440 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:43:07,616 p=22440 u=ec2-user n=ansible | TASK [07_app_dev : Run database migration] ********************************************************************************************************************************************************************************************
+2024-10-16 11:43:07,646 p=22440 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"msg": "The conditional check 'migration_check is defined and migration_check.rc != 0' failed. The error was: error while evaluating conditional (migration_check is defined and migration_check.rc != 0): 'dict object' has no attribute 'rc'\n\nThe error appears to be in '/home/ec2-user/lec13_CircleCI/.ansible/roles/07_app_dev/tasks/main.yml': line 49, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Run database migration\n  ^ here\n"}
+2024-10-16 11:43:07,648 p=22440 u=ec2-user n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************************************
+2024-10-16 11:43:07,649 p=22440 u=ec2-user n=ansible | 18.180.2.113               : ok=15   changed=8    unreachable=0    failed=1    skipped=27   rescued=0    ignored=4   
+2024-10-16 11:43:46,537 p=22856 u=ec2-user n=ansible | PLAY [all] ****************************************************************************************************************************************************************************************************************************
+2024-10-16 11:43:46,548 p=22856 u=ec2-user n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************************************
+2024-10-16 11:43:47,613 p=22856 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 11:43:47,619 p=22856 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] ***************************************************************************************************************************************************************************
+2024-10-16 11:43:47,911 p=22856 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 11:43:47,918 p=22856 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] ************************************************************************************************************************************************************************************************
+2024-10-16 11:43:48,698 p=22856 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:43:48,705 p=22856 u=ec2-user n=ansible | TASK [01_setup : yum update] **********************************************************************************************************************************************************************************************************
+2024-10-16 11:43:50,146 p=22856 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-16 11:43:50,153 p=22856 u=ec2-user n=ansible | TASK [01_setup : Install required packages] *******************************************************************************************************************************************************************************************
+2024-10-16 11:43:54,275 p=22856 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:43:54,283 p=22856 u=ec2-user n=ansible | TASK [02_ruby : git clone rbenv] ******************************************************************************************************************************************************************************************************
+2024-10-16 11:43:55,046 p=22856 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:43:55,053 p=22856 u=ec2-user n=ansible | TASK [02_ruby : git clone ruby-build] *************************************************************************************************************************************************************************************************
+2024-10-16 11:43:55,735 p=22856 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:43:55,741 p=22856 u=ec2-user n=ansible | TASK [02_ruby : insert/update /etc/profile env] ***************************************************************************************************************************************************************************************
+2024-10-16 11:43:56,094 p=22856 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:43:56,101 p=22856 u=ec2-user n=ansible | TASK [02_ruby : Check if Ruby 3.2.3 is already installed] *****************************************************************************************************************************************************************************
+2024-10-16 11:43:56,445 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:56,452 p=22856 u=ec2-user n=ansible | TASK [02_ruby : rbenv install -v 3.2.3] ***********************************************************************************************************************************************************************************************
+2024-10-16 11:43:56,693 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:56,700 p=22856 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] *************************************************************************************************************************************************************************************
+2024-10-16 11:43:56,933 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:56,940 p=22856 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ****************************************************************************************************************************************************************************************
+2024-10-16 11:43:57,164 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:57,171 p=22856 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] *************************************************************************************************************************************************************************************
+2024-10-16 11:43:57,411 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:57,417 p=22856 u=ec2-user n=ansible | TASK [03_rails : Install Rails] *******************************************************************************************************************************************************************************************************
+2024-10-16 11:43:57,653 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:57,660 p=22856 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is installed] ******************************************************************************************************************************************************************************************
+2024-10-16 11:43:57,905 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:57,911 p=22856 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ****************************************************************************************************************************************************************************************
+2024-10-16 11:43:57,939 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:57,946 p=22856 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] *********************************************************************************************************************************************************************************************
+2024-10-16 11:43:57,974 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:57,980 p=22856 u=ec2-user n=ansible | TASK [04_nodejs : Check if Node.js is installed] **************************************************************************************************************************************************************************************
+2024-10-16 11:43:58,228 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:58,235 p=22856 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if not installed] ****************************************************************************************************************************************************************************
+2024-10-16 11:43:58,484 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:58,491 p=22856 u=ec2-user n=ansible | TASK [05_yarn : Ensure npm is installed] **********************************************************************************************************************************************************************************************
+2024-10-16 11:43:58,729 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:58,736 p=22856 u=ec2-user n=ansible | TASK [05_yarn : Install npm if not installed] *****************************************************************************************************************************************************************************************
+2024-10-16 11:43:58,766 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:58,773 p=22856 u=ec2-user n=ansible | TASK [05_yarn : Install Yarn using npm] ***********************************************************************************************************************************************************************************************
+2024-10-16 11:43:59,027 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:59,033 p=22856 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *****************************************************************************************************************************************************************************************************
+2024-10-16 11:43:59,387 p=22856 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:43:59,395 p=22856 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] ********************************************************************************************************************************************************************************************
+2024-10-16 11:43:59,625 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:59,632 p=22856 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] ***************************************************************************************************************************************************************************************
+2024-10-16 11:43:59,871 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:59,878 p=22856 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] *********************************************************************************************************************************************************************************************
+2024-10-16 11:43:59,908 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:43:59,915 p=22856 u=ec2-user n=ansible | TASK [06_mysql : Import GPG key if not imported] **************************************************************************************************************************************************************************************
+2024-10-16 11:44:00,161 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:44:00,168 p=22856 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL 5.7 Community repository] *******************************************************************************************************************************************************************************
+2024-10-16 11:44:00,385 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:44:00,392 p=22856 u=ec2-user n=ansible | TASK [06_mysql : Check if MySQL is installed] *****************************************************************************************************************************************************************************************
+2024-10-16 11:44:00,605 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:44:00,612 p=22856 u=ec2-user n=ansible | TASK [06_mysql : Install yum-utils] ***************************************************************************************************************************************************************************************************
+2024-10-16 11:44:00,640 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:44:00,647 p=22856 u=ec2-user n=ansible | TASK [06_mysql : Update yum cache] ****************************************************************************************************************************************************************************************************
+2024-10-16 11:44:00,676 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:44:00,682 p=22856 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL and dependencies] **************************************************************************************************************************************************************************************
+2024-10-16 11:44:00,710 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:44:00,717 p=22856 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL Server] ************************************************************************************************************************************************************************************************
+2024-10-16 11:44:00,747 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:44:00,753 p=22856 u=ec2-user n=ansible | TASK [06_mysql : Enable MySQL service to start on boot] *******************************************************************************************************************************************************************************
+2024-10-16 11:44:00,782 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:44:00,788 p=22856 u=ec2-user n=ansible | TASK [06_mysql : Create database.yml from template] ***********************************************************************************************************************************************************************************
+2024-10-16 11:44:00,816 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:44:00,822 p=22856 u=ec2-user n=ansible | TASK [07_app_dev : Run bundle install] ************************************************************************************************************************************************************************************************
+2024-10-16 11:44:01,039 p=22856 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:44:01,040 p=22856 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:44:01,046 p=22856 u=ec2-user n=ansible | TASK [07_app_dev : Generate development.rb from template] *****************************************************************************************************************************************************************************
+2024-10-16 11:44:01,276 p=22856 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:44:01,286 p=22856 u=ec2-user n=ansible | TASK [07_app_dev : Configure S3 settings in storage.yml] ******************************************************************************************************************************************************************************
+2024-10-16 11:44:01,518 p=22856 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-16 11:44:01,526 p=22856 u=ec2-user n=ansible | TASK [07_app_dev : bin/setup] *********************************************************************************************************************************************************************************************************
+2024-10-16 11:44:01,757 p=22856 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:44:01,758 p=22856 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:44:01,765 p=22856 u=ec2-user n=ansible | TASK [07_app_dev : Check if assets are precompiled] ***********************************************************************************************************************************************************************************
+2024-10-16 11:44:01,992 p=22856 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-16 11:44:02,000 p=22856 u=ec2-user n=ansible | TASK [07_app_dev : asset precompile] **************************************************************************************************************************************************************************************************
+2024-10-16 11:44:02,221 p=22856 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:44:02,222 p=22856 u=ec2-user n=ansible | ...ignoring
+2024-10-16 11:44:02,228 p=22856 u=ec2-user n=ansible | TASK [07_app_dev : Run database migration] ********************************************************************************************************************************************************************************************
+2024-10-16 11:44:02,448 p=22856 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: '/home/ec2-user/raisetech-live8-sample-app'"}
+2024-10-16 11:44:02,450 p=22856 u=ec2-user n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************************************
+2024-10-16 11:44:02,450 p=22856 u=ec2-user n=ansible | 18.180.2.113               : ok=14   changed=8    unreachable=0    failed=1    skipped=27   rescued=0    ignored=3   

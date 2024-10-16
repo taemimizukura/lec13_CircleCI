@@ -12,8 +12,13 @@ Parameters:
   MyIP:
     Description: IP address allowed to access EC2
     Type: String
+
+  ControlNodeIP:
+    Description: SSH access from control node #コントロールノードのIPアドレス
+    Type: String
+    Default: 54.238.57.188
   
-  ExistingElasticIP: #既存のEIPを選択する
+  ExistingEIP: #ターゲットノード用の既存のEIPを入力する
     Description: The existing Elastic IP to associate with the instance.
     Type: String
 
@@ -27,7 +32,7 @@ Resources:
       InstanceType: t2.micro
       KeyName: !Ref MyKeyPair
       SecurityGroupIds:
-        - !ImportValue EC2SecurityGroup
+        - !Ref EC2SecurityGroupTarget
       ImageId: ami-0d889f77081190db1
       SubnetId: !ImportValue PublicSubnet01
       IamInstanceProfile: !Ref InstanceProfile
@@ -50,7 +55,43 @@ Resources:
     Type: AWS::EC2::EIPAssociation
     Properties:
       InstanceId: !Ref MyEC2Instance2
-      EIP: !Ref ExistingElasticIP
+      EIP: !Ref ExistingEIP
+
+#--------------------------------------------------------#
+# Security Group for EC2
+#--------------------------------------------------------#
+  EC2SecurityGroupTarget:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for EC2
+      GroupName: !Sub ${NameBase}-ec2-sg
+      VpcId: !ImportValue MyVpc
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80  #HTTP
+          ToPort: 80
+          CidrIp: !Sub ${ControlNodeIP}/32
+
+        - IpProtocol: tcp
+          FromPort: 22    #SSH
+          ToPort: 22
+          CidrIp: !Sub ${ControlNodeIP}/32
+
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !Sub ${MyIP}/32
+          
+        - IpProtocol: tcp
+          FromPort: 3000  #アプリ用
+          ToPort: 3000 
+          CidrIp: !Sub ${ControlNodeIP}/32
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: !Sub ${NameBase}-ec2-sg
 
 #--------------------------------------------------------#
 # ALB(Application Load Balancer)
@@ -153,4 +194,3 @@ Resources:
     Properties:
       Roles:
         - Ref: S3FullAccessRole
-

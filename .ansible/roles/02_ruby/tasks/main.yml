@@ -5,13 +5,13 @@
   git:
     repo: https://github.com/rbenv/rbenv.git
     dest: /home/ec2-user/.rbenv
-    creates: /home/ec2-user/.rbenv  #既に存在する場合スキップ
+    update: yes
 
 - name: git clone ruby-build
   git:
     repo: https://github.com/rbenv/ruby-build.git
     dest: /home/ec2-user/.rbenv/plugins/ruby-build
-    creates: /home/ec2-user/.rbenv/plugins/ruby-build
+    update: yes
 
 - name: insert/update /etc/profile env
   become_user: root    #ルート権限で実行
