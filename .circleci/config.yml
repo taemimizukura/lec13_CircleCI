@@ -28,32 +28,11 @@ jobs:
           region: AWS_DEFAULT_REGION
 
       - run:
-          name: Install jq
-          command: |
-            apt-get update && apt-get install -y j
-
-      - run:
           name: Deploy to AWS from template
           command: |
             aws cloudformation deploy \
               --template-file cloudformation/2_RDS_S3.yml \
               --stack-name Lec13-RDS 
-
-  build:
-    docker:
-      - image: circleci/python:2.7
-    steps:
-      - run:
-          name: Set Environment Variables
-          command: |
-            echo 'export MY_VAR="my_value"' >> $BASH_ENV
-      - run:
-          name: Get CloudFormation Outputs
-          command: |
-            OUTPUTS=$(aws cloudformation describe-stacks --stack-name Lec13-RDS --query "Stacks[0].Outputs" --output json)
-            echo "OUTPUTS: $OUTPUTS"
-            echo "export RDS_ENDPOINT=$(echo $OUTPUTS | jq -r '.[] | select(.OutputKey==`RDSEndpoint`) | .OutputValue')" >> $BASH_ENV
-            echo "export S3_BUCKET=$(echo $OUTPUTS | jq -r '.[] | select(.OutputKey==`S3Bucket`) | .OutputValue')" >> $BASH_ENV
 
   execute-ansible:
     docker:
@@ -68,3 +47,14 @@ jobs:
       - ansible-playbook/playbook:
           playbook: ansible/playbook.yml
           playbook-options: ansible/inventory
+
+workflows:
+  workflow:
+    jobs:
+      - cfn-lint
+      - execute-cloudformation:
+          requires:
+            - cfn-lint
+      - execute-ansible:
+          requires:
+            - execute-cloudformation
