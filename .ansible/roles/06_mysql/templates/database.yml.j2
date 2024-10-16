@@ -13,9 +13,9 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: dbadmin
-  password: "{{ lookup('env', 'RDS_PASSWORD') }}"
-  host: "{{ lookup('env', 'RDS_ENDPOINT') }}"
+  username: {{ db_admin }}
+  password: {{ db_passsword }}
+  host: {{ db_host }}
   port: 3306
 
 development:

@@ -6,6 +6,16 @@ orbs:
   ruby: circleci/ruby@2.1.4
 
 jobs:
+  cfn-lint:
+    executor: python/default
+    steps:
+      - checkout
+      - run: pip install cfn-lint
+      - run:
+          name: Run cfn-lint for CloudFormation
+          command: |
+            cfn-lint -i W3002 -t cloudformation/*.yml
+
   execute-cloudformation:
     executor: aws-cli/default
     steps:
@@ -19,7 +29,24 @@ jobs:
           command: |
             aws cloudformation deploy \
               --template-file cloudformation/2_RDS_S3.yml \
-              --stack-name Lec13-RDS
+              --stack-name Lec13-RDS 
+
+  build:
+    docker:
+      - image: circleci/python:2.7
+    steps:
+      - run:
+          name: Set Environment Variables
+          command: |
+            echo 'export MY_VAR="my_value"' >> $BASH_ENV
+      - run:
+          name: Get CloudFormation Outputs
+          command: |
+            OUTPUTS=$(aws cloudformation describe-stacks --stack-name Lec13-RDS --query "Stacks[0].Outputs" --output json)
+            echo "OUTPUTS: $OUTPUTS"
+            echo "export RDS_ENDPOINT=$(echo $OUTPUTS | jq -r '.[] | select(.OutputKey==`RDSEndpoint`) | .OutputValue')" >> $BASH_ENV
+            echo "export S3_BUCKET=$(echo $OUTPUTS | jq -r '.[] | select(.OutputKey==`S3Bucket`) | .OutputValue')" >> $BASH_ENV
+            
 
   execute-ansible:
     executor: ansible-playbook/default
@@ -37,7 +64,10 @@ jobs:
 workflows:
   workflow:
     jobs:
-      - execute-cloudformation
+      - cfn-lint  # Lint jobを最初に実行
+      - execute-cloudformation:
+          requires:
+            - cfn-lint  # cfn-lintが成功した後に実行
       - execute-ansible:
           requires:
-            - execute-cloudformation
+            - execute-cloudformation  # CloudFormationが成功した後に実行

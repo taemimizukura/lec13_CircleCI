@@ -104,4 +104,12 @@ Resources:
             Resource: !Sub "arn:${AWS::Partition}:s3:::${NameBase}-bucket/*"
 
 
-
+#ansibleに渡すように出力
+Outputs:     
+  RDSEndpoint:
+    Description: "Endpoint of the RDS instance"
+    Value: !GetAtt MyRDS.Endpoint.Address
+  
+  S3Bucket:
+    Description: "S3 Bucket Name"
+    Value: !Ref S3Bucket

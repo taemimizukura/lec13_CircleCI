@@ -1,0 +1,29 @@
+---
+#lec13_CircleCI/.ansible/roles/08_nginx/tasks/main.yml
+- name: Install Nginx
+  become_user: root
+  yum:
+    name: nginx
+    state: present
+
+- name: Create rails.conf
+  become_user: root
+  template:
+    src: rails.conf.j2
+    dest: "/etc/nginx/nginx.conf" #設定ファイルの変更
+
+
+- name: Start Nginx service
+  become_user: root
+  service:
+    name: nginx
+    state: started
+    enabled: yes  # サーバー起動時に自動で起動
+  register: nginx_started
+
+- name: Reload Nginx service
+  become_user: root
+  service:
+    name: nginx
+    state: reloaded
+  when: nginx_started.changed  # Nginxが変更された場合のみリロード

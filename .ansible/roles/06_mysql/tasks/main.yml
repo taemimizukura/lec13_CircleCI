@@ -1,60 +1,59 @@
 ---
+#lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml
+- name: Check if MariaDB is installed
+  command: rpm -q mariadb
+  register: mariadb_installed
+  ignore_errors: yes
+
 - name: Remove MariaDB packages
   shell: |
     yum remove -y mariadb-*
+  when: mariadb_installed.rc == 0
 
-- name: Install MySQL repository
-  become: yes
-  yum:
-    name: 'https://repo.mysql.com//mysql80-community-release-el7-11.noarch.rpm'
-    state: present
 
-- name: Import GPG key
+- name: Check if GPG key is imported
+  command: rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+  register: gpg_key_imported
+  ignore_errors: yes
+
+- name: Import GPG key if not imported
   shell: |
     rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
-  become: yes
+  become_user: root
+  when: gpg_key_imported.rc != 0
 
-- name: Disable MySQL 8.0 Community repository
-  shell: |
-    yum-config-manager --disable mysql80-community || true
-  ignore_errors: yes 
 
 - name: Enable MySQL 5.7 Community repository
   shell: |
     yum-config-manager --enable mysql57-community || true
-  ignore_errors: yes  
 
 - name: Install yum-utils
   shell: |
     yum install -y yum-utils
+  when: mysql_installed.changed
 
 - name: Update yum cache
   shell: |
     yum makecache
+  when: mysql_installed.changed
 
 - name: Install MySQL and dependencies
   shell: |
     yum install -y MySQL-python mysql-devel
+  when: mysql_installed.changed
 
 - name: Install MySQL Server
   shell: bash -lc "yum install -y mysql-community-server"
-  become: yes
-
-- name: Ensure MySQL is started
-  shell: bash -lc "systemctl start mysqld"
-  become: yes
+  become_user: root
+  when: mysql_installed.changed
 
 - name: Enable MySQL service to start on boot
   shell: bash -lc "systemctl enable mysqld"
-  become: yes
-
-- name: Check MySQL service status
-  shell: bash -lc "systemctl status mysqld"
-  register: mysql_status
-  ignore_errors: yes
+  become_user: root
+  when: mysql_installed.changed
 
 - name: Create database.yml from template
-  become: yes
   template:
     src: database.yml.j2
     dest: "{{ app_dir }}/config/database.yml"
+  when: mysql_installed.changed

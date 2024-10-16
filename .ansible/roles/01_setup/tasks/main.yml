@@ -1,22 +1,20 @@
 ---
-# tasks/main.yml
+# lec13_CircleCI/.ansible/roles/01_setup/tasks/main.yml
+- name: Check if the application directory exists
+  stat:
+    path: "{{ app_dir }}"
+  register: app_dir_stat
+
 - name: Clone the repository
   git:
     repo: 'https://github.com/yuta-ushijima/raisetech-live8-sample-app.git'
-    dest: '/home/ec2-user/raisetech-live8-sample-app/'
-    force: yes
-    
-- name: Set ownership of the application directory
-  file:
-    path: /home/ec2-user/raisetech-live8-sample-app
-    owner: ec2-user
-    group: ec2-user
-    recurse: yes
+    dest: "{{ app_dir }}"
+  when: not app_dir_stat.stat.exists
 
 - name: 'yum update'
   yum:
     name: '*'
-    state: latest
+    state: latest  #最新版あればアップデート
 
 - name: 'Install required packages'
   yum:
@@ -37,4 +35,4 @@
       - curl
       - bzip2
       - bzip2-devel
-    state: present
+    state: present    #パッケージがインストール済なら何もしない

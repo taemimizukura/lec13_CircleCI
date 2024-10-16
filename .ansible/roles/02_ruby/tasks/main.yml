@@ -1,27 +1,26 @@
+---
+#lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml
+
 - name: git clone rbenv
   git:
     repo: https://github.com/rbenv/rbenv.git
     dest: /home/ec2-user/.rbenv
-  become: yes
-  become_user: ec2-user
+    creates: /home/ec2-user/.rbenv  #既に存在する場合スキップ
 
 - name: git clone ruby-build
   git:
     repo: https://github.com/rbenv/ruby-build.git
     dest: /home/ec2-user/.rbenv/plugins/ruby-build
-  become: yes
-  become_user: ec2-user
+    creates: /home/ec2-user/.rbenv/plugins/ruby-build
 
 - name: insert/update /etc/profile env
-  blockinfile:
-    path: /etc/profile
+  become_user: root    #ルート権限で実行
+  blockinfile:    #ブロックを挿入または更新（重複しない）
+    path: /etc/profile   #システム全体で環境変数を有効にする
     block: |
       export RBENV_ROOT="/home/ec2-user/.rbenv"
       export PATH="${RBENV_ROOT}/bin:${PATH}"
       eval "$(rbenv init --no-rehash -)"
-
-- name: source /etc/profile to apply changes
-  shell: bash -lc "source /etc/profile"
 
 - name: Check if Ruby 3.2.3 is already installed
   command: /home/ec2-user/.rbenv/shims/ruby -v
@@ -29,20 +28,22 @@
   ignore_errors: yes
 
 - name: rbenv install -v 3.2.3
-  shell: bash -lc "rbenv install {{ ruby_version }}"
+  shell: bash -lc "rbenv install 3.2.3"
   when: ruby_version.stdout is not defined or ruby_version.stdout is not search('3.2.3')
 
-- name: rbenv exec gem install bundler
+- name: Set Ruby 3.2.3 as global version
+  shell: bash -lc "rbenv global 3.2.3"
+  when: ruby_version.stdout is not defined or ruby_version.stdout is not search('3.2.3')
+
+- name: Check if bundler is installed
+  command: /home/ec2-user/.rbenv/shims/gem list bundler -i
+  register: bundler_installed
+  ignore_errors: yes
+
+- name: Install bundler if not installed
   shell: bash -lc "gem install bundler"
-  when: ruby_version.stdout is defined and ruby_version.stdout is search('3.2.3')
+  when: bundler_installed.stdout is not defined or bundler_installed.stdout == "false"
   ignore_errors: yes
 
-- name: rbenv global 3.2.3
-  shell: bash -lc "rbenv global {{ ruby_version }}"
-  when: ruby_version.stdout is not defined or ruby_version.stdout is not search('3.2.3')
-
-- name: gem update --system
-  shell: bash -lc "gem update --system"
-  ignore_errors: yes
 
 

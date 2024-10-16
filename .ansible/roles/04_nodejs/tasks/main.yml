@@ -1,26 +1,32 @@
+---
+#lec13_CircleCI/.ansible/roles/04_nodejs/tasks/main.yml
+- name: Check if NVM is installed
+  command: command -v nvm
+  register: nvm_installed
+  ignore_errors: yes
+
 - name: Download NVM install script
   shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
   args:
     executable: /bin/bash
   environment:
-    HOME: "{{ ansible_env.HOME }}"
+    HOME: /home/ec2-user
+  when: nvm_installed.rc != 0  # NVMがインストールされていない場合のみ実行
 
-- name: Load NVM and Install Node.js 17.9.1
+- name: Check if Node.js 17.9.1 is installed
+  shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    nvm list 17.9.1
+  register: node_installed
+  ignore_errors: yes
+
+- name: Install Node.js 17.9.1 if not installed
   shell: |
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
     nvm install 17.9.1
+  when: node_installed.stdout is not search("v17.9.1")
   args:
     executable: /bin/bash
 
-- name: Check Node.js version
-  shell: |
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-    node -v
-  register: node_version
-  args:
-    executable: /bin/bash
-
-- debug:
-    var: node_version.stdout

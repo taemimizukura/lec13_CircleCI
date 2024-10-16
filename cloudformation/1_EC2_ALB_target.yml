@@ -153,3 +153,4 @@ Resources:
     Properties:
       Roles:
         - Ref: S3FullAccessRole
+
