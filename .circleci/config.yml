@@ -33,6 +33,12 @@ jobs:
             aws cloudformation deploy \
               --template-file cloudformation/2_RDS_S3.yml \
               --stack-name Lec13-RDS 
+      - run:
+          name: Get RDS Endpoint
+          command: |
+            RDS_ENDPOINT=$(aws rds describe-db-instances --db-instance-identifier lec13-target-rds --query "DBInstances[*].Endpoint.Address" --output text --region ap-northeast-1)
+            echo "RDS_ENDPOINT=${RDS_ENDPOINT}" >> $BASH_ENV
+            echo "RDS_ENDPOINT is set to ${RDS_ENDPOINT}"
 
   execute-ansible:
     docker:
@@ -44,9 +50,10 @@ jobs:
             - "SHA256:YWc9ZVl+xn5VYm+uCYia3YU+fZ0QIenaA4LcnI6ZK6E"
       - ansible-playbook/install:
           version: 2.9.27
-      - ansible-playbook/playbook:
-          playbook: ansible/playbook.yml
-          playbook-options: ansible/inventory
+      - run:
+          name: Run Ansible Playbook
+          command: |
+            ansible-playbook -i .ansible/inventory .ansible/playbook.yml --extra-vars "rds_endpoint=${RDS_ENDPOINT}
 
   test-serverspec:
     docker:
