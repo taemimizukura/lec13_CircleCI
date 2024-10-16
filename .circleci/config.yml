@@ -19,7 +19,7 @@ jobs:
 
   execute-cloudformation:
     docker:
-      - image: amazon/aws-cli:2.0.0
+      - image: amazon/aws-cli:latest
     steps:
       - checkout
       - aws-cli/setup:
