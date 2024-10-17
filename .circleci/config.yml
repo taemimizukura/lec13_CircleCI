@@ -33,12 +33,20 @@ jobs:
             aws cloudformation deploy \
               --template-file cloudformation/2_RDS_S3.yml \
               --stack-name Lec13-RDS 
+
       - run:
           name: Get RDS Endpoint
           command: |
-            RDS_ENDPOINT=$(aws rds describe-db-instances --db-instance-identifier lec13-target-rds --query "DBInstances[*].Endpoint.Address" --output text --region ap-northeast-1)
+            RDS_ENDPOINT=$(aws cloudformation describe-stacks --stack-name Lec13-RDS --query "Stacks[0].Outputs[?OutputKey=='RDSEndpoint'].OutputValue" --output text)
             echo "RDS_ENDPOINT=${RDS_ENDPOINT}" >> $BASH_ENV
             echo "RDS_ENDPOINT is set to ${RDS_ENDPOINT}"
+
+      - run:
+          name: Get S3 Bucket Name
+          command: |
+            S3_BUCKET=$(aws cloudformation describe-stacks --stack-name Lec13-RDS --query "Stacks[0].Outputs[?OutputKey=='S3Bucket'].OutputValue" --output text)
+            echo "S3_BUCKET=${S3_BUCKET}" >> $BASH_ENV
+            echo "S3_BUCKET is set to ${S3_BUCKET}"
 
   execute-ansible:
     docker:
@@ -50,15 +58,33 @@ jobs:
             - "SHA256:GGnZbMk8Sh2fjRjHpTcrTyZxFL+28kescRq098wu4Zs"
       - ansible-playbook/install:
           version: 2.9.27
+
       - run:
-          name: List project files
+          name: List Current Directory
           command: |
-            ls -l /home/circleci/project/
-            ls -l /home/circleci/project/.ansible/
+            pwd
+            ls -la
+
+      - run:
+          name: Check if playbook.yml exists
+          command: |
+            if [ -f /home/ec2-user/lec13_CircleCI/.ansible/playbook.yml ]; then
+              echo "playbook.yml exists"
+            else
+              echo "playbook.yml does not exist"
+              exit 1
+            fi
+
       - run:
           name: Run Ansible Playbook
           command: |
-            ansible-playbook -i /home/ec2-user/lec13_CircleCI/.ansible/inventory.ini /home/ec2-user/lec13_CircleCI/.ansible/playbook.yml -vvv --extra-vars "rds_endpoint=${RDS_ENDPOINT} ssh_private_key_path=/home/circleci/.ssh/id_rsa"
+            ansible-playbook \
+              -i /home/ec2-user/lec13_CircleCI/.ansible/inventory.ini \
+              /home/ec2-user/lec13_CircleCI/.ansible/playbook.yml \
+              -vvv \
+              --extra-vars "rds_endpoint=${RDS_ENDPOINT} \
+                            s3_bucket=${S3_BUCKET} \
+                            ssh_private_key_path=/home/ec2-user/.ssh/id_rsa"
 
   test-serverspec:
     docker:
