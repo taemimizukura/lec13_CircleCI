@@ -1,49 +1,93 @@
 ---
 #lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml
 
-- name: git clone rbenv
+- name: 'Set rbenv path'
+  set_fact:
+    rbenv_path: "/home/ec2-user/.rbenv/bin"
+
+- name: 'Check if rbenv is installed'
+  shell: bash -lc "rbenv --version"
+  register: rbenv_installed
+  changed_when: no
+  ignore_errors: yes
+  environment:
+    PATH: "{{ rbenv_path }}:{{ ansible_env.PATH }}"
+
+- name: 'Clone rbenv if not installed'
   git:
     repo: https://github.com/rbenv/rbenv.git
     dest: /home/ec2-user/.rbenv
-    update: yes
+  when: rbenv_installed.rc != 0  # rbenvがない場合
 
-- name: git clone ruby-build
+# Update .bashrc for the user
+- name: 'Add rbenv to PATH in .bashrc'
+  lineinfile:
+    path: /home/ec2-user/.bashrc
+    line: 'export PATH="$HOME/.rbenv/bin:$PATH"'
+    state: present
+
+- name: 'Add rbenv init to .bashrc'
+  lineinfile:
+    path: /home/ec2-user/.bashrc
+    line: 'eval "$(rbenv init -)"'
+    state: present
+
+# Verify that the changes are effective
+- name: 'Reload .bashrc'
+  shell: |
+    source /home/ec2-user/.bashrc
+    rbenv --version
+  register: rbenv_version_check
+  args:
+    executable: /bin/bash
+
+- name: 'Check rbenv version'
+  debug:
+    msg: "rbenv version: {{ rbenv_version_check.stdout }}"
+  when: rbenv_version_check.rc == 0
+
+- name: 'Check if ruby-build is installed'
+  command: ls /home/ec2-user/.rbenv/plugins/ruby-build
+  register: ruby_build_installed
+  changed_when: no
+  ignore_errors: yes
+
+- name: 'Clone ruby-build if not installed'
   git:
     repo: https://github.com/rbenv/ruby-build.git
     dest: /home/ec2-user/.rbenv/plugins/ruby-build
-    update: yes
+  when: ruby_build_installed.rc != 0   # ruby-buildがない場合
 
-- name: insert/update /etc/profile env
-  become_user: root    #ルート権限で実行
-  blockinfile:    #ブロックを挿入または更新（重複しない）
-    path: /etc/profile   #システム全体で環境変数を有効にする
+# Insert/update /etc/profile env
+- name: 'Insert/update /etc/profile env'
+  become: yes
+  blockinfile:
+    path: /etc/profile
     block: |
       export RBENV_ROOT="/home/ec2-user/.rbenv"
       export PATH="${RBENV_ROOT}/bin:${PATH}"
       eval "$(rbenv init --no-rehash -)"
+  notify: Reload profile
 
-- name: Check if Ruby 3.2.3 is already installed
-  command: /home/ec2-user/.rbenv/shims/ruby -v
-  register: ruby_version
-  ignore_errors: yes
+- name: 'Install Ruby 3.2.3 with rbenv and log output'
+  shell: |
+    export RUBY_CONFIGURE_OPTS="--disable-install-doc"
+    eval "$(rbenv init -)"
+    rbenv install --skip-existing 3.2.3 > /tmp/rbenv_install.log 2>&1   #3.2.3バージョンがある場合スキップ
+  environment:
+    RBENV_ROOT: "/home/ec2-user/.rbenv"
+    PATH: "/home/ec2-user/.rbenv/bin:{{ ansible_env.PATH }}"
 
-- name: rbenv install -v 3.2.3
-  shell: bash -lc "rbenv install 3.2.3"
-  when: ruby_version.stdout is not defined or ruby_version.stdout is not search('3.2.3')
 
-- name: Set Ruby 3.2.3 as global version
+- name: 'Set Ruby 3.2.3 as global version'
   shell: bash -lc "rbenv global 3.2.3"
-  when: ruby_version.stdout is not defined or ruby_version.stdout is not search('3.2.3')
+  when: rbenv_installed.rc == 0  # rbenvがある場合
 
-- name: Check if bundler is installed
+- name: 'Check if bundler is installed'
   command: /home/ec2-user/.rbenv/shims/gem list bundler -i
   register: bundler_installed
   ignore_errors: yes
 
-- name: Install bundler if not installed
+- name: 'Install bundler if not installed'
   shell: bash -lc "gem install bundler"
-  when: bundler_installed.stdout is not defined or bundler_installed.stdout == "false"
-  ignore_errors: yes
-
-
-
+  when: bundler_installed.rc != 0  # bundlerがない場合

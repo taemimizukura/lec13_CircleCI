@@ -1,20 +1,25 @@
 ---
 # lec13_CircleCI/.ansible/roles/01_setup/tasks/main.yml
-- name: Check if the application directory exists
+- name: 'Check if the application directory exists'
   stat:
     path: "{{ app_dir }}"
   register: app_dir_stat
 
-- name: Clone the repository
+- name: 'Clone the repository'
   git:
     repo: 'https://github.com/yuta-ushijima/raisetech-live8-sample-app.git'
     dest: "{{ app_dir }}"
   when: not app_dir_stat.stat.exists
 
-- name: 'yum update'
+- name: Clean YUM cache
+  command: yum clean all
+  become: yes
+
+- name: Update all packages on the system
   yum:
-    name: '*'
-    state: latest  #最新版あればアップデート
+    name: "*"
+    state: latest
+  become: yes
 
 - name: 'Install required packages'
   yum:
@@ -32,8 +37,6 @@
       - sqlite-devel
       - libffi-devel
       - ImageMagick
-      - ImageMagick-devel
       - curl
-      - bzip2
-      - bzip2-devel
-    state: present    #パッケージがインストール済なら何もしない
+    state: present
+  become: yes

@@ -1,31 +1,22 @@
 ---
 #lec13_CircleCI/.ansible/roles/05_yarn/tasks/main.yml
-- name: Ensure npm is installed
-  command: npm -v
-  register: npm_installed
-  ignore_errors: true
 
-- name: Install npm if not installed
-  command: curl -L https://www.npmjs.com/install.sh | sh
-  when: npm_installed is failed
-  become: yes
+- name: 'Check if yarn is installed'
+  shell: bash -lc "yarn --version"
+  register: yarn_installed
+  changed_when: no
+  ignore_errors: yes
 
-- name: Install Yarn using npm
-  command: npm install --prefix /usr/local yarn
-  become: yes
+- name: 'download yarn installer'
+  get_url: url=https://yarnpkg.com/install.sh dest=/tmp/yarn-installer.sh
+  when: yarn_installed is failed
 
+- name: 'execute the yarn-installer.sh'
+  shell: sh /tmp/yarn-installer.sh
+  when: yarn_installed is failed
 
-- name: Add Yarn to PATH
-  lineinfile:
-    path: ~/.bashrc
-    line: 'export PATH="$PATH:/usr/local/bin/yarn"'
-    state: present
+- name: 'Add Yarn to PATH'
+  shell: echo 'export PATH="$PATH:$HOME/.yarn/bin"' >> ~/.bashrc
 
-- name: Ensure .bashrc is sourced
-  command: source ~/.bashrc
-
-
-
-
-
-
+- name: 'Ensure .bashrc is sourced'
+  shell: source ~/.bashrc

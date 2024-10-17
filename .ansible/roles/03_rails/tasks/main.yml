@@ -1,6 +1,11 @@
 ---
 #lec13_CircleCI/.ansible/roles/03_rails/tasks/main.yml
-- name: Install Rails
+
+- name: Check if Rails is installed
+  command: /home/ec2-user/.rbenv/shims/gem list rails -i
+  register: rails_installed
+  ignore_errors: yes
+
+- name: Install Rails if not installed
   shell: bash -lc "gem install rails -v {{ rails_version }} --no-document"
-  register: rails_install
-  changed_when: "'Successfully installed' in rails_install.stdout"
+  when: rails_installed.stdout != "true"

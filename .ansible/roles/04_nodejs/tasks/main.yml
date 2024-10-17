@@ -1,27 +1,37 @@
----
-#lec13_CircleCI/.ansible/roles/04_nodejs/tasks/main.yml
-- name: Check if NVM is installed
-  command: command -v nvm
-  register: nvm_installed
-  ignore_errors: true
+--- 
+# lec13_CircleCI/.ansible/roles/04_nodejs/tasks/main.yml
 
-- name: Download NVM install script
+- name: Check if nvm is installed
+  shell: bash -lc "nvm --version"
+  register: nvm_installed
+  changed_when: no
+  ignore_errors: yes
+
+- name: 'Download NVM install script'
   get_url:
     url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh
     dest: /tmp/install_nvm.sh
-  when: nvm_installed is failed  # nvmがインストールされていない場合
+  when: nvm_installed is failed
 
-- name: Run NVM install script
+- name: 'Run NVM install script'
   command: bash /tmp/install_nvm.sh
-  when: nvm_installed is failed 
+  when: nvm_installed is success
 
-- name: Check if Node.js is installed
-  command: node -v
-  register: node_installed
+- name: 'Check if NVM is properly installed'
+  shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm --version
+  register: nvm_check
   ignore_errors: true
 
-- name: Install Node.js 17.9.1 if not installed
-  command: nvm install 17.9.1
-  when: node_installed is failed or (node_installed.stdout is not search("v17.9.1") if node_installed.stdout is defined else true)
+- name: 'Install Node.js 17.9.1 if NVM is available'
+  shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm install 17.9.1
+  when: nvm_check is success
+
+
 
 

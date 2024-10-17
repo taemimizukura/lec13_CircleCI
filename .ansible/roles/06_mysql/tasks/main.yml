@@ -1,57 +1,33 @@
----
-#lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml
-- name: Check if MariaDB is installed
-  command: mysql --version
+--- 
+# lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml
+
+- name: 'Check if MariaDB is installed via rpm'
+  shell: rpm -qa | grep -i mariadb
   register: mariadb_installed
-  ignore_errors: true
+  ignore_errors: yes
 
-- name: Remove MariaDB packages
+- name: 'Remove MariaDB packages'
   yum:
-    name: mariadb-server
+    name: mariadb-*
     state: absent
-  when: mariadb_installed is defined and mariadb_installed.rc is defined and mariadb_installed.rc == 0
+  become: yes
+  when: mariadb_installed.stdout != ""
 
-- name: Import GPG key if not imported
-  shell: |
-    rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
-  become_user: root
 
-- name: Enable MySQL 5.7 Community repository
-  shell: |
-    yum-config-manager --enable mysql57-community || true
-    
-- name: Check if MySQL is installed
-  command: mysql --version
-  register: mysql_installed
-  ignore_errors: true
+- name: Install MySQL development package
+  yum:
+    name: mysql-devel
+    state: present
+  become: yes
 
-- name: Install yum-utils
-  shell: |
-    yum install -y yum-utils
-  when: mysql_installed.changed
+- name: 'Run bundle install'
+  shell: bash -lc "bundle install"
+  args:
+    chdir: "{{ app_dir }}"
+  ignore_errors: yes
 
-- name: Update yum cache
-  shell: |
-    yum makecache
-  when: mysql_installed.changed
-
-- name: Install MySQL and dependencies
-  shell: |
-    yum install -y MySQL-python mysql-devel
-  when: mysql_installed.changed
-
-- name: Install MySQL Server
-  shell: bash -lc "yum install -y mysql-community-server"
-  become_user: root
-  when: mysql_installed.changed
-
-- name: Enable MySQL service to start on boot
-  shell: bash -lc "systemctl enable mysqld"
-  become_user: root
-  when: mysql_installed.changed
-
-- name: Create database.yml from template
+- name: 'Create database.yml from template'
   template:
     src: database.yml.j2
     dest: "{{ app_dir }}/config/database.yml"
-  when: mysql_installed.changed
+  become: yes

@@ -1,7 +1,7 @@
 ---
 #lec13_CircleCI/.ansible/roles/07_app_dev/tasks/main.yml
 
-- name: Run bundle install
+- name: 'Run bundle install'
   shell: |
     bash -lc "bundle install"
   args: 
@@ -9,37 +9,37 @@
   ignore_errors: yes
 
 #設定ファイルの変更 S3へ
-- name: Generate development.rb from template
+- name: 'Generate development.rb from template'
   template:
     src: development.rb.j2
     dest: /home/ec2-user/raisetech-live8-sample-app/config/environments/development.rb
 
-- name: Configure S3 settings in storage.yml
+- name: 'Configure S3 settings in storage.yml'
   template:
     src: storage.yml.j2
     dest: /home/ec2-user/raisetech-live8-sample-app/config/storage.yml
 
 #bin/setup
-- name: bin/setup
+- name: 'bin/setup'
   shell: |
     bash -lc "bin/setup"
   args: 
     chdir: "{{ app_dir }}"
   ignore_errors: yes
 
-- name: Check if assets are precompiled
+- name: 'Check if assets are precompiled'
   command: test -d "{{ app_dir }}/public/assets" 
   register: assets_check
   ignore_errors: yes
 
-- name: asset precompile
+- name: 'asset precompile'
   shell: |
     bash -lc "rails assets:precompile"
   args: 
     chdir: "{{ app_dir }}"
   ignore_errors: yes
 
-- name: Run database migration
+- name: 'Run database migration'
   command: bundle exec rake db:migrate
   args:
     chdir: "{{ app_dir }}"

@@ -40,6 +40,15 @@ http {
         listen       [::]:80;
         server_name  18.180.2.113; 　　 #ターゲットノードのIPアドレス
         root         /usr/share/nginx/html;
+        error_log  /var/log/nginx/error.log;　
+        access_log /var/log/nginx/access.log; 
+　　　　
+    　　# Pumaサーバーに転送する
+        location / {
+            proxy_pass http://unix:/home/ec2-user/raisetech-live8-sample-app/tmp/sockets/puma.sock;
+           
+    }　
+
 
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
