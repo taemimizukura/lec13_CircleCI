@@ -51,6 +51,11 @@ jobs:
       - ansible-playbook/install:
           version: 2.9.27
       - run:
+          name: List project files
+          command: |
+            ls -l /home/circleci/project/
+            ls -l /home/circleci/project/.ansible/
+      - run:
           name: Run Ansible Playbook
           command: |
             ansible-playbook -i /home/ec2-user/lec13_CircleCI/.ansible/inventory.ini /home/ec2-user/lec13_CircleCI/.ansible/playbook.yml -vvv --extra-vars "rds_endpoint=${RDS_ENDPOINT} ssh_private_key_path=/home/circleci/.ssh/id_rsa"
