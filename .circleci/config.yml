@@ -53,7 +53,7 @@ jobs:
       - run:
           name: Run Ansible Playbook
           command: |
-            ansible-playbook -i .ansible/inventory .ansible/playbook.yml --extra-vars "rds_endpoint=${RDS_ENDPOINT}"
+            ansible-playbook -i /home/ec2-user/lec13_CircleCI/.ansible/inventory.ini .ansible/playbook.yml --extra-vars "rds_endpoint=${RDS_ENDPOINT}"
 
   test-serverspec:
     docker:
