@@ -1,9 +1,7 @@
 ---
 # lec13_CircleCI/.ansible/playbook.yml
 
-- hosts: all
-  user: ec2-user 
-  
+- hosts: all  
   vars: 
     app_dir: /home/ec2-user/raisetech-live8-sample-app
     db_user: "{{ (lookup('env','RDS_ID')) }}"
