@@ -38,10 +38,14 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "SHA256:4FHjhuVlFUKbXS8PtXn9iudtugfViiFpOzfjCsSYv4g"
-      - run:
-          name: Install Ansible
-          command: |
-            pip install ansible
+            
+  install_and_setup_cli:
+    executor:
+        name: default
+    steps:
+      - aws-cli/install
+      - aws-cli/setup
+
       - run:
           name: Get RDS Endpoint
           command: |
