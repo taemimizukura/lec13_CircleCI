@@ -34,6 +34,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install Ansible
+          command: |
+            pip install ansible
+      - run:
           name: Add host key to known_hosts
           command: |
             ssh-keyscan -H 18.180.2.113 >> ~/.ssh/known_hosts
@@ -47,10 +51,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "SHA256:4FHjhuVlFUKbXS8PtXn9iudtugfViiFpOzfjCsSYv4g"
-      - run:
-          name: Install Ansible
-          command: |
-            pip install ansible
+
 
       - run:
           name: Run Ansible Playbook
