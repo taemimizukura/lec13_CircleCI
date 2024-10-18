@@ -32,7 +32,7 @@ jobs:
           command: |
             aws cloudformation deploy \
               --template-file cloudformation/2_RDS_S3.yml \
-              --stack-name Lec13-RDS 
+              --stack-name Lec13-RDS-S3
 
       - run:
           name: Get RDS Endpoint
@@ -46,8 +46,9 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints:
-            - "SHA256:GGnZbMk8Sh2fjRjHpTcrTyZxFL+28kescRq098wu4Zs"
+        fingerprints:
+          - "SHA256:4FHjhuVlFUKbXS8PtXn9iudtugfViiFpOzfjCsSYv4g"	
+
       - ansible-playbook/install:
           version: 2.9.27
 
