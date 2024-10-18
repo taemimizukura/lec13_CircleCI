@@ -2,7 +2,6 @@ version: 2.1
 
 orbs:
   aws-cli: circleci/aws-cli@4.2.3
-  ansible-playbook: orbss/ansible-playbook@0.0.5
   ruby: circleci/ruby@2.1.4
 
 jobs:
@@ -14,8 +13,7 @@ jobs:
       - run: pip install cfn-lint
       - run:
           name: Run cfn-lint for CloudFormation
-          command: |
-            cfn-lint -i W3002 -t cloudformation/*.yml
+          command: cfn-lint -i W3002 -t cloudformation/*.yml
 
   execute-cloudformation:
     docker:
@@ -29,10 +27,7 @@ jobs:
 
       - run:
           name: Deploy to AWS from template
-          command: |
-            aws cloudformation deploy \
-              --template-file cloudformation/2_RDS_S3.yml \
-              --stack-name Lec13-RDS-S3
+          command: aws cloudformation deploy --template-file cloudformation/2_RDS_S3.yml --stack-name Lec13-RDS-S3
 
   execute-ansible:
     docker:
@@ -42,29 +37,26 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "SHA256:4FHjhuVlFUKbXS8PtXn9iudtugfViiFpOzfjCsSYv4g"
+
       - run:
-          name: Install AWS CLI
+          name: Install Ansible
+          command: pip install ansible==2.9.27
+
+      - run:
+          name: Get RDS Endpoint
           command: |
-            pip install awscli
-
-      - ansible-playbook/install:
-          version: 2.9.27
-
-      - run:
-           name: Get RDS Endpoint
-           command: |
             RDS_ENDPOINT=$(aws rds describe-db-instances --db-instance-identifier lec13-target-rds --query "DBInstances[0].Endpoint.Address" --output text)
             echo "RDS_ENDPOINT=${RDS_ENDPOINT}" >> $BASH_ENV
+
+      - run:
+          name: Check inventory file
+          command: ls -l /home/circleci/project/.ansible/inventory
 
       - run:
           name: Run Ansible Playbook
           command: |
             source $BASH_ENV
-            ansible-playbook \
-              -i .ansible/inventory \
-              .ansible/playbook.yml \
-              -vvv \
-              --extra-vars "rds_endpoint=${RDS_ENDPOINT}"
+            ansible-playbook -i /home/circleci/project/.ansible/inventory /home/circleci/project/.ansible/playbook.yml -vvv --extra-vars "rds_endpoint=${RDS_ENDPOINT}"
 
   test-serverspec:
     docker:
@@ -72,7 +64,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dependencies #依存関係のインストール
+          name: Install dependencies
           command: |
             gem install rspec
             gem install serverspec
