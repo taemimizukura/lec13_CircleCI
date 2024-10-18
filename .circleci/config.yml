@@ -34,27 +34,28 @@ jobs:
               --template-file cloudformation/2_RDS_S3.yml \
               --stack-name Lec13-RDS-S3
 
-      - run:
-          name: Get RDS Endpoint
-          command: |
-            RDS_ENDPOINT=$(aws rds describe-db-instances --db-instance-identifier lec13-target-rds --query "DBInstances[0].Endpoint.Address" --output text)
-            echo "RDS_ENDPOINT=${RDS_ENDPOINT}" >> $BASH_ENV
-
   execute-ansible:
     docker:
       - image: circleci/python:2.7
     steps:
       - checkout
       - add_ssh_keys:
-         fingerprints:
-           - "SHA256:4FHjhuVlFUKbXS8PtXn9iudtugfViiFpOzfjCsSYv4g"
+          fingerprints:
+            - "SHA256:4FHjhuVlFUKbXS8PtXn9iudtugfViiFpOzfjCsSYv4g"
 
       - ansible-playbook/install:
           version: 2.9.27
 
       - run:
+           name: Get RDS Endpoint
+           command: |
+            RDS_ENDPOINT=$(aws rds describe-db-instances --db-instance-identifier lec13-target-rds --query "DBInstances[0].Endpoint.Address" --output text)
+            echo "RDS_ENDPOINT=${RDS_ENDPOINT}" >> $BASH_ENV
+
+      - run:
           name: Run Ansible Playbook
           command: |
+            source $BASH_ENV
             ansible-playbook \
               -i .ansible/inventory.ini \
               .ansible/playbook.yml \

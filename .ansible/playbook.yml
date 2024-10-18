@@ -13,19 +13,6 @@
     S3_bucket: "{{ lookup('env','S3_BUCKET') }}"
     ssh_private_key_path: "{{ lookup('env','SSH_PRIVATE_KEY' ) }}"
 
-  tasks:
-    - name: Set RDS Endpoint
-      set_fact:
-        rds_endpoint: "{{ lookup('aws_rds', 'lec13-target-rds') }}"
-
-    - name: Debug RDS Endpoint
-      debug:
-        msg: "RDS Endpoint is {{ rds_endpoint }}"
-
-    - name: Set DB Host
-      set_fact:
-        db_host: "{{ rds_endpoint }}"
-
   roles:
     - { role: 01_setup }
     - { role: 02_ruby }
