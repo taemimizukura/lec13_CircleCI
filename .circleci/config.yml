@@ -80,8 +80,8 @@ jobs:
       - run:
           name: Run Serverspec tests
           command: |
-            cd serverspec/spec/target-node
-            rspec lec13_spec.rb
+            cd serverspec
+            rake spec
 
 workflows:
   workflow:
