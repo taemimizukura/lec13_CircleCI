@@ -43,9 +43,9 @@ jobs:
           fingerprints:
             - "SHA256:4FHjhuVlFUKbXS8PtXn9iudtugfViiFpOzfjCsSYv4g"
       - run:
-        name: Install AWS CLI
-        command: |
-          pip install awscli
+          name: Install AWS CLI
+          command: |
+            pip install awscli
 
       - ansible-playbook/install:
           version: 2.9.27
