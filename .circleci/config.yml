@@ -3,7 +3,8 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@4.2.3
   ruby: circleci/ruby@2.1.4
-  ansible: circleci/ansible@2.1.0
+  ansible-playbook: orbss/ansible-playbook@0.0.5
+  aws-cloudformation: orbss/aws-cloudformation@0.1.6
 
 jobs:
   cfn-lint:
@@ -38,17 +39,18 @@ jobs:
           fingerprints:
             - "SHA256:4FHjhuVlFUKbXS8PtXn9iudtugfViiFpOzfjCsSYv4g"
       - run:
+          name: Install Ansible
+          command: |
+            pip install ansible
+      - run:
           name: Get RDS Endpoint
           command: |
             RDS_ENDPOINT=$(aws rds describe-db-instances --db-instance-identifier lec13-target-rds --query "DBInstances[0].Endpoint.Address" --output text)
             echo "RDS_ENDPOINT=${RDS_ENDPOINT}" >> $BASH_ENV
-      - ansible/install:
-          version: 2.9.27
-      - ansible/playbook:
-          playbook: .ansible/playbook.yml
-          inventory: .ansible/inventory
-          private_key: ~/.ssh/id_rsa
-          extra_vars: "rds_endpoint=${RDS_ENDPOINT}"
+      - run:
+          name: Run Ansible Playbook
+          command: |
+            ansible-playbook -i .ansible/inventory .ansible/playbook.yml --private-key ~/.ssh/id_rsa --extra-vars "rds_endpoint=${RDS_ENDPOINT}"
 
   test-serverspec:
     docker:
