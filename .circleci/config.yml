@@ -5,11 +5,11 @@ orbs:
   ruby: circleci/ruby@2.1.4
   ansible-playbook: orbss/ansible-playbook@0.0.5
   aws-cloudformation: orbss/aws-cloudformation@0.1.6
+  python: circleci/python@2.0.3
 
 jobs:
   cfn-lint:
-    docker:
-      - image: circleci/python:3.8
+    executor: python/default
     steps:
       - checkout
       - run: pip install cfn-lint
@@ -23,8 +23,6 @@ jobs:
     steps:
       - checkout
       - aws-cli/setup:
-          aws_access_key_id: AWS_ACCESS_KEY_ID
-          aws_secret_access_key: AWS_SECRET_ACCESS_KEY
           region: AWS_DEFAULT_REGION
       - run:
           name: Deploy to AWS from template
@@ -32,48 +30,41 @@ jobs:
 
   execute-ansible:
     docker:
-      - image: circleci/python:3.8
+      - image: cimg/python:3.7
     steps:
       - checkout
+      - aws-cli/setup:
+          region: AWS_DEFAULT_REGION
       - add_ssh_keys:
           fingerprints:
             - "SHA256:4FHjhuVlFUKbXS8PtXn9iudtugfViiFpOzfjCsSYv4g"
-            
-  install_and_setup_cli:
-    executor:
-        name: default
-    steps:
-      - aws-cli/install
-      - aws-cli/setup
-
       - run:
-          name: Get RDS Endpoint
+          name: Install Ansible
           command: |
-            RDS_ENDPOINT=$(aws rds describe-db-instances --db-instance-identifier lec13-target-rds --query "DBInstances[0].Endpoint.Address" --output text)
-            echo "RDS_ENDPOINT=${RDS_ENDPOINT}" >> $BASH_ENV
+            pip install ansible
+
       - run:
           name: Run Ansible Playbook
           command: |
-            ansible-playbook -i .ansible/inventory .ansible/playbook.yml --private-key ~/.ssh/id_rsa --extra-vars "rds_endpoint=${RDS_ENDPOINT}"
+            ansible-playbook -i .ansible/inventory .ansible/playbook.yml --private-key ~/.ssh/id_rsa
 
-  test-serverspec:
-    docker:
-      - image: ruby:3.2
+  execute-serverspec:
+    executor: ruby/default
     steps:
       - checkout
+      - ruby/install:
+          version: 3.2.3
+      - ruby/install-deps:
+          app-dir: serverspec
       - run:
-          name: Install dependencies
-          command: |
-            gem install rspec
-            gem install serverspec
-      - run:
-          name: Run Serverspec tests
+          name: execute
           command: |
             cd serverspec
-            rake spec
+            TARGET_HOST=18.180.2.113 bundle exec rspec
 
 workflows:
-  workflow:
+  version: 2
+  lec13-workflow:
     jobs:
       - cfn-lint
       - execute-cloudformation:
@@ -82,6 +73,6 @@ workflows:
       - execute-ansible:
           requires:
             - execute-cloudformation
-      - test-serverspec:
+      - execute-serverspec:
           requires:
             - execute-ansible
