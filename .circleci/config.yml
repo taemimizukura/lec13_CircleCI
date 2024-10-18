@@ -44,7 +44,7 @@ jobs:
             chmod 600 ~/.ssh/known_hosts
       - run:
           name: Execute Ansible Playbook
-          command: ansible-playbook your_playbook.yml -i inventory
+          command: ansible-playbook .ansible/playbook.yml -i .ansible/inventory
       - checkout
       - aws-cli/setup:
           region: AWS_DEFAULT_REGION
