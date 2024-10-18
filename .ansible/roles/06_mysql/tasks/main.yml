@@ -1,18 +1,20 @@
 --- 
 # lec13_CircleCI/.ansible/roles/06_mysql/tasks/main.yml
 
-- name: 'Check if MariaDB is installed via rpm'
-  shell: rpm -qa | grep -i mariadb
+- name: Check if MariaDB is installed
+  command: rpm -q mariadb-server
   register: mariadb_installed
   ignore_errors: yes
 
-- name: 'Remove MariaDB packages'
+- name: Remove MariaDB packages
   yum:
-    name: mariadb-*
+    name: mariadb-server
     state: absent
-  become: yes
-  when: mariadb_installed.stdout != ""
+  when: mariadb_installed.rc == 0
 
+
+- debug:
+    var: rds_endpoint
 
 - name: Install MySQL development package
   yum:

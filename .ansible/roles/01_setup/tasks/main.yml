@@ -10,10 +10,12 @@
     repo: 'https://github.com/yuta-ushijima/raisetech-live8-sample-app.git'
     dest: "{{ app_dir }}"
   when: not app_dir_stat.stat.exists
-
+  
 - name: Clean YUM cache
   command: yum clean all
   become: yes
+  args:
+    warn: false
 
 - name: Update all packages on the system
   yum:
