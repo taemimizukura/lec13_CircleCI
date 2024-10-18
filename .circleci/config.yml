@@ -61,7 +61,7 @@ jobs:
           command: |
             source $BASH_ENV
             ansible-playbook \
-              -i .ansible/inventory.ini \
+              -i .ansible/inventory \
               .ansible/playbook.yml \
               -vvv \
               --extra-vars "rds_endpoint=${RDS_ENDPOINT}"
