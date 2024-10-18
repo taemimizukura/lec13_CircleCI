@@ -12,7 +12,6 @@
     state: absent
   when: mariadb_installed.rc == 0
 
-
 - debug:
     var: rds_endpoint
 
@@ -33,3 +32,17 @@
     src: database.yml.j2
     dest: "{{ app_dir }}/config/database.yml"
   become: yes
+
+- name: Edit /root/.my.cnf
+  template:
+    src: roles/mysql/templates/my.cnf.j2
+    dest: /root/.my.cnf
+    owner: root
+    group: root
+    mode: 0600
+
+- name: Start MySQL service
+  service:
+    name: mysqld
+    state: started
+    enabled: yes
