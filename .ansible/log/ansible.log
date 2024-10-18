@@ -14810,3 +14810,4 @@ The offending line appears to be:
 2024-10-18 06:15:11,715 p=2852 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": false, "msg": "AnsibleUndefinedVariable: {{ rds_endpoint }}: 'rds_endpoint' is undefined"}
 2024-10-18 06:15:11,717 p=2852 u=ec2-user n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************************************************************
 2024-10-18 06:15:11,717 p=2852 u=ec2-user n=ansible | 18.180.2.113               : ok=28   changed=15   unreachable=0    failed=1    skipped=8    rescued=0    ignored=0   
+2024-10-18 07:52:42,384 p=7926 u=ec2-user n=ansible | ERROR! the playbook: /home/circleci/project/.ansible/playbook.yml could not be found
