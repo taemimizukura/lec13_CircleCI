@@ -1,0 +1,1181 @@
+ansible-playbook 2.9.23
+  config file = /home/ec2-user/lec13_CircleCI/.ansible/ansible.cfg
+  configured module search path = [u'/home/ec2-user/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 2.7.18 (default, Dec 18 2023, 22:08:43) [GCC 7.3.1 20180712 (Red Hat 7.3.1-17)]
+Using /home/ec2-user/lec13_CircleCI/.ansible/ansible.cfg as config file
+host_list declined parsing /home/ec2-user/lec13_CircleCI/.ansible/inventory.ini as it did not pass its verify_file() method
+script declined parsing /home/ec2-user/lec13_CircleCI/.ansible/inventory.ini as it did not pass its verify_file() method
+auto declined parsing /home/ec2-user/lec13_CircleCI/.ansible/inventory.ini as it did not pass its verify_file() method
+yaml declined parsing /home/ec2-user/lec13_CircleCI/.ansible/inventory.ini as it did not pass its verify_file() method
+Parsed /home/ec2-user/lec13_CircleCI/.ansible/inventory.ini inventory source with ini plugin
+Skipping callback 'actionable', as we already have a stdout callback.
+Skipping callback 'counter_enabled', as we already have a stdout callback.
+Skipping callback 'debug', as we already have a stdout callback.
+Skipping callback 'dense', as we already have a stdout callback.
+Skipping callback 'dense', as we already have a stdout callback.
+Skipping callback 'full_skip', as we already have a stdout callback.
+Skipping callback 'json', as we already have a stdout callback.
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'null', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+Skipping callback 'selective', as we already have a stdout callback.
+Skipping callback 'skippy', as we already have a stdout callback.
+Skipping callback 'stderr', as we already have a stdout callback.
+Skipping callback 'unixy', as we already have a stdout callback.
+Skipping callback 'yaml', as we already have a stdout callback.
+
+PLAYBOOK: playbook.yml ***********************************************************************************************************************************************************************************************************************
+1 plays in playbook.yml
+
+PLAY [all] ***********************************************************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ***********************************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/playbook.yml:4
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223469.05-31296-70551025914911 `" && echo ansible-tmp-1729223469.05-31296-70551025914911="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223469.05-31296-70551025914911 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223469.05-31296-70551025914911=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223469.05-31296-70551025914911\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/system/setup.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpgsnbz5 TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223469.05-31296-70551025914911/AnsiballZ_setup.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpgsnbz5 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223469.05-31296-70551025914911/AnsiballZ_setup.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223469.05-31296-70551025914911/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223469.05-31296-70551025914911/AnsiballZ_setup.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223469.05-31296-70551025914911/AnsiballZ_setup.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"invocation": {"module_args": {"filter": "*", "gather_subset": ["all"], "fact_path": "/etc/ansible/facts.d", "gather_timeout": 10}}, "ansible_facts": {"ansible_fibre_channel_wwn": [], "module_setup": true, "ansible_distribution_version": "2", "ansible_distribution_file_variety": "Amazon", "ansible_env": {"NVM_CD_FLAGS": "", "LESSOPEN": "||/usr/bin/lesspipe.sh %s", "SSH_CLIENT": "54.238.57.188 48170 22", "LOGNAME": "ec2-user", "USER": "ec2-user", "NVM_DIR": "/home/ec2-user/.nvm", "NVM_INC": "/home/ec2-user/.nvm/versions/node/v17.9.1/include/node", "HOME": "/home/ec2-user", "LANG": "en_US.UTF-8", "TERM": "xterm-256color", "SHELL": "/bin/bash", "SHLVL": "2", "NVM_BIN": "/home/ec2-user/.nvm/versions/node/v17.9.1/bin", "RBENV_SHELL": "bash", "XDG_RUNTIME_DIR": "/run/user/1000", "PATH": "/home/ec2-user/.rbenv/shims:/home/ec2-user/.rbenv/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.config/yarn/global/node_modules/.bin:/home/ec2-user/.nvm/versions/node/v17.9.1/bin:/usr/local/bin:/usr/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin", "XDG_SESSION_ID": "205", "_": "/usr/bin/python2.7", "SSH_CONNECTION": "54.238.57.188 48170 10.0.3.194 22", "SSH_TTY": "/dev/pts/1", "PWD": "/home/ec2-user", "MAIL": "/var/mail/ec2-user", "LS_COLORS": "rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:"}, "ansible_userspace_bits": "64", "ansible_architecture": "x86_64", "ansible_default_ipv4": {"macaddress": "06:55:da:63:87:67", "network": "10.0.0.0", "mtu": 9001, "broadcast": "10.0.15.255", "alias": "eth0", "netmask": "255.255.240.0", "address": "10.0.3.194", "interface": "eth0", "type": "ether", "gateway": "10.0.0.1"}, "ansible_swapfree_mb": 0, "ansible_default_ipv6": {}, "ansible_cmdline": {"console": "ttyS0,115200n8", "rd.emergency": "poweroff", "net.ifnames": "0", "biosdevname": "0", "rd.shell": "0", "BOOT_IMAGE": "/boot/vmlinuz-5.10.209-198.858.amzn2.x86_64", "ro": true, "root": "UUID=da2ce126-a0ac-45f5-ab45-8d541d52b07e", "nvme_core.io_timeout": "4294967295"}, "ansible_machine_id": "e1973c486b484f22be3dfecd1e50586d", "ansible_userspace_architecture": "x86_64", "ansible_product_uuid": "NA", "ansible_pkg_mgr": "yum", "ansible_distribution": "Amazon", "ansible_iscsi_iqn": "", "ansible_all_ipv6_addresses": ["fe80::455:daff:fe63:8767"], "ansible_uptime_seconds": 92379, "ansible_kernel": "5.10.209-198.858.amzn2.x86_64", "ansible_system_capabilities_enforced": "True", "ansible_python": {"executable": "/usr/bin/python2.7", "version": {"micro": 18, "major": 2, "releaselevel": "final", "serial": 0, "minor": 7}, "type": "CPython", "has_sslcontext": true, "version_info": [2, 7, 18, "final", 0]}, "ansible_is_chroot": true, "ansible_hostnqn": "", "ansible_user_shell": "/bin/bash", "ansible_product_serial": "NA", "ansible_form_factor": "Other", "ansible_distribution_file_parsed": true, "ansible_fips": false, "ansible_user_id": "ec2-user", "ansible_selinux_python_present": false, "ansible_kernel_version": "#1 SMP Tue Feb 13 18:46:41 UTC 2024", "ansible_local": {}, "ansible_processor_vcpus": 1, "ansible_processor": ["0", "GenuineIntel", "Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz"], "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJ8d7pahFz7Lig7ks1/JRvtkra5Xr1xF2rUhlYAKwF0g+jwgbOY3qv++R6WF5do7Ict0lD2NHM2Fee3oVCqBP+s=", "ansible_user_gid": 1000, "ansible_system_vendor": "Xen", "ansible_swaptotal_mb": 0, "ansible_distribution_major_version": "2", "ansible_real_group_id": 1000, "ansible_lsb": {}, "ansible_machine": "x86_64", "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDN+ZGzhfQ2cPM9SUCyXnZ9kfcJlbmPNWvHWfTWphs6UavAiykF2bTZlPrezhXvXboXACeQ3HwgwBpyNFz8DhXchEn/NRid0ar92Hsa/ZN7DBtqnbHB3AQa8j8Hs6ZypcsbXBXUD07eqVuK/hXaEKQPuj3DUxW79tyMtHU+695BLbAknGOFOjP8/KwsSNkYiPptirlJ+dDCGCU4gOYL+hvDJvFAvaQXRSgoyiGsyAA+BI++9C4KZSHmzOLphcgL4zNq3DedYJWNsrBxI3wGFco5is70DQkkOiN3iMnP+4wYx/f7HswDIbhV4nNZdaR1NJuta6yHzEJzCn/gQaZOKowF", "ansible_user_gecos": "EC2 Default User", "ansible_processor_threads_per_core": 1, "ansible_eth0": {"macaddress": "06:55:da:63:87:67", "features": {"tx_checksum_ipv4": "on [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "on", "netns_local": "off [fixed]", "tx_scatter_gather_fraglist": "off [fixed]", "rx_all": "off [fixed]", "highdma": "off [fixed]", "rx_fcs": "off [fixed]", "tx_lockless": "off [fixed]", "tx_tcp_ecn_segmentation": "off [fixed]", "rx_udp_tunnel_port_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "tx_gso_robust": "on [fixed]", "tx_udp_segmentation": "off [fixed]", "tx_tcp_mangleid_segmentation": "off", "tx_ipxip4_segmentation": "off [fixed]", "tx_checksumming": "on", "macsec_hw_offload": "off [fixed]", "vlan_challenged": "off [fixed]", "loopback": "off [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "rx_gro_list": "off", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_tunnel_remcsum_segmentation": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_tcp_segmentation": "on", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on", "tx_tcp6_segmentation": "on", "rx_checksumming": "on [fixed]", "rx_gro_hw": "off [fixed]", "tx_checksum_sctp": "off [fixed]", "tx_esp_segmentation": "off [fixed]", "generic_segmentation_offload": "on", "tls_hw_rx_offload": "off [fixed]", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_gso_list": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_sctp_segmentation": "off [fixed]", "udp_fragmentation_offload": "off", "tls_hw_record": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "off [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_nocache_copy": "off", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "off [fixed]", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "off [fixed]"}, "pciid": "vif-0", "module": "xen_netfront", "mtu": 9001, "device": "eth0", "promisc": false, "timestamping": ["tx_software", "rx_software", "software"], "ipv4": {"broadcast": "10.0.15.255", "netmask": "255.255.240.0", "network": "10.0.0.0", "address": "10.0.3.194"}, "ipv6": [{"scope": "link", "prefix": "64", "address": "fe80::455:daff:fe63:8767"}], "active": true, "type": "ether", "hw_timestamp_filters": []}, "ansible_product_name": "HVM domU", "ansible_all_ipv4_addresses": ["10.0.3.194"], "ansible_python_version": "2.7.18", "ansible_product_version": "4.11.amazon", "ansible_service_mgr": "systemd", "ansible_memory_mb": {"real": {"total": 952, "used": 659, "free": 293}, "swap": {"cached": 0, "total": 0, "free": 0, "used": 0}, "nocache": {"used": 297, "free": 655}}, "ansible_user_dir": "/home/ec2-user", "gather_subset": ["all"], "ansible_real_user_id": 1000, "ansible_virtualization_role": "guest", "ansible_dns": {"nameservers": ["10.0.0.2"], "search": ["ap-northeast-1.compute.internal"], "options": {"attempts": "5", "timeout": "2"}}, "ansible_effective_group_id": 1000, "ansible_lo": {"features": {"tx_checksum_ipv4": "off [fixed]", "generic_receive_offload": "on", "tx_checksum_ipv6": "off [fixed]", "netns_local": "on [fixed]", "tx_scatter_gather_fraglist": "on [fixed]", "rx_all": "off [fixed]", "highdma": "on [fixed]", "rx_fcs": "off [fixed]", "tx_lockless": "on [fixed]", "tx_tcp_ecn_segmentation": "on", "rx_udp_tunnel_port_offload": "off [fixed]", "esp_hw_offload": "off [fixed]", "tx_gso_robust": "off [fixed]", "tx_udp_segmentation": "off [fixed]", "tx_tcp_mangleid_segmentation": "on", "tx_ipxip4_segmentation": "off [fixed]", "tx_checksumming": "on", "macsec_hw_offload": "off [fixed]", "vlan_challenged": "on [fixed]", "loopback": "on [fixed]", "tx_ipxip6_segmentation": "off [fixed]", "rx_gro_list": "off", "fcoe_mtu": "off [fixed]", "scatter_gather": "on", "tx_tunnel_remcsum_segmentation": "off [fixed]", "tx_vlan_stag_hw_insert": "off [fixed]", "rx_vlan_stag_hw_parse": "off [fixed]", "tx_gso_partial": "off [fixed]", "tx_tcp_segmentation": "on", "rx_vlan_stag_filter": "off [fixed]", "large_receive_offload": "off [fixed]", "tx_scatter_gather": "on [fixed]", "tx_tcp6_segmentation": "on", "rx_checksumming": "on [fixed]", "rx_gro_hw": "off [fixed]", "tx_checksum_sctp": "on [fixed]", "tx_esp_segmentation": "off [fixed]", "generic_segmentation_offload": "on", "tls_hw_rx_offload": "off [fixed]", "tcp_segmentation_offload": "on", "l2_fwd_offload": "off [fixed]", "rx_vlan_offload": "off [fixed]", "ntuple_filters": "off [fixed]", "tx_gre_csum_segmentation": "off [fixed]", "esp_tx_csum_hw_offload": "off [fixed]", "tx_udp_tnl_segmentation": "off [fixed]", "tx_gso_list": "off [fixed]", "tx_udp_tnl_csum_segmentation": "off [fixed]", "tx_sctp_segmentation": "on", "udp_fragmentation_offload": "off", "tls_hw_record": "off [fixed]", "tls_hw_tx_offload": "off [fixed]", "tx_checksum_fcoe_crc": "off [fixed]", "hw_tc_offload": "off [fixed]", "tx_checksum_ip_generic": "on [fixed]", "tx_fcoe_segmentation": "off [fixed]", "tx_nocache_copy": "off [fixed]", "rx_vlan_filter": "off [fixed]", "tx_vlan_offload": "off [fixed]", "receive_hashing": "off [fixed]", "tx_gre_segmentation": "off [fixed]"}, "hw_timestamp_filters": [], "mtu": 65536, "device": "lo", "promisc": false, "timestamping": ["tx_software", "rx_software", "software"], "ipv4": {"broadcast": "", "netmask": "255.0.0.0", "network": "127.0.0.0", "address": "127.0.0.1"}, "ipv6": [{"scope": "host", "prefix": "128", "address": "::1"}], "active": true, "type": "loopback"}, "ansible_memtotal_mb": 952, "ansible_device_links": {"masters": {}, "labels": {"xvda1": ["\\\\x2f"]}, "ids": {}, "uuids": {"xvda1": ["da2ce126-a0ac-45f5-ab45-8d541d52b07e"]}}, "ansible_apparmor": {"status": "disabled"}, "ansible_proc_cmdline": {"console": ["tty0", "ttyS0,115200n8"], "rd.emergency": "poweroff", "net.ifnames": "0", "biosdevname": "0", "rd.shell": "0", "BOOT_IMAGE": "/boot/vmlinuz-5.10.209-198.858.amzn2.x86_64", "ro": true, "root": "UUID=da2ce126-a0ac-45f5-ab45-8d541d52b07e", "nvme_core.io_timeout": "4294967295"}, "ansible_memfree_mb": 293, "ansible_processor_count": 1, "ansible_hostname": "ip-10-0-3-194", "ansible_interfaces": ["lo", "eth0"], "ansible_selinux": {"status": "Missing selinux Python library"}, "ansible_fqdn": "ip-10-0-3-194.ap-northeast-1.compute.internal", "ansible_mounts": [{"block_used": 840885, "uuid": "da2ce126-a0ac-45f5-ab45-8d541d52b07e", "size_total": 8577331200, "block_total": 2094075, "mount": "/", "block_available": 1253190, "size_available": 5133066240, "fstype": "xfs", "inode_total": 4193216, "options": "rw,noatime,attr2,inode64,logbufs=8,logbsize=32k,noquota", "device": "/dev/xvda1", "inode_used": 112880, "block_size": 4096, "inode_available": 4080336}], "ansible_nodename": "ip-10-0-3-194.ap-northeast-1.compute.internal", "ansible_domain": "ap-northeast-1.compute.internal", "ansible_distribution_file_path": "/etc/system-release", "ansible_virtualization_type": "xen", "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIDPGCGQCqNmI+Xfn7VljE9uKrilxticVfg1x+FjoBff4", "ansible_processor_cores": 1, "ansible_bios_version": "4.11.amazon", "ansible_date_time": {"weekday_number": "5", "iso8601_basic_short": "20241018T035110", "tz": "UTC", "weeknumber": "42", "hour": "03", "year": "2024", "minute": "51", "tz_offset": "+0000", "month": "10", "epoch": "1729223470", "iso8601_micro": "2024-10-18T03:51:10.554224Z", "weekday": "Friday", "time": "03:51:10", "date": "2024-10-18", "iso8601": "2024-10-18T03:51:10Z", "day": "18", "iso8601_basic": "20241018T035110554224", "second": "10"}, "ansible_distribution_release": "NA", "ansible_os_family": "RedHat", "ansible_effective_user_id": 1000, "ansible_system": "Linux", "ansible_devices": {"xvda": {"scheduler_mode": "mq-deadline", "rotational": "0", "vendor": null, "sectors": "16777216", "links": {"masters": [], "labels": [], "ids": [], "uuids": []}, "sas_device_handle": null, "sas_address": null, "virtual": 1, "host": "", "sectorsize": "512", "removable": "0", "support_discard": "0", "model": null, "partitions": {"xvda1": {"sectorsize": 512, "uuid": "da2ce126-a0ac-45f5-ab45-8d541d52b07e", "links": {"masters": [], "labels": ["\\\\x2f"], "ids": [], "uuids": ["da2ce126-a0ac-45f5-ab45-8d541d52b07e"]}, "sectors": "16773087", "start": "4096", "holders": [], "size": "8.00 GB"}}, "holders": [], "size": "8.00 GB"}}, "ansible_user_uid": 1000, "ansible_bios_date": "08/24/2006", "ansible_system_capabilities": [""]}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223469.05-31296-70551025914911/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+ok: [18.180.2.113]
+META: ran handlers
+
+TASK [01_setup : Check if the application directory exists] **********************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/01_setup/tasks/main.yml:3
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223470.94-31325-254569827661969 `" && echo ansible-tmp-1729223470.94-31325-254569827661969="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223470.94-31325-254569827661969 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223470.94-31325-254569827661969=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223470.94-31325-254569827661969\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/files/stat.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpWLfB7c TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223470.94-31325-254569827661969/AnsiballZ_stat.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpWLfB7c /home/ec2-user/.ansible/tmp/ansible-tmp-1729223470.94-31325-254569827661969/AnsiballZ_stat.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223470.94-31325-254569827661969/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223470.94-31325-254569827661969/AnsiballZ_stat.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223470.94-31325-254569827661969/AnsiballZ_stat.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"invocation": {"module_args": {"checksum_algorithm": "sha1", "get_checksum": true, "follow": false, "path": "/home/ec2-user/raisetech-live8-sample-app", "get_md5": false, "get_mime": true, "get_attributes": true}}, "stat": {"charset": "binary", "uid": 1000, "exists": true, "attr_flags": "", "woth": false, "isreg": false, "device_type": 0, "mtime": 1729167475.8550298, "block_size": 4096, "inode": 12630389, "isgid": false, "size": 4096, "executable": true, "isuid": false, "readable": true, "version": "18446744071775969887", "pw_name": "ec2-user", "gid": 1000, "ischr": false, "wusr": true, "writeable": true, "mimetype": "inode/directory", "blocks": 8, "xoth": true, "islnk": false, "nlink": 18, "issock": false, "rgrp": true, "gr_name": "ec2-user", "path": "/home/ec2-user/raisetech-live8-sample-app", "xusr": true, "atime": 1729147080.9246979, "isdir": true, "ctime": 1729167475.8550298, "isblk": false, "wgrp": true, "xgrp": true, "dev": 51713, "roth": true, "isfifo": false, "mode": "0775", "rusr": true, "attributes": []}, "changed": false}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223470.94-31325-254569827661969/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+ok: [18.180.2.113] => {
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "checksum_algorithm": "sha1", 
+            "follow": false, 
+            "get_attributes": true, 
+            "get_checksum": true, 
+            "get_md5": false, 
+            "get_mime": true, 
+            "path": "/home/ec2-user/raisetech-live8-sample-app"
+        }
+    }, 
+    "stat": {
+        "atime": 1729147080.9246979, 
+        "attr_flags": "", 
+        "attributes": [], 
+        "block_size": 4096, 
+        "blocks": 8, 
+        "charset": "binary", 
+        "ctime": 1729167475.8550298, 
+        "dev": 51713, 
+        "device_type": 0, 
+        "executable": true, 
+        "exists": true, 
+        "gid": 1000, 
+        "gr_name": "ec2-user", 
+        "inode": 12630389, 
+        "isblk": false, 
+        "ischr": false, 
+        "isdir": true, 
+        "isfifo": false, 
+        "isgid": false, 
+        "islnk": false, 
+        "isreg": false, 
+        "issock": false, 
+        "isuid": false, 
+        "mimetype": "inode/directory", 
+        "mode": "0775", 
+        "mtime": 1729167475.8550298, 
+        "nlink": 18, 
+        "path": "/home/ec2-user/raisetech-live8-sample-app", 
+        "pw_name": "ec2-user", 
+        "readable": true, 
+        "rgrp": true, 
+        "roth": true, 
+        "rusr": true, 
+        "size": 4096, 
+        "uid": 1000, 
+        "version": "18446744071775969887", 
+        "wgrp": true, 
+        "woth": false, 
+        "writeable": true, 
+        "wusr": true, 
+        "xgrp": true, 
+        "xoth": true, 
+        "xusr": true
+    }
+}
+
+TASK [01_setup : Clone the repository] *******************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/01_setup/tasks/main.yml:8
+skipping: [18.180.2.113] => {
+    "changed": false, 
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [01_setup : Clean YUM cache] ************************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/01_setup/tasks/main.yml:14
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223472.05-31336-167410580389033 `" && echo ansible-tmp-1729223472.05-31336-167410580389033="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223472.05-31336-167410580389033 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223472.05-31336-167410580389033=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223472.05-31336-167410580389033\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpDNK2O2 TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223472.05-31336-167410580389033/AnsiballZ_command.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpDNK2O2 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223472.05-31336-167410580389033/AnsiballZ_command.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223472.05-31336-167410580389033/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223472.05-31336-167410580389033/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-godpvdhvqshyfitxtvvdpdlibhlnwajp ; /usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223472.05-31336-167410580389033/AnsiballZ_command.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<18.180.2.113> (0, '\r\n{"changed": true, "end": "2024-10-18 03:51:13.164854", "stdout": "Loaded plugins: extras_suggestions, langpacks, priorities, update-motd\\nCleaning repos: amzn2-core amzn2extra-docker amzn2extra-kernel-5.10\\n              : amzn2extra-nginx1\\nCleaning up everything\\nMaybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned data from disabled or removed repos", "cmd": ["yum", "clean", "all"], "rc": 0, "start": "2024-10-18 03:51:12.740337", "stderr": "", "delta": "0:00:00.424517", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": false, "strip_empty_ends": true, "_raw_params": "yum clean all", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223472.05-31336-167410580389033/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+changed: [18.180.2.113] => {
+    "changed": true, 
+    "cmd": [
+        "yum", 
+        "clean", 
+        "all"
+    ], 
+    "delta": "0:00:00.424517", 
+    "end": "2024-10-18 03:51:13.164854", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "yum clean all", 
+            "_uses_shell": false, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2024-10-18 03:51:12.740337", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "Loaded plugins: extras_suggestions, langpacks, priorities, update-motd\nCleaning repos: amzn2-core amzn2extra-docker amzn2extra-kernel-5.10\n              : amzn2extra-nginx1\nCleaning up everything\nMaybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned data from disabled or removed repos", 
+    "stdout_lines": [
+        "Loaded plugins: extras_suggestions, langpacks, priorities, update-motd", 
+        "Cleaning repos: amzn2-core amzn2extra-docker amzn2extra-kernel-5.10", 
+        "              : amzn2extra-nginx1", 
+        "Cleaning up everything", 
+        "Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned data from disabled or removed repos"
+    ]
+}
+
+TASK [01_setup : Update all packages on the system] ******************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/01_setup/tasks/main.yml:18
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223473.52-31354-109478183512144 `" && echo ansible-tmp-1729223473.52-31354-109478183512144="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223473.52-31354-109478183512144 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223473.52-31354-109478183512144=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223473.52-31354-109478183512144\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/packaging/os/yum.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpuQ3lI0 TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223473.52-31354-109478183512144/AnsiballZ_yum.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpuQ3lI0 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223473.52-31354-109478183512144/AnsiballZ_yum.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223473.52-31354-109478183512144/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223473.52-31354-109478183512144/AnsiballZ_yum.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-nszthzjfkygmqhrjemtpbfohpolsrxdc ; /usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223473.52-31354-109478183512144/AnsiballZ_yum.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<18.180.2.113> (0, '\r\n{"msg": "", "invocation": {"module_args": {"lock_timeout": 30, "update_cache": false, "disable_excludes": null, "exclude": [], "allow_downgrade": false, "disable_gpg_check": false, "conf_file": null, "use_backend": "auto", "state": "latest", "disablerepo": [], "releasever": null, "skip_broken": false, "autoremove": false, "download_dir": null, "enable_plugin": [], "installroot": "/", "install_weak_deps": true, "name": ["*"], "download_only": false, "bugfix": false, "list": null, "install_repoquery": true, "update_only": false, "disable_plugin": [], "enablerepo": [], "security": false, "validate_certs": true}}, "changed": false, "results": ["Nothing to do here, all packages are up to date"], "rc": 0}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223473.52-31354-109478183512144/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+ok: [18.180.2.113] => {
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "allow_downgrade": false, 
+            "autoremove": false, 
+            "bugfix": false, 
+            "conf_file": null, 
+            "disable_excludes": null, 
+            "disable_gpg_check": false, 
+            "disable_plugin": [], 
+            "disablerepo": [], 
+            "download_dir": null, 
+            "download_only": false, 
+            "enable_plugin": [], 
+            "enablerepo": [], 
+            "exclude": [], 
+            "install_repoquery": true, 
+            "install_weak_deps": true, 
+            "installroot": "/", 
+            "list": null, 
+            "lock_timeout": 30, 
+            "name": [
+                "*"
+            ], 
+            "releasever": null, 
+            "security": false, 
+            "skip_broken": false, 
+            "state": "latest", 
+            "update_cache": false, 
+            "update_only": false, 
+            "use_backend": "auto", 
+            "validate_certs": true
+        }
+    }, 
+    "msg": "", 
+    "rc": 0, 
+    "results": [
+        "Nothing to do here, all packages are up to date"
+    ]
+}
+
+TASK [01_setup : Install required packages] **************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/01_setup/tasks/main.yml:24
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223481.35-31374-98244753826241 `" && echo ansible-tmp-1729223481.35-31374-98244753826241="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223481.35-31374-98244753826241 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223481.35-31374-98244753826241=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223481.35-31374-98244753826241\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/packaging/os/yum.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpykfiKs TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223481.35-31374-98244753826241/AnsiballZ_yum.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpykfiKs /home/ec2-user/.ansible/tmp/ansible-tmp-1729223481.35-31374-98244753826241/AnsiballZ_yum.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223481.35-31374-98244753826241/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223481.35-31374-98244753826241/AnsiballZ_yum.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-krcarrzlmhzmuozcosgssnhofznjaqec ; /usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223481.35-31374-98244753826241/AnsiballZ_yum.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<18.180.2.113> (0, '\r\n{"msg": "", "invocation": {"module_args": {"lock_timeout": 30, "update_cache": false, "disable_excludes": null, "exclude": [], "allow_downgrade": false, "disable_gpg_check": false, "conf_file": null, "use_backend": "auto", "state": "present", "disablerepo": [], "releasever": null, "skip_broken": false, "autoremove": false, "download_dir": null, "enable_plugin": [], "installroot": "/", "install_weak_deps": true, "name": ["git", "gcc", "gcc-c++", "make", "openssl-devel", "libyaml-devel", "readline-devel", "zlib-devel", "libxml2-devel", "libxslt-devel", "sqlite-devel", "libffi-devel", "ImageMagick", "curl"], "download_only": false, "bugfix": false, "list": null, "install_repoquery": true, "update_only": false, "disable_plugin": [], "enablerepo": [], "security": false, "validate_certs": true}}, "changed": false, "results": ["git-2.40.1-1.amzn2.0.3.x86_64 providing git is already installed", "gcc-7.3.1-17.amzn2.x86_64 providing gcc is already installed", "gcc-c++-7.3.1-17.amzn2.x86_64 providing gcc-c++ is already installed", "1:make-3.82-24.amzn2.x86_64 providing make is already installed", "1:openssl-devel-1.0.2k-24.amzn2.0.13.x86_64 providing openssl-devel is already installed", "libyaml-devel-0.1.4-11.amzn2.0.2.x86_64 providing libyaml-devel is already installed", "readline-devel-6.2-10.amzn2.0.2.x86_64 providing readline-devel is already installed", "zlib-devel-1.2.7-19.amzn2.0.3.x86_64 providing zlib-devel is already installed", "libxml2-devel-2.9.1-6.amzn2.5.13.x86_64 providing libxml2-devel is already installed", "libxslt-devel-1.1.28-6.amzn2.x86_64 providing libxslt-devel is already installed", "sqlite-devel-3.7.17-8.amzn2.1.2.x86_64 providing sqlite-devel is already installed", "libffi-devel-3.0.13-18.amzn2.0.2.x86_64 providing libffi-devel is already installed", "ImageMagick-6.9.10.97-1.amzn2.0.12.x86_64 providing ImageMagick is already installed", "curl-8.3.0-1.amzn2.0.7.x86_64 providing curl is already installed"], "rc": 0}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223481.35-31374-98244753826241/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+ok: [18.180.2.113] => {
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "allow_downgrade": false, 
+            "autoremove": false, 
+            "bugfix": false, 
+            "conf_file": null, 
+            "disable_excludes": null, 
+            "disable_gpg_check": false, 
+            "disable_plugin": [], 
+            "disablerepo": [], 
+            "download_dir": null, 
+            "download_only": false, 
+            "enable_plugin": [], 
+            "enablerepo": [], 
+            "exclude": [], 
+            "install_repoquery": true, 
+            "install_weak_deps": true, 
+            "installroot": "/", 
+            "list": null, 
+            "lock_timeout": 30, 
+            "name": [
+                "git", 
+                "gcc", 
+                "gcc-c++", 
+                "make", 
+                "openssl-devel", 
+                "libyaml-devel", 
+                "readline-devel", 
+                "zlib-devel", 
+                "libxml2-devel", 
+                "libxslt-devel", 
+                "sqlite-devel", 
+                "libffi-devel", 
+                "ImageMagick", 
+                "curl"
+            ], 
+            "releasever": null, 
+            "security": false, 
+            "skip_broken": false, 
+            "state": "present", 
+            "update_cache": false, 
+            "update_only": false, 
+            "use_backend": "auto", 
+            "validate_certs": true
+        }
+    }, 
+    "msg": "", 
+    "rc": 0, 
+    "results": [
+        "git-2.40.1-1.amzn2.0.3.x86_64 providing git is already installed", 
+        "gcc-7.3.1-17.amzn2.x86_64 providing gcc is already installed", 
+        "gcc-c++-7.3.1-17.amzn2.x86_64 providing gcc-c++ is already installed", 
+        "1:make-3.82-24.amzn2.x86_64 providing make is already installed", 
+        "1:openssl-devel-1.0.2k-24.amzn2.0.13.x86_64 providing openssl-devel is already installed", 
+        "libyaml-devel-0.1.4-11.amzn2.0.2.x86_64 providing libyaml-devel is already installed", 
+        "readline-devel-6.2-10.amzn2.0.2.x86_64 providing readline-devel is already installed", 
+        "zlib-devel-1.2.7-19.amzn2.0.3.x86_64 providing zlib-devel is already installed", 
+        "libxml2-devel-2.9.1-6.amzn2.5.13.x86_64 providing libxml2-devel is already installed", 
+        "libxslt-devel-1.1.28-6.amzn2.x86_64 providing libxslt-devel is already installed", 
+        "sqlite-devel-3.7.17-8.amzn2.1.2.x86_64 providing sqlite-devel is already installed", 
+        "libffi-devel-3.0.13-18.amzn2.0.2.x86_64 providing libffi-devel is already installed", 
+        "ImageMagick-6.9.10.97-1.amzn2.0.12.x86_64 providing ImageMagick is already installed", 
+        "curl-8.3.0-1.amzn2.0.7.x86_64 providing curl is already installed"
+    ]
+}
+
+TASK [02_ruby : Set rbenv path] **************************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:4
+ok: [18.180.2.113] => {
+    "ansible_facts": {
+        "rbenv_path": "/home/ec2-user/.rbenv/bin"
+    }, 
+    "changed": false
+}
+
+TASK [02_ruby : Check if rbenv is installed] *************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:8
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223483.32-31385-199032288574892 `" && echo ansible-tmp-1729223483.32-31385-199032288574892="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223483.32-31385-199032288574892 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223483.32-31385-199032288574892=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223483.32-31385-199032288574892\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpiMU52P TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223483.32-31385-199032288574892/AnsiballZ_command.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpiMU52P /home/ec2-user/.ansible/tmp/ansible-tmp-1729223483.32-31385-199032288574892/AnsiballZ_command.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223483.32-31385-199032288574892/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223483.32-31385-199032288574892/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'PATH=/home/ec2-user/.rbenv/bin:/home/ec2-user/.rbenv/shims:/home/ec2-user/.rbenv/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.config/yarn/global/node_modules/.bin:/home/ec2-user/.nvm/versions/node/v17.9.1/bin:/usr/local/bin:/usr/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin /usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223483.32-31385-199032288574892/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"changed": true, "end": "2024-10-18 03:51:24.175125", "stdout": "rbenv 1.3.0-4-gc335ab8", "cmd": "bash -lc \\"rbenv --version\\"", "rc": 0, "start": "2024-10-18 03:51:23.935744", "stderr": "", "delta": "0:00:00.239381", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "bash -lc \\"rbenv --version\\"", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223483.32-31385-199032288574892/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+ok: [18.180.2.113] => {
+    "changed": false, 
+    "cmd": "bash -lc \"rbenv --version\"", 
+    "delta": "0:00:00.239381", 
+    "end": "2024-10-18 03:51:24.175125", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "bash -lc \"rbenv --version\"", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2024-10-18 03:51:23.935744", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "rbenv 1.3.0-4-gc335ab8", 
+    "stdout_lines": [
+        "rbenv 1.3.0-4-gc335ab8"
+    ]
+}
+
+TASK [02_ruby : Clone rbenv if not installed] ************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:16
+skipping: [18.180.2.113] => {
+    "changed": false, 
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [02_ruby : Add rbenv to PATH in .bashrc] ************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:23
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223484.54-31396-22449529205916 `" && echo ansible-tmp-1729223484.54-31396-22449529205916="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223484.54-31396-22449529205916 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223484.54-31396-22449529205916=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223484.54-31396-22449529205916\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/files/lineinfile.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmph0WWig TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223484.54-31396-22449529205916/AnsiballZ_lineinfile.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmph0WWig /home/ec2-user/.ansible/tmp/ansible-tmp-1729223484.54-31396-22449529205916/AnsiballZ_lineinfile.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223484.54-31396-22449529205916/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223484.54-31396-22449529205916/AnsiballZ_lineinfile.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223484.54-31396-22449529205916/AnsiballZ_lineinfile.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"msg": "", "diff": [{"after": "", "before_header": "/home/ec2-user/.bashrc (content)", "after_header": "/home/ec2-user/.bashrc (content)", "before": ""}, {"before_header": "/home/ec2-user/.bashrc (file attributes)", "after_header": "/home/ec2-user/.bashrc (file attributes)"}], "changed": false, "backup": "", "invocation": {"module_args": {"directory_mode": null, "force": null, "remote_src": null, "backrefs": false, "insertafter": null, "path": "/home/ec2-user/.bashrc", "owner": null, "follow": false, "validate": null, "group": null, "insertbefore": null, "unsafe_writes": null, "create": false, "setype": null, "content": null, "serole": null, "state": "present", "selevel": null, "regexp": null, "line": "export PATH=\\"$HOME/.rbenv/bin:$PATH\\"", "src": null, "seuser": null, "delimiter": null, "mode": null, "firstmatch": false, "attributes": null, "backup": false}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223484.54-31396-22449529205916/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+ok: [18.180.2.113] => {
+    "backup": "", 
+    "changed": false, 
+    "diff": [
+        {
+            "after": "", 
+            "after_header": "/home/ec2-user/.bashrc (content)", 
+            "before": "", 
+            "before_header": "/home/ec2-user/.bashrc (content)"
+        }, 
+        {
+            "after_header": "/home/ec2-user/.bashrc (file attributes)", 
+            "before_header": "/home/ec2-user/.bashrc (file attributes)"
+        }
+    ], 
+    "invocation": {
+        "module_args": {
+            "attributes": null, 
+            "backrefs": false, 
+            "backup": false, 
+            "content": null, 
+            "create": false, 
+            "delimiter": null, 
+            "directory_mode": null, 
+            "firstmatch": false, 
+            "follow": false, 
+            "force": null, 
+            "group": null, 
+            "insertafter": null, 
+            "insertbefore": null, 
+            "line": "export PATH=\"$HOME/.rbenv/bin:$PATH\"", 
+            "mode": null, 
+            "owner": null, 
+            "path": "/home/ec2-user/.bashrc", 
+            "regexp": null, 
+            "remote_src": null, 
+            "selevel": null, 
+            "serole": null, 
+            "setype": null, 
+            "seuser": null, 
+            "src": null, 
+            "state": "present", 
+            "unsafe_writes": null, 
+            "validate": null
+        }
+    }, 
+    "msg": ""
+}
+
+TASK [02_ruby : Add rbenv init to .bashrc] ***************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:29
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223485.59-31405-265143466969503 `" && echo ansible-tmp-1729223485.59-31405-265143466969503="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223485.59-31405-265143466969503 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223485.59-31405-265143466969503=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223485.59-31405-265143466969503\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/files/lineinfile.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpjxEmsS TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223485.59-31405-265143466969503/AnsiballZ_lineinfile.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpjxEmsS /home/ec2-user/.ansible/tmp/ansible-tmp-1729223485.59-31405-265143466969503/AnsiballZ_lineinfile.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223485.59-31405-265143466969503/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223485.59-31405-265143466969503/AnsiballZ_lineinfile.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223485.59-31405-265143466969503/AnsiballZ_lineinfile.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"msg": "", "diff": [{"after": "", "before_header": "/home/ec2-user/.bashrc (content)", "after_header": "/home/ec2-user/.bashrc (content)", "before": ""}, {"before_header": "/home/ec2-user/.bashrc (file attributes)", "after_header": "/home/ec2-user/.bashrc (file attributes)"}], "changed": false, "backup": "", "invocation": {"module_args": {"directory_mode": null, "force": null, "remote_src": null, "backrefs": false, "insertafter": null, "path": "/home/ec2-user/.bashrc", "owner": null, "follow": false, "validate": null, "group": null, "insertbefore": null, "unsafe_writes": null, "create": false, "setype": null, "content": null, "serole": null, "state": "present", "selevel": null, "regexp": null, "line": "eval \\"$(rbenv init -)\\"", "src": null, "seuser": null, "delimiter": null, "mode": null, "firstmatch": false, "attributes": null, "backup": false}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223485.59-31405-265143466969503/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+ok: [18.180.2.113] => {
+    "backup": "", 
+    "changed": false, 
+    "diff": [
+        {
+            "after": "", 
+            "after_header": "/home/ec2-user/.bashrc (content)", 
+            "before": "", 
+            "before_header": "/home/ec2-user/.bashrc (content)"
+        }, 
+        {
+            "after_header": "/home/ec2-user/.bashrc (file attributes)", 
+            "before_header": "/home/ec2-user/.bashrc (file attributes)"
+        }
+    ], 
+    "invocation": {
+        "module_args": {
+            "attributes": null, 
+            "backrefs": false, 
+            "backup": false, 
+            "content": null, 
+            "create": false, 
+            "delimiter": null, 
+            "directory_mode": null, 
+            "firstmatch": false, 
+            "follow": false, 
+            "force": null, 
+            "group": null, 
+            "insertafter": null, 
+            "insertbefore": null, 
+            "line": "eval \"$(rbenv init -)\"", 
+            "mode": null, 
+            "owner": null, 
+            "path": "/home/ec2-user/.bashrc", 
+            "regexp": null, 
+            "remote_src": null, 
+            "selevel": null, 
+            "serole": null, 
+            "setype": null, 
+            "seuser": null, 
+            "src": null, 
+            "state": "present", 
+            "unsafe_writes": null, 
+            "validate": null
+        }
+    }, 
+    "msg": ""
+}
+
+TASK [02_ruby : Reload .bashrc] **************************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:36
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223486.52-31414-205831159325063 `" && echo ansible-tmp-1729223486.52-31414-205831159325063="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223486.52-31414-205831159325063 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223486.52-31414-205831159325063=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223486.52-31414-205831159325063\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpD4R_UX TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223486.52-31414-205831159325063/AnsiballZ_command.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpD4R_UX /home/ec2-user/.ansible/tmp/ansible-tmp-1729223486.52-31414-205831159325063/AnsiballZ_command.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223486.52-31414-205831159325063/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223486.52-31414-205831159325063/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223486.52-31414-205831159325063/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"changed": true, "end": "2024-10-18 03:51:27.300084", "stdout": "rbenv 1.3.0-4-gc335ab8", "cmd": "source /home/ec2-user/.bashrc\\nrbenv --version\\n", "rc": 0, "start": "2024-10-18 03:51:27.140654", "stderr": "", "delta": "0:00:00.159430", "invocation": {"module_args": {"creates": null, "executable": "/bin/bash", "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "source /home/ec2-user/.bashrc\\nrbenv --version\\n", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223486.52-31414-205831159325063/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+changed: [18.180.2.113] => {
+    "changed": true, 
+    "cmd": "source /home/ec2-user/.bashrc\nrbenv --version\n", 
+    "delta": "0:00:00.159430", 
+    "end": "2024-10-18 03:51:27.300084", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "source /home/ec2-user/.bashrc\nrbenv --version\n", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": "/bin/bash", 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2024-10-18 03:51:27.140654", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "rbenv 1.3.0-4-gc335ab8", 
+    "stdout_lines": [
+        "rbenv 1.3.0-4-gc335ab8"
+    ]
+}
+
+TASK [02_ruby : Check rbenv version] *********************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:44
+ok: [18.180.2.113] => {
+    "msg": "rbenv version: rbenv 1.3.0-4-gc335ab8"
+}
+
+TASK [02_ruby : Check if ruby-build is installed] ********************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:49
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223487.67-31425-232114492514954 `" && echo ansible-tmp-1729223487.67-31425-232114492514954="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223487.67-31425-232114492514954 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223487.67-31425-232114492514954=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223487.67-31425-232114492514954\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmprzsgaY TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223487.67-31425-232114492514954/AnsiballZ_command.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmprzsgaY /home/ec2-user/.ansible/tmp/ansible-tmp-1729223487.67-31425-232114492514954/AnsiballZ_command.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223487.67-31425-232114492514954/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223487.67-31425-232114492514954/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223487.67-31425-232114492514954/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"changed": true, "end": "2024-10-18 03:51:28.315603", "stdout": "bin\\nCODE_OF_CONDUCT.md\\nCONTRIBUTING.md\\ninstall.sh\\nLICENSE\\nMakefile\\nREADME.md\\nscript\\nshare\\ntest", "cmd": ["ls", "/home/ec2-user/.rbenv/plugins/ruby-build"], "rc": 0, "start": "2024-10-18 03:51:28.283498", "stderr": "", "delta": "0:00:00.032105", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": false, "strip_empty_ends": true, "_raw_params": "ls /home/ec2-user/.rbenv/plugins/ruby-build", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223487.67-31425-232114492514954/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+ok: [18.180.2.113] => {
+    "changed": false, 
+    "cmd": [
+        "ls", 
+        "/home/ec2-user/.rbenv/plugins/ruby-build"
+    ], 
+    "delta": "0:00:00.032105", 
+    "end": "2024-10-18 03:51:28.315603", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "ls /home/ec2-user/.rbenv/plugins/ruby-build", 
+            "_uses_shell": false, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2024-10-18 03:51:28.283498", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "bin\nCODE_OF_CONDUCT.md\nCONTRIBUTING.md\ninstall.sh\nLICENSE\nMakefile\nREADME.md\nscript\nshare\ntest", 
+    "stdout_lines": [
+        "bin", 
+        "CODE_OF_CONDUCT.md", 
+        "CONTRIBUTING.md", 
+        "install.sh", 
+        "LICENSE", 
+        "Makefile", 
+        "README.md", 
+        "script", 
+        "share", 
+        "test"
+    ]
+}
+
+TASK [02_ruby : Clone ruby-build if not installed] *******************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:55
+skipping: [18.180.2.113] => {
+    "changed": false, 
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [02_ruby : Insert/update /etc/profile env] **********************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:62
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223488.67-31436-240177248310451 `" && echo ansible-tmp-1729223488.67-31436-240177248310451="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223488.67-31436-240177248310451 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223488.67-31436-240177248310451=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223488.67-31436-240177248310451\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/files/blockinfile.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmp0z94qX TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223488.67-31436-240177248310451/AnsiballZ_blockinfile.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmp0z94qX /home/ec2-user/.ansible/tmp/ansible-tmp-1729223488.67-31436-240177248310451/AnsiballZ_blockinfile.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223488.67-31436-240177248310451/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223488.67-31436-240177248310451/AnsiballZ_blockinfile.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-opxfhtapoldajxqkvlhsgciibbzaknwu ; /usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223488.67-31436-240177248310451/AnsiballZ_blockinfile.py'"'"'"'"'"'"'"'"' && sleep 0'"'"''
+Escalation succeeded
+<18.180.2.113> (0, '\r\n{"msg": "", "diff": [{"after": "", "before_header": "/etc/profile (content)", "after_header": "/etc/profile (content)", "before": ""}, {"before_header": "/etc/profile (file attributes)", "after_header": "/etc/profile (file attributes)"}], "changed": false, "invocation": {"module_args": {"directory_mode": null, "force": null, "remote_src": null, "marker": "# {mark} ANSIBLE MANAGED BLOCK", "regexp": null, "owner": null, "follow": false, "marker_begin": "BEGIN", "group": null, "insertbefore": null, "unsafe_writes": null, "create": false, "setype": null, "content": null, "serole": null, "state": "present", "selevel": null, "path": "/etc/profile", "validate": null, "marker_end": "END", "src": null, "seuser": null, "delimiter": null, "mode": null, "insertafter": null, "attributes": null, "backup": false, "block": "export RBENV_ROOT=\\"/home/ec2-user/.rbenv\\"\\nexport PATH=\\"${RBENV_ROOT}/bin:${PATH}\\"\\neval \\"$(rbenv init --no-rehash -)\\"\\n"}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223488.67-31436-240177248310451/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+ok: [18.180.2.113] => {
+    "changed": false, 
+    "diff": [
+        {
+            "after": "", 
+            "after_header": "/etc/profile (content)", 
+            "before": "", 
+            "before_header": "/etc/profile (content)"
+        }, 
+        {
+            "after_header": "/etc/profile (file attributes)", 
+            "before_header": "/etc/profile (file attributes)"
+        }
+    ], 
+    "invocation": {
+        "module_args": {
+            "attributes": null, 
+            "backup": false, 
+            "block": "export RBENV_ROOT=\"/home/ec2-user/.rbenv\"\nexport PATH=\"${RBENV_ROOT}/bin:${PATH}\"\neval \"$(rbenv init --no-rehash -)\"\n", 
+            "content": null, 
+            "create": false, 
+            "delimiter": null, 
+            "directory_mode": null, 
+            "follow": false, 
+            "force": null, 
+            "group": null, 
+            "insertafter": null, 
+            "insertbefore": null, 
+            "marker": "# {mark} ANSIBLE MANAGED BLOCK", 
+            "marker_begin": "BEGIN", 
+            "marker_end": "END", 
+            "mode": null, 
+            "owner": null, 
+            "path": "/etc/profile", 
+            "regexp": null, 
+            "remote_src": null, 
+            "selevel": null, 
+            "serole": null, 
+            "setype": null, 
+            "seuser": null, 
+            "src": null, 
+            "state": "present", 
+            "unsafe_writes": null, 
+            "validate": null
+        }
+    }, 
+    "msg": ""
+}
+
+TASK [02_ruby : Install Ruby 3.2.3 with rbenv and log output] ********************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:72
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223489.73-31445-178420298311065 `" && echo ansible-tmp-1729223489.73-31445-178420298311065="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223489.73-31445-178420298311065 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223489.73-31445-178420298311065=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223489.73-31445-178420298311065\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpnMPmTB TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223489.73-31445-178420298311065/AnsiballZ_command.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpnMPmTB /home/ec2-user/.ansible/tmp/ansible-tmp-1729223489.73-31445-178420298311065/AnsiballZ_command.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223489.73-31445-178420298311065/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223489.73-31445-178420298311065/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'PATH=/home/ec2-user/.rbenv/bin:/home/ec2-user/.rbenv/shims:/home/ec2-user/.rbenv/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.config/yarn/global/node_modules/.bin:/home/ec2-user/.nvm/versions/node/v17.9.1/bin:/usr/local/bin:/usr/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin:/home/ec2-user/.yarn/bin RBENV_ROOT=/home/ec2-user/.rbenv /usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223489.73-31445-178420298311065/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"changed": true, "end": "2024-10-18 03:51:30.415809", "stdout": "", "cmd": "export RUBY_CONFIGURE_OPTS=\\"--disable-install-doc\\"\\neval \\"$(rbenv init -)\\"\\nrbenv install --skip-existing 3.2.3 > /tmp/rbenv_install.log 2>&1   #3.2.3\\u30d0\\u30fc\\u30b8\\u30e7\\u30f3\\u304c\\u3042\\u308b\\u5834\\u5408\\u30b9\\u30ad\\u30c3\\u30d7\\n", "rc": 0, "start": "2024-10-18 03:51:30.344280", "stderr": "", "delta": "0:00:00.071529", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "export RUBY_CONFIGURE_OPTS=\\"--disable-install-doc\\"\\neval \\"$(rbenv init -)\\"\\nrbenv install --skip-existing 3.2.3 > /tmp/rbenv_install.log 2>&1   #3.2.3\\u30d0\\u30fc\\u30b8\\u30e7\\u30f3\\u304c\\u3042\\u308b\\u5834\\u5408\\u30b9\\u30ad\\u30c3\\u30d7\\n", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223489.73-31445-178420298311065/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+changed: [18.180.2.113] => {
+    "changed": true, 
+    "cmd": "export RUBY_CONFIGURE_OPTS=\"--disable-install-doc\"\neval \"$(rbenv init -)\"\nrbenv install --skip-existing 3.2.3 > /tmp/rbenv_install.log 2>&1   #3.2.3バージョンがある場合スキップ\n", 
+    "delta": "0:00:00.071529", 
+    "end": "2024-10-18 03:51:30.415809", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "export RUBY_CONFIGURE_OPTS=\"--disable-install-doc\"\neval \"$(rbenv init -)\"\nrbenv install --skip-existing 3.2.3 > /tmp/rbenv_install.log 2>&1   #3.2.3バージョンがある場合スキップ\n", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2024-10-18 03:51:30.344280", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "", 
+    "stdout_lines": []
+}
+
+TASK [02_ruby : Set Ruby 3.2.3 as global version] ********************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:82
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223490.74-31454-227689400960229 `" && echo ansible-tmp-1729223490.74-31454-227689400960229="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223490.74-31454-227689400960229 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223490.74-31454-227689400960229=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223490.74-31454-227689400960229\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpFG8JPd TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223490.74-31454-227689400960229/AnsiballZ_command.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpFG8JPd /home/ec2-user/.ansible/tmp/ansible-tmp-1729223490.74-31454-227689400960229/AnsiballZ_command.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223490.74-31454-227689400960229/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223490.74-31454-227689400960229/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223490.74-31454-227689400960229/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"changed": true, "end": "2024-10-18 03:51:31.552307", "stdout": "", "cmd": "bash -lc \\"rbenv global 3.2.3\\"", "rc": 0, "start": "2024-10-18 03:51:31.369696", "stderr": "", "delta": "0:00:00.182611", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "bash -lc \\"rbenv global 3.2.3\\"", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223490.74-31454-227689400960229/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+changed: [18.180.2.113] => {
+    "changed": true, 
+    "cmd": "bash -lc \"rbenv global 3.2.3\"", 
+    "delta": "0:00:00.182611", 
+    "end": "2024-10-18 03:51:31.552307", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "bash -lc \"rbenv global 3.2.3\"", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2024-10-18 03:51:31.369696", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "", 
+    "stdout_lines": []
+}
+
+TASK [02_ruby : Check if bundler is installed] ***********************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:86
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223491.88-31463-34046967670150 `" && echo ansible-tmp-1729223491.88-31463-34046967670150="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223491.88-31463-34046967670150 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223491.88-31463-34046967670150=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223491.88-31463-34046967670150\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpOW7y8a TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223491.88-31463-34046967670150/AnsiballZ_command.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpOW7y8a /home/ec2-user/.ansible/tmp/ansible-tmp-1729223491.88-31463-34046967670150/AnsiballZ_command.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223491.88-31463-34046967670150/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223491.88-31463-34046967670150/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223491.88-31463-34046967670150/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"changed": true, "end": "2024-10-18 03:51:32.830553", "stdout": "true", "cmd": ["/home/ec2-user/.rbenv/shims/gem", "list", "bundler", "-i"], "rc": 0, "start": "2024-10-18 03:51:32.495085", "stderr": "", "delta": "0:00:00.335468", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": false, "strip_empty_ends": true, "_raw_params": "/home/ec2-user/.rbenv/shims/gem list bundler -i", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223491.88-31463-34046967670150/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+changed: [18.180.2.113] => {
+    "changed": true, 
+    "cmd": [
+        "/home/ec2-user/.rbenv/shims/gem", 
+        "list", 
+        "bundler", 
+        "-i"
+    ], 
+    "delta": "0:00:00.335468", 
+    "end": "2024-10-18 03:51:32.830553", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "/home/ec2-user/.rbenv/shims/gem list bundler -i", 
+            "_uses_shell": false, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2024-10-18 03:51:32.495085", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "true", 
+    "stdout_lines": [
+        "true"
+    ]
+}
+
+TASK [02_ruby : Install bundler if not installed] ********************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/02_ruby/tasks/main.yml:91
+skipping: [18.180.2.113] => {
+    "changed": false, 
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [03_rails : Check if Rails is installed] ************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/03_rails/tasks/main.yml:4
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223493.19-31475-144414154354188 `" && echo ansible-tmp-1729223493.19-31475-144414154354188="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223493.19-31475-144414154354188 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223493.19-31475-144414154354188=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223493.19-31475-144414154354188\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpwmmTU6 TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223493.19-31475-144414154354188/AnsiballZ_command.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpwmmTU6 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223493.19-31475-144414154354188/AnsiballZ_command.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223493.19-31475-144414154354188/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223493.19-31475-144414154354188/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223493.19-31475-144414154354188/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"changed": true, "end": "2024-10-18 03:51:34.013709", "stdout": "true", "cmd": ["/home/ec2-user/.rbenv/shims/gem", "list", "rails", "-i"], "rc": 0, "start": "2024-10-18 03:51:33.807295", "stderr": "", "delta": "0:00:00.206414", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": false, "strip_empty_ends": true, "_raw_params": "/home/ec2-user/.rbenv/shims/gem list rails -i", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223493.19-31475-144414154354188/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+changed: [18.180.2.113] => {
+    "changed": true, 
+    "cmd": [
+        "/home/ec2-user/.rbenv/shims/gem", 
+        "list", 
+        "rails", 
+        "-i"
+    ], 
+    "delta": "0:00:00.206414", 
+    "end": "2024-10-18 03:51:34.013709", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "/home/ec2-user/.rbenv/shims/gem list rails -i", 
+            "_uses_shell": false, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2024-10-18 03:51:33.807295", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "true", 
+    "stdout_lines": [
+        "true"
+    ]
+}
+
+TASK [03_rails : Install Rails if not installed] *********************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/03_rails/tasks/main.yml:9
+skipping: [18.180.2.113] => {
+    "changed": false, 
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [04_nodejs : Check if nvm is installed] *************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/04_nodejs/tasks/main.yml:4
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223494.37-31486-129522372678651 `" && echo ansible-tmp-1729223494.37-31486-129522372678651="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223494.37-31486-129522372678651 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223494.37-31486-129522372678651=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223494.37-31486-129522372678651\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmphh4eUS TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223494.37-31486-129522372678651/AnsiballZ_command.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmphh4eUS /home/ec2-user/.ansible/tmp/ansible-tmp-1729223494.37-31486-129522372678651/AnsiballZ_command.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223494.37-31486-129522372678651/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223494.37-31486-129522372678651/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223494.37-31486-129522372678651/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"changed": true, "end": "2024-10-18 03:51:35.164781", "stdout": "0.39.5", "cmd": "bash -lc \\"nvm --version\\"", "rc": 0, "start": "2024-10-18 03:51:34.993538", "stderr": "", "delta": "0:00:00.171243", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "bash -lc \\"nvm --version\\"", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223494.37-31486-129522372678651/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+ok: [18.180.2.113] => {
+    "changed": false, 
+    "cmd": "bash -lc \"nvm --version\"", 
+    "delta": "0:00:00.171243", 
+    "end": "2024-10-18 03:51:35.164781", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "bash -lc \"nvm --version\"", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2024-10-18 03:51:34.993538", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "0.39.5", 
+    "stdout_lines": [
+        "0.39.5"
+    ]
+}
+
+TASK [04_nodejs : Download NVM install script] ***********************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/04_nodejs/tasks/main.yml:10
+skipping: [18.180.2.113] => {
+    "changed": false, 
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [04_nodejs : Run NVM install script] ****************************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/04_nodejs/tasks/main.yml:16
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223495.52-31497-86567177100565 `" && echo ansible-tmp-1729223495.52-31497-86567177100565="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223495.52-31497-86567177100565 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223495.52-31497-86567177100565=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223495.52-31497-86567177100565\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpKcLx24 TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223495.52-31497-86567177100565/AnsiballZ_command.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpKcLx24 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223495.52-31497-86567177100565/AnsiballZ_command.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223495.52-31497-86567177100565/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223495.52-31497-86567177100565/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223495.52-31497-86567177100565/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"changed": true, "end": "2024-10-18 03:51:36.911795", "stdout": "=> nvm is already installed in /home/ec2-user/.nvm, trying to update using git\\n\\r=> => Compressing and cleaning up git repository\\n\\n=> nvm source string already in /home/ec2-user/.bashrc\\n=> bash_completion source string already in /home/ec2-user/.bashrc\\n=> Close and reopen your terminal to start using nvm or run the following to use it now:\\n\\nexport NVM_DIR=\\"$HOME/.nvm\\"\\n[ -s \\"$NVM_DIR/nvm.sh\\" ] && \\\\. \\"$NVM_DIR/nvm.sh\\"  # This loads nvm\\n[ -s \\"$NVM_DIR/bash_completion\\" ] && \\\\. \\"$NVM_DIR/bash_completion\\"  # This loads nvm bash_completion", "cmd": ["bash", "/tmp/install_nvm.sh"], "rc": 0, "start": "2024-10-18 03:51:36.140254", "stderr": "", "delta": "0:00:00.771541", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": false, "strip_empty_ends": true, "_raw_params": "bash /tmp/install_nvm.sh", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223495.52-31497-86567177100565/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+changed: [18.180.2.113] => {
+    "changed": true, 
+    "cmd": [
+        "bash", 
+        "/tmp/install_nvm.sh"
+    ], 
+    "delta": "0:00:00.771541", 
+    "end": "2024-10-18 03:51:36.911795", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "bash /tmp/install_nvm.sh", 
+            "_uses_shell": false, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2024-10-18 03:51:36.140254", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "=> nvm is already installed in /home/ec2-user/.nvm, trying to update using git\n\r=> => Compressing and cleaning up git repository\n\n=> nvm source string already in /home/ec2-user/.bashrc\n=> bash_completion source string already in /home/ec2-user/.bashrc\n=> Close and reopen your terminal to start using nvm or run the following to use it now:\n\nexport NVM_DIR=\"$HOME/.nvm\"\n[ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\"  # This loads nvm\n[ -s \"$NVM_DIR/bash_completion\" ] && \\. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion", 
+    "stdout_lines": [
+        "=> nvm is already installed in /home/ec2-user/.nvm, trying to update using git", 
+        "", 
+        "=> => Compressing and cleaning up git repository", 
+        "", 
+        "=> nvm source string already in /home/ec2-user/.bashrc", 
+        "=> bash_completion source string already in /home/ec2-user/.bashrc", 
+        "=> Close and reopen your terminal to start using nvm or run the following to use it now:", 
+        "", 
+        "export NVM_DIR=\"$HOME/.nvm\"", 
+        "[ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\"  # This loads nvm", 
+        "[ -s \"$NVM_DIR/bash_completion\" ] && \\. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion"
+    ]
+}
+
+TASK [04_nodejs : Check if NVM is properly installed] ****************************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/04_nodejs/tasks/main.yml:20
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223497.24-31506-72037409708093 `" && echo ansible-tmp-1729223497.24-31506-72037409708093="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223497.24-31506-72037409708093 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223497.24-31506-72037409708093=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223497.24-31506-72037409708093\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmp3cMbJ0 TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223497.24-31506-72037409708093/AnsiballZ_command.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmp3cMbJ0 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223497.24-31506-72037409708093/AnsiballZ_command.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223497.24-31506-72037409708093/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223497.24-31506-72037409708093/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223497.24-31506-72037409708093/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"changed": true, "end": "2024-10-18 03:51:37.971991", "stdout": "0.39.5", "cmd": "export NVM_DIR=\\"$HOME/.nvm\\"\\n[ -s \\"$NVM_DIR/nvm.sh\\" ] && \\\\. \\"$NVM_DIR/nvm.sh\\"\\nnvm --version\\n", "rc": 0, "start": "2024-10-18 03:51:37.861343", "stderr": "", "delta": "0:00:00.110648", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "export NVM_DIR=\\"$HOME/.nvm\\"\\n[ -s \\"$NVM_DIR/nvm.sh\\" ] && \\\\. \\"$NVM_DIR/nvm.sh\\"\\nnvm --version\\n", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223497.24-31506-72037409708093/ > /dev/null 2>&1 && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+changed: [18.180.2.113] => {
+    "changed": true, 
+    "cmd": "export NVM_DIR=\"$HOME/.nvm\"\n[ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\"\nnvm --version\n", 
+    "delta": "0:00:00.110648", 
+    "end": "2024-10-18 03:51:37.971991", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "export NVM_DIR=\"$HOME/.nvm\"\n[ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\"\nnvm --version\n", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": false
+        }
+    }, 
+    "rc": 0, 
+    "start": "2024-10-18 03:51:37.861343", 
+    "stderr": "", 
+    "stderr_lines": [], 
+    "stdout": "0.39.5", 
+    "stdout_lines": [
+        "0.39.5"
+    ]
+}
+
+TASK [04_nodejs : Install Node.js 17.9.1 if NVM is available] ********************************************************************************************************************************************************************************
+task path: /home/ec2-user/lec13_CircleCI/.ansible/roles/04_nodejs/tasks/main.yml:28
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'echo ~ec2-user && sleep 0'"'"''
+<18.180.2.113> (0, '/home/ec2-user\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/ec2-user/.ansible/tmp `"&& mkdir "` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223498.3-31515-117126179130608 `" && echo ansible-tmp-1729223498.3-31515-117126179130608="` echo /home/ec2-user/.ansible/tmp/ansible-tmp-1729223498.3-31515-117126179130608 `" ) && sleep 0'"'"''
+<18.180.2.113> (0, 'ansible-tmp-1729223498.3-31515-117126179130608=/home/ec2-user/.ansible/tmp/ansible-tmp-1729223498.3-31515-117126179130608\n', '')
+Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/command.py
+<18.180.2.113> PUT /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpQB3oU4 TO /home/ec2-user/.ansible/tmp/ansible-tmp-1729223498.3-31515-117126179130608/AnsiballZ_command.py
+<18.180.2.113> SSH: EXEC sftp -b - -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb '[18.180.2.113]'
+<18.180.2.113> (0, 'sftp> put /home/ec2-user/.ansible/tmp/ansible-local-31290FmfxnK/tmpQB3oU4 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223498.3-31515-117126179130608/AnsiballZ_command.py\n', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'chmod u+x /home/ec2-user/.ansible/tmp/ansible-tmp-1729223498.3-31515-117126179130608/ /home/ec2-user/.ansible/tmp/ansible-tmp-1729223498.3-31515-117126179130608/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '', '')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb -tt 18.180.2.113 '/bin/sh -c '"'"'/usr/bin/python2.7 /home/ec2-user/.ansible/tmp/ansible-tmp-1729223498.3-31515-117126179130608/AnsiballZ_command.py && sleep 0'"'"''
+<18.180.2.113> (0, '\r\n{"changed": true, "end": "2024-10-18 03:51:40.357504", "stdout": "Now using node v17.9.1 (npm v8.11.0)", "cmd": "export NVM_DIR=\\"$HOME/.nvm\\"\\n[ -s \\"$NVM_DIR/nvm.sh\\" ] && \\\\. \\"$NVM_DIR/nvm.sh\\"\\nnvm install 17.9.1\\n", "rc": 0, "start": "2024-10-18 03:51:38.914616", "stderr": "v17.9.1 is already installed.", "delta": "0:00:01.442888", "invocation": {"module_args": {"creates": null, "executable": null, "_uses_shell": true, "strip_empty_ends": true, "_raw_params": "export NVM_DIR=\\"$HOME/.nvm\\"\\n[ -s \\"$NVM_DIR/nvm.sh\\" ] && \\\\. \\"$NVM_DIR/nvm.sh\\"\\nnvm install 17.9.1\\n", "removes": null, "argv": null, "warn": false, "chdir": null, "stdin_add_newline": true, "stdin": null}}}\r\n', 'Shared connection to 18.180.2.113 closed.\r\n')
+<18.180.2.113> ESTABLISH SSH CONNECTION FOR USER: ec2-user
+<18.180.2.113> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=120s -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="ec2-user"' -o ConnectTimeout=60 -o ControlPath=/home/ec2-user/.ansible/cp/a9cd5db2bb 18.180.2.113 '/bin/sh -c '"'"'rm -f -r /home/ec2-user/.ansible/tmp/ansible-tmp-1729223498.3-31515-117126179130608/ > /dev/null 2>&1 && sleep 0'"'"''

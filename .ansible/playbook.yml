@@ -4,7 +4,7 @@
 - hosts: all  
   vars: 
     app_dir: /home/ec2-user/raisetech-live8-sample-app
-    db_host: "{{ rds_endpoint }}"   #aws cliで取得
+    db_host: "{{ rds_endpoint }}"  #awscliより
     db_user: "{{ (lookup('env','RDS_ID')) }}"
     db_pw: "{{ (lookup('env','RDS_PASSWORD')) }}"
     access_key_id: "{{ lookup('env','AWS_ACCESS_KEY_ID') }}"
@@ -12,7 +12,20 @@
     region: "{{ lookup('env','AWS_DEFAULT_REGION') }}"
     S3_bucket: "{{ lookup('env','S3_BUCKET') }}"
     ssh_private_key_path: "{{ lookup('env','SSH_PRIVATE_KEY' ) }}"
-  
+
+  tasks:
+    - name: Set RDS Endpoint
+      set_fact:
+        rds_endpoint: "{{ lookup('aws_rds', 'lec13-target-rds') }}"
+
+    - name: Debug RDS Endpoint
+      debug:
+        msg: "RDS Endpoint is {{ rds_endpoint }}"
+
+    - name: Set DB Host
+      set_fact:
+        db_host: "{{ rds_endpoint }}"
+
   roles:
     - { role: 01_setup }
     - { role: 02_ruby }
