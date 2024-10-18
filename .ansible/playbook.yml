@@ -4,7 +4,7 @@
 - hosts: all  
   vars: 
     app_dir: /home/ec2-user/raisetech-live8-sample-app
-    db_host: "{{ rds_endpoint }}"  #awscliで取得
+    db_host: "{{ rds_endpoint }}"  #aws cliで取得
     db_user: "{{ (lookup('env','RDS_ID')) }}"
     db_pw: "{{ (lookup('env','RDS_PASSWORD')) }}"
     access_key_id: "{{ lookup('env','AWS_ACCESS_KEY_ID') }}"
