@@ -14811,3 +14811,114 @@ The offending line appears to be:
 2024-10-18 06:15:11,717 p=2852 u=ec2-user n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************************************************************
 2024-10-18 06:15:11,717 p=2852 u=ec2-user n=ansible | 18.180.2.113               : ok=28   changed=15   unreachable=0    failed=1    skipped=8    rescued=0    ignored=0   
 2024-10-18 07:52:42,384 p=7926 u=ec2-user n=ansible | ERROR! the playbook: /home/circleci/project/.ansible/playbook.yml could not be found
+2024-10-18 09:14:42,320 p=13475 u=ec2-user n=ansible | PLAY [all] ******************************************************************************************************************************
+2024-10-18 09:14:42,333 p=13475 u=ec2-user n=ansible | TASK [Gathering Facts] ******************************************************************************************************************
+2024-10-18 09:14:44,722 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:14:44,731 p=13475 u=ec2-user n=ansible | TASK [01_setup : Check if the application directory exists] *****************************************************************************
+2024-10-18 09:14:46,036 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:14:46,044 p=13475 u=ec2-user n=ansible | TASK [01_setup : Clone the repository] **************************************************************************************************
+2024-10-18 09:14:46,069 p=13475 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-18 09:14:46,076 p=13475 u=ec2-user n=ansible | TASK [01_setup : Clean YUM cache] *******************************************************************************************************
+2024-10-18 09:14:47,931 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:14:47,939 p=13475 u=ec2-user n=ansible | TASK [01_setup : Update all packages on the system] *************************************************************************************
+2024-10-18 09:14:56,353 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:14:56,362 p=13475 u=ec2-user n=ansible | TASK [01_setup : Install required packages] *********************************************************************************************
+2024-10-18 09:14:58,317 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:14:58,325 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Set rbenv path] *********************************************************************************************************
+2024-10-18 09:14:58,338 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:14:58,345 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Check if rbenv is installed] ********************************************************************************************
+2024-10-18 09:14:59,530 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:14:59,538 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Clone rbenv if not installed] *******************************************************************************************
+2024-10-18 09:14:59,567 p=13475 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-18 09:14:59,576 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Add rbenv to PATH in .bashrc] *******************************************************************************************
+2024-10-18 09:15:00,621 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:00,630 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Add rbenv init to .bashrc] **********************************************************************************************
+2024-10-18 09:15:01,548 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:01,556 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Reload .bashrc] *********************************************************************************************************
+2024-10-18 09:15:02,675 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:02,683 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Check rbenv version] ****************************************************************************************************
+2024-10-18 09:15:02,712 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113] => {
+    "msg": "rbenv version: rbenv 1.3.0-4-gc335ab8"
+}
+2024-10-18 09:15:02,721 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Check if ruby-build is installed] ***************************************************************************************
+2024-10-18 09:15:03,680 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:03,688 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Clone ruby-build if not installed] **************************************************************************************
+2024-10-18 09:15:03,715 p=13475 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-18 09:15:03,722 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Insert/update /etc/profile env] *****************************************************************************************
+2024-10-18 09:15:04,772 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:04,780 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Install Ruby 3.2.3 with rbenv and log output] ***************************************************************************
+2024-10-18 09:15:05,766 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:05,774 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Set Ruby 3.2.3 as global version] ***************************************************************************************
+2024-10-18 09:15:06,879 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:06,887 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Check if bundler is installed] ******************************************************************************************
+2024-10-18 09:15:08,115 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:08,123 p=13475 u=ec2-user n=ansible | TASK [02_ruby : Install bundler if not installed] ***************************************************************************************
+2024-10-18 09:15:08,148 p=13475 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-18 09:15:08,154 p=13475 u=ec2-user n=ansible | TASK [03_rails : Check if Rails is installed] *******************************************************************************************
+2024-10-18 09:15:09,279 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:09,286 p=13475 u=ec2-user n=ansible | TASK [03_rails : Install Rails if not installed] ****************************************************************************************
+2024-10-18 09:15:09,314 p=13475 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-18 09:15:09,321 p=13475 u=ec2-user n=ansible | TASK [04_nodejs : Check if nvm is installed] ********************************************************************************************
+2024-10-18 09:15:10,406 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:10,415 p=13475 u=ec2-user n=ansible | TASK [04_nodejs : Download NVM install script] ******************************************************************************************
+2024-10-18 09:15:10,441 p=13475 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-18 09:15:10,449 p=13475 u=ec2-user n=ansible | TASK [04_nodejs : Run NVM install script] ***********************************************************************************************
+2024-10-18 09:15:12,153 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:12,161 p=13475 u=ec2-user n=ansible | TASK [04_nodejs : Check if NVM is properly installed] ***********************************************************************************
+2024-10-18 09:15:13,177 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:13,186 p=13475 u=ec2-user n=ansible | TASK [04_nodejs : Install Node.js 17.9.1 if NVM is available] ***************************************************************************
+2024-10-18 09:15:15,511 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:15,518 p=13475 u=ec2-user n=ansible | TASK [05_yarn : Check if yarn is installed] *********************************************************************************************
+2024-10-18 09:15:16,768 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:16,776 p=13475 u=ec2-user n=ansible | TASK [05_yarn : download yarn installer] ************************************************************************************************
+2024-10-18 09:15:16,801 p=13475 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-18 09:15:16,809 p=13475 u=ec2-user n=ansible | TASK [05_yarn : execute the yarn-installer.sh] ******************************************************************************************
+2024-10-18 09:15:16,834 p=13475 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-18 09:15:16,841 p=13475 u=ec2-user n=ansible | TASK [05_yarn : Add Yarn to PATH] *******************************************************************************************************
+2024-10-18 09:15:17,774 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:17,782 p=13475 u=ec2-user n=ansible | TASK [05_yarn : Ensure .bashrc is sourced] **********************************************************************************************
+2024-10-18 09:15:18,847 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:18,856 p=13475 u=ec2-user n=ansible | TASK [06_mysql : Check if MariaDB is installed] *****************************************************************************************
+2024-10-18 09:15:19,825 p=13475 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": true, "cmd": ["rpm", "-q", "mariadb-server"], "delta": "0:00:00.053004", "end": "2024-10-18 09:15:19.675226", "msg": "non-zero return code", "rc": 1, "start": "2024-10-18 09:15:19.622222", "stderr": "", "stderr_lines": [], "stdout": "package mariadb-server is not installed", "stdout_lines": ["package mariadb-server is not installed"]}
+2024-10-18 09:15:19,825 p=13475 u=ec2-user n=ansible | ...ignoring
+2024-10-18 09:15:19,833 p=13475 u=ec2-user n=ansible | TASK [06_mysql : Remove MariaDB packages] ***********************************************************************************************
+2024-10-18 09:15:19,858 p=13475 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-18 09:15:19,867 p=13475 u=ec2-user n=ansible | TASK [06_mysql : debug] *****************************************************************************************************************
+2024-10-18 09:15:19,895 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113] => {
+    "rds_endpoint": "VARIABLE IS NOT DEFINED!"
+}
+2024-10-18 09:15:19,901 p=13475 u=ec2-user n=ansible | TASK [06_mysql : Install MySQL development package] *************************************************************************************
+2024-10-18 09:15:21,393 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:21,401 p=13475 u=ec2-user n=ansible | TASK [06_mysql : Run bundle install] ****************************************************************************************************
+2024-10-18 09:15:22,890 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:22,897 p=13475 u=ec2-user n=ansible | TASK [06_mysql : Create database.yml from template] *************************************************************************************
+2024-10-18 09:15:24,538 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:24,547 p=13475 u=ec2-user n=ansible | TASK [07_nginx : Install Nginx] *********************************************************************************************************
+2024-10-18 09:15:26,197 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:26,205 p=13475 u=ec2-user n=ansible | TASK [07_nginx : Create nginx.conf] *****************************************************************************************************
+2024-10-18 09:15:28,113 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:28,121 p=13475 u=ec2-user n=ansible | TASK [07_nginx : Start Nginx service] ***************************************************************************************************
+2024-10-18 09:15:29,701 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:29,712 p=13475 u=ec2-user n=ansible | TASK [07_nginx : Reload Nginx service] **************************************************************************************************
+2024-10-18 09:15:29,739 p=13475 u=ec2-user n=ansible | skipping: [18.180.2.113]
+2024-10-18 09:15:29,746 p=13475 u=ec2-user n=ansible | TASK [08_app_dev : Run bundle install] **************************************************************************************************
+2024-10-18 09:15:31,526 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:31,534 p=13475 u=ec2-user n=ansible | TASK [08_app_dev : Generate development.rb from template] *******************************************************************************
+2024-10-18 09:15:33,388 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:33,396 p=13475 u=ec2-user n=ansible | TASK [08_app_dev : Configure S3 settings in storage.yml] ********************************************************************************
+2024-10-18 09:15:35,272 p=13475 u=ec2-user n=ansible | ok: [18.180.2.113]
+2024-10-18 09:15:35,280 p=13475 u=ec2-user n=ansible | TASK [08_app_dev : bin/setup] ***********************************************************************************************************
+2024-10-18 09:15:38,301 p=13475 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": true, "cmd": "bash -lc \"bin/setup\"\n", "delta": "0:00:01.851850", "end": "2024-10-18 09:15:38.112822", "msg": "non-zero return code", "rc": 1, "start": "2024-10-18 09:15:36.260972", "stderr": "bin/rails aborted!\nActiveRecord::ConnectionNotEstablished: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) (ActiveRecord::ConnectionNotEstablished)\n\n\nCaused by:\nMysql2::Error::ConnectionError: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) (Mysql2::Error::ConnectionError)\n\nTasks: TOP => db:prepare\n(See full trace by running task with --trace)\nbin/setup:8:in `system': Command failed with exit 1: bin/rails (RuntimeError)\n\tfrom bin/setup:8:in `system!'\n\tfrom bin/setup:26:in `block in <main>'\n\tfrom /home/ec2-user/.rbenv/versions/3.2.3/lib/ruby/3.2.0/fileutils.rb:244:in `chdir'\n\tfrom /home/ec2-user/.rbenv/versions/3.2.3/lib/ruby/3.2.0/fileutils.rb:244:in `cd'\n\tfrom bin/setup:11:in `<main>'", "stderr_lines": ["bin/rails aborted!", "ActiveRecord::ConnectionNotEstablished: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) (ActiveRecord::ConnectionNotEstablished)", "", "", "Caused by:", "Mysql2::Error::ConnectionError: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) (Mysql2::Error::ConnectionError)", "", "Tasks: TOP => db:prepare", "(See full trace by running task with --trace)", "bin/setup:8:in `system': Command failed with exit 1: bin/rails (RuntimeError)", "\tfrom bin/setup:8:in `system!'", "\tfrom bin/setup:26:in `block in <main>'", "\tfrom /home/ec2-user/.rbenv/versions/3.2.3/lib/ruby/3.2.0/fileutils.rb:244:in `chdir'", "\tfrom /home/ec2-user/.rbenv/versions/3.2.3/lib/ruby/3.2.0/fileutils.rb:244:in `cd'", "\tfrom bin/setup:11:in `<main>'"], "stdout": "== Installing dependencies ==\nThe Gemfile's dependencies are satisfied\n\n== Preparing database ==", "stdout_lines": ["== Installing dependencies ==", "The Gemfile's dependencies are satisfied", "", "== Preparing database =="]}
+2024-10-18 09:15:38,301 p=13475 u=ec2-user n=ansible | ...ignoring
+2024-10-18 09:15:38,309 p=13475 u=ec2-user n=ansible | TASK [08_app_dev : Check if assets are precompiled] *************************************************************************************
+2024-10-18 09:15:39,509 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:39,517 p=13475 u=ec2-user n=ansible | TASK [08_app_dev : asset precompile] ****************************************************************************************************
+2024-10-18 09:15:50,428 p=13475 u=ec2-user n=ansible | changed: [18.180.2.113]
+2024-10-18 09:15:50,436 p=13475 u=ec2-user n=ansible | TASK [08_app_dev : Run database migration] **********************************************************************************************
+2024-10-18 09:15:52,784 p=13475 u=ec2-user n=ansible | fatal: [18.180.2.113]: FAILED! => {"changed": true, "cmd": ["bundle", "exec", "rake", "db:migrate"], "delta": "0:00:01.188130", "end": "2024-10-18 09:15:52.600880", "msg": "non-zero return code", "rc": 1, "start": "2024-10-18 09:15:51.412750", "stderr": "rake aborted!\nActiveRecord::ConnectionNotEstablished: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) (ActiveRecord::ConnectionNotEstablished)\n/home/ec2-user/.rbenv/versions/3.2.3/bin/bundle:25:in `load'\n/home/ec2-user/.rbenv/versions/3.2.3/bin/bundle:25:in `<main>'\n\nCaused by:\nMysql2::Error::ConnectionError: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) (Mysql2::Error::ConnectionError)\n/home/ec2-user/.rbenv/versions/3.2.3/bin/bundle:25:in `load'\n/home/ec2-user/.rbenv/versions/3.2.3/bin/bundle:25:in `<main>'\nTasks: TOP => db:migrate\n(See full trace by running task with --trace)", "stderr_lines": ["rake aborted!", "ActiveRecord::ConnectionNotEstablished: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) (ActiveRecord::ConnectionNotEstablished)", "/home/ec2-user/.rbenv/versions/3.2.3/bin/bundle:25:in `load'", "/home/ec2-user/.rbenv/versions/3.2.3/bin/bundle:25:in `<main>'", "", "Caused by:", "Mysql2::Error::ConnectionError: Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) (Mysql2::Error::ConnectionError)", "/home/ec2-user/.rbenv/versions/3.2.3/bin/bundle:25:in `load'", "/home/ec2-user/.rbenv/versions/3.2.3/bin/bundle:25:in `<main>'", "Tasks: TOP => db:migrate", "(See full trace by running task with --trace)"], "stdout": "", "stdout_lines": []}
+2024-10-18 09:15:52,786 p=13475 u=ec2-user n=ansible | PLAY RECAP ******************************************************************************************************************************
+2024-10-18 09:15:52,787 p=13475 u=ec2-user n=ansible | 18.180.2.113               : ok=38   changed=17   unreachable=0    failed=1    skipped=10   rescued=0    ignored=2   
+2024-10-18 09:16:50,517 p=14123 u=ec2-user n=ansible | 18.180.2.113 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
